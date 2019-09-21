@@ -556,25 +556,31 @@
         return multiply.intValue();
     }
 }</code></pre><ul>
-<li><p>entry组成了链表</p>
-<p>  public final class MyEntry&lt;K, V&gt; {</p>
-<pre><code>private K k;
-private V v;
-private MyEntry&lt;K, V&gt; next;
-private Integer hash;
-
-public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
-    this.k = k;
-    this.v = v;
-    this.next = next;
-    this.hash = hash;
-}
-
-public MyEntry() {
-
-}</code></pre></li>
+<li>entry组成了链表</li>
 </ul>
-<pre><code>    public MyEntry(K k, V v) {
+<pre><code>    public final class MyEntry&lt;K, V&gt; {
+
+    private K k;
+
+    private V v;
+
+    private MyEntry&lt;K, V&gt; next;
+
+    private Integer hash;
+
+    public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
+        this.k = k;
+        this.v = v;
+        this.next = next;
+        this.hash = hash;
+    }
+
+    public MyEntry() {
+
+    }
+
+
+    public MyEntry(K k, V v) {
         this.k = k;
         this.v = v;
     }
@@ -617,35 +623,38 @@ public MyEntry() {
         this.next = next;
     }
 }</code></pre><ul>
-<li><p>最后测试一下：<br>  @Test<br>  public void demo() {</p>
-<pre><code>MyHashMap&lt;String, String&gt; map = new MyHashMap();
-System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
-Long t1 = System.currentTimeMillis();
-for (int i = 0; i &lt; 1000; i++) {
-    map.put(&quot;key&quot; + i, &quot;value&quot; + i);
-}
-for (int i = 0; i &lt; 1000; i++) {
-    String value = map.get(&quot;key&quot; + i);
-    System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
-    assert (value.equals(&quot;value&quot; + i));
-}
-//null key
-map.put(null, &quot;value:key is null&quot;);
-System.out.printf(map.get(null));
-Long t2 = System.currentTimeMillis();
-System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
-System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
-Map&lt;String, String&gt; hashMap = new HashMap();
-Long t3 = System.currentTimeMillis();
-for (int i = 0; i &lt; 1000; i++) {
-    hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
-}
-for (int i = 0; i &lt; 1000; i++) {
-    System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
-}
-Long t4 = System.currentTimeMillis();
-System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));</code></pre><p>  }</p>
-</li>
+<li><p>最后测试一下：</p>
+<pre><code>@Test
+public void demo() {
+    MyHashMap&lt;String, String&gt; map = new MyHashMap();
+    System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
+    Long t1 = System.currentTimeMillis();
+    for (int i = 0; i &lt; 1000; i++) {
+        map.put(&quot;key&quot; + i, &quot;value&quot; + i);
+    }
+    for (int i = 0; i &lt; 1000; i++) {
+        String value = map.get(&quot;key&quot; + i);
+        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
+        assert (value.equals(&quot;value&quot; + i));
+    }
+    //null key
+    map.put(null, &quot;value:key is null&quot;);
+    System.out.printf(map.get(null));
+    Long t2 = System.currentTimeMillis();
+    System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
+    System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
+    Map&lt;String, String&gt; hashMap = new HashMap();
+    Long t3 = System.currentTimeMillis();
+    for (int i = 0; i &lt; 1000; i++) {
+        hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
+    }
+    for (int i = 0; i &lt; 1000; i++) {
+        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
+    }
+    Long t4 = System.currentTimeMillis();
+    System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));
+
+}</code></pre></li>
 </ul>
 
       
@@ -1241,11 +1250,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>

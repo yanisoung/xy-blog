@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="白崽儿世界">
 <meta property="og:description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  * HashMap中重要的概念：     初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量     最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量     扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容     扩容阈值：扩容阈值=容">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-09-21T14:46:29.017Z">
+<meta property="og:updated_time" content="2019-09-21T14:49:02.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现自己的HashMap">
 <meta name="twitter:description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  * HashMap中重要的概念：     初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量     最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量     扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容     扩容阈值：扩容阈值=容">
@@ -468,25 +468,31 @@
         return multiply.intValue();
     }
 }</code></pre><ul>
-<li><p>entry组成了链表</p>
-<p>  public final class MyEntry&lt;K, V&gt; {</p>
-<pre><code>private K k;
-private V v;
-private MyEntry&lt;K, V&gt; next;
-private Integer hash;
-
-public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
-    this.k = k;
-    this.v = v;
-    this.next = next;
-    this.hash = hash;
-}
-
-public MyEntry() {
-
-}</code></pre></li>
+<li>entry组成了链表</li>
 </ul>
-<pre><code>    public MyEntry(K k, V v) {
+<pre><code>    public final class MyEntry&lt;K, V&gt; {
+
+    private K k;
+
+    private V v;
+
+    private MyEntry&lt;K, V&gt; next;
+
+    private Integer hash;
+
+    public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
+        this.k = k;
+        this.v = v;
+        this.next = next;
+        this.hash = hash;
+    }
+
+    public MyEntry() {
+
+    }
+
+
+    public MyEntry(K k, V v) {
         this.k = k;
         this.v = v;
     }
@@ -529,35 +535,38 @@ public MyEntry() {
         this.next = next;
     }
 }</code></pre><ul>
-<li><p>最后测试一下：<br>  @Test<br>  public void demo() {</p>
-<pre><code>MyHashMap&lt;String, String&gt; map = new MyHashMap();
-System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
-Long t1 = System.currentTimeMillis();
-for (int i = 0; i &lt; 1000; i++) {
-    map.put(&quot;key&quot; + i, &quot;value&quot; + i);
-}
-for (int i = 0; i &lt; 1000; i++) {
-    String value = map.get(&quot;key&quot; + i);
-    System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
-    assert (value.equals(&quot;value&quot; + i));
-}
-//null key
-map.put(null, &quot;value:key is null&quot;);
-System.out.printf(map.get(null));
-Long t2 = System.currentTimeMillis();
-System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
-System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
-Map&lt;String, String&gt; hashMap = new HashMap();
-Long t3 = System.currentTimeMillis();
-for (int i = 0; i &lt; 1000; i++) {
-    hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
-}
-for (int i = 0; i &lt; 1000; i++) {
-    System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
-}
-Long t4 = System.currentTimeMillis();
-System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));</code></pre><p>  }</p>
-</li>
+<li><p>最后测试一下：</p>
+<pre><code>@Test
+public void demo() {
+    MyHashMap&lt;String, String&gt; map = new MyHashMap();
+    System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
+    Long t1 = System.currentTimeMillis();
+    for (int i = 0; i &lt; 1000; i++) {
+        map.put(&quot;key&quot; + i, &quot;value&quot; + i);
+    }
+    for (int i = 0; i &lt; 1000; i++) {
+        String value = map.get(&quot;key&quot; + i);
+        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
+        assert (value.equals(&quot;value&quot; + i));
+    }
+    //null key
+    map.put(null, &quot;value:key is null&quot;);
+    System.out.printf(map.get(null));
+    Long t2 = System.currentTimeMillis();
+    System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
+    System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
+    Map&lt;String, String&gt; hashMap = new HashMap();
+    Long t3 = System.currentTimeMillis();
+    for (int i = 0; i &lt; 1000; i++) {
+        hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
+    }
+    for (int i = 0; i &lt; 1000; i++) {
+        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
+    }
+    Long t4 = System.currentTimeMillis();
+    System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));
+
+}</code></pre></li>
 </ul>
 
       
@@ -879,11 +888,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
             
             <div class="clearfix"></div>
