@@ -162,6 +162,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo-踩过的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/21/hexo-踩过的坑/">hexo 踩过的坑</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/21/hexo-踩过的坑/" class="archive-article-date">
+  	<time datetime="2019-09-21T14:11:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>最近在使用hexo d时一直报下面的错误：<br>fatal: unable to access ‘<a href="https://github.com/yanisoung/xy-blog.github.io/&#39;" target="_blank" rel="noopener">https://github.com/yanisoung/xy-blog.github.io/&#39;</a>: Failed to connect to github.com port 443: Timed out<br>FATAL Something’s wrong. Maybe you can find the solution here: <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">https://hexo.io/docs/troubleshooting.html</a><br>Error: Spawn failed<br>at ChildProcess.<anonymous> (D:\develop\hexo-home\node_modules\hexo-util\lib\spawn.js:52:19)<br>at ChildProcess.emit (events.js:198:13)<br>at ChildProcess.cp.emit (D:\develop\hexo-home\node_modules\cross-spawn\lib\enoent.js:40:29)<br>at Process.ChildProcess._handle.onexit (internal/child_process.js:248:12)</anonymous></p>
+</li>
+<li><p>网上替换.deploy_git文件夹的方法试过了，还是无果。</p>
+</li>
+<li><p>后在此微薄寻得解决方案：<a href="https://www.yuanchunrong.com/hexo-github-blog/" target="_blank" rel="noopener">https://www.yuanchunrong.com/hexo-github-blog/</a></p>
+</li>
+<li><p>使用命令行$ hexo g -d时，确保有网情况下一次性上传github成功，不要中途中断，否则会出现两个分支没有同时同步的情况，下次同步时就会报上面的错误。</p>
+</li>
+<li><p>目前的粗暴的解决方法是：把github的yuanchunrong.github.io仓库删除，同时把本地隐藏文件夹.deploy_git/删除，重新使用命令行$ hexo g -d同步文件夹，方法简单有效粗暴，但是比较伤元气，所以以后操作的时候注意一下．</p>
+</li>
+<li><p>经过此次惨痛的教训，定不再使用备份命令，毕竟科学上网还是需要时间的。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/21/hexo-踩过的坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-实现自己的HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -776,11 +863,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
             
             <div class="clearfix"></div>
