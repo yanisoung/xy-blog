@@ -555,31 +555,26 @@
         BigDecimal multiply = init.multiply(bigLoad);
         return multiply.intValue();
     }
+}</code></pre><ul>
+<li><p>entry组成了链表</p>
+<p>  public final class MyEntry&lt;K, V&gt; {</p>
+<pre><code>private K k;
+private V v;
+private MyEntry&lt;K, V&gt; next;
+private Integer hash;
+
+public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
+    this.k = k;
+    this.v = v;
+    this.next = next;
+    this.hash = hash;
 }
 
+public MyEntry() {
 
-
-
-
-public final class MyEntry&lt;K, V&gt; {
-    private K k;
-    private V v;
-    private MyEntry&lt;K, V&gt; next;
-    private Integer hash;
-
-    public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
-        this.k = k;
-        this.v = v;
-        this.next = next;
-        this.hash = hash;
-    }
-
-    public MyEntry() {
-
-    }
-
-
-    public MyEntry(K k, V v) {
+}</code></pre></li>
+</ul>
+<pre><code>    public MyEntry(K k, V v) {
         this.k = k;
         this.v = v;
     }
@@ -622,41 +617,34 @@ public final class MyEntry&lt;K, V&gt; {
         this.next = next;
     }
 }</code></pre><ul>
-<li><p>最后测试一下：<br>  package com.xy.blog.test.map.hashmap;</p>
-<p>  import org.junit.Test;</p>
-<p>  import java.util.HashMap;<br>  import java.util.Map;</p>
-<p>  public class MyHashMapTest {</p>
-<pre><code>@Test
-public void demo() {
-    MyHashMap&lt;String, String&gt; map = new MyHashMap();
-    System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
-    Long t1 = System.currentTimeMillis();
-    for (int i = 0; i &lt; 1000; i++) {
-        map.put(&quot;key&quot; + i, &quot;value&quot; + i);
-    }
-    for (int i = 0; i &lt; 1000; i++) {
-        String value = map.get(&quot;key&quot; + i);
-        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
-        assert (value.equals(&quot;value&quot; + i));
-    }
-    //null key
-    map.put(null, &quot;value:key is null&quot;);
-    System.out.printf(map.get(null));
-    Long t2 = System.currentTimeMillis();
-    System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
-    System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
-    Map&lt;String, String&gt; hashMap = new HashMap();
-    Long t3 = System.currentTimeMillis();
-    for (int i = 0; i &lt; 1000; i++) {
-        hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
-    }
-    for (int i = 0; i &lt; 1000; i++) {
-        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
-    }
-    Long t4 = System.currentTimeMillis();
-    System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));
-
-}</code></pre><p>  }</p>
+<li><p>最后测试一下：<br>  @Test<br>  public void demo() {</p>
+<pre><code>MyHashMap&lt;String, String&gt; map = new MyHashMap();
+System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
+Long t1 = System.currentTimeMillis();
+for (int i = 0; i &lt; 1000; i++) {
+    map.put(&quot;key&quot; + i, &quot;value&quot; + i);
+}
+for (int i = 0; i &lt; 1000; i++) {
+    String value = map.get(&quot;key&quot; + i);
+    System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
+    assert (value.equals(&quot;value&quot; + i));
+}
+//null key
+map.put(null, &quot;value:key is null&quot;);
+System.out.printf(map.get(null));
+Long t2 = System.currentTimeMillis();
+System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
+System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
+Map&lt;String, String&gt; hashMap = new HashMap();
+Long t3 = System.currentTimeMillis();
+for (int i = 0; i &lt; 1000; i++) {
+    hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
+}
+for (int i = 0; i &lt; 1000; i++) {
+    System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
+}
+Long t4 = System.currentTimeMillis();
+System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));</code></pre><p>  }</p>
 </li>
 </ul>
 
