@@ -184,19 +184,9 @@
       
         <ul>
 <li><p>最近在使用hexo d时一直报下面的错误：<br>fatal: unable to access ‘<a href="https://github.com/yanisoung/xy-blog.github.io/&#39;" target="_blank" rel="noopener">https://github.com/yanisoung/xy-blog.github.io/&#39;</a>: Failed to connect to github.com port 443: Timed out<br>FATAL Something’s wrong. Maybe you can find the solution here: <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">https://hexo.io/docs/troubleshooting.html</a><br>Error: Spawn failed<br>at ChildProcess.<anonymous> (D:\develop\hexo-home\node_modules\hexo-util\lib\spawn.js:52:19)<br>at ChildProcess.emit (events.js:198:13)<br>at ChildProcess.cp.emit (D:\develop\hexo-home\node_modules\cross-spawn\lib\enoent.js:40:29)<br>at Process.ChildProcess._handle.onexit (internal/child_process.js:248:12)</anonymous></p>
-</li>
-<li><p>网上替换.deploy_git文件夹的方法试过了，还是无果。</p>
-</li>
-<li><p>后在此微薄寻得解决方案：<a href="https://www.yuanchunrong.com/hexo-github-blog/" target="_blank" rel="noopener">https://www.yuanchunrong.com/hexo-github-blog/</a></p>
-</li>
-<li><p>使用命令行$ hexo g -d时，确保有网情况下一次性上传github成功，不要中途中断，否则会出现两个分支没有同时同步的情况，下次同步时就会报上面的错误。</p>
-</li>
-<li><p>目前的粗暴的解决方法是：把github的yuanchunrong.github.io仓库删除，同时把本地隐藏文件夹.deploy_git/删除，重新使用命令行$ hexo g -d同步文件夹，方法简单有效粗暴，但是比较伤元气，所以以后操作的时候注意一下．</p>
-</li>
-<li><p>经过此次惨痛的教训，定不再使用备份命令，毕竟科学上网还是需要时间的。</p>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2019/09/21/hexo-踩过的坑/#more">more >></a>
+        
       
 
       
@@ -283,7 +273,10 @@
     扩容次数：可限制扩容
 * key允许为null,存储时key为Null,在table中的下标为0.取值时从table[0]中获取链表，查找链表中k为null的节点。
 * HashMap使用数组+链表的形式实现的，通过计算key的hash值获取key在数组中对应的下标，添加新的节点到该下标的链表中。
-* 取值时，通过计算key的hash值获取key在数组中对应的下标，获取该下标上的链表，通过eques方法从链表中找到对应的value。</code></pre><p>*以下是代码实现：</p>
+* 取值时，通过计算key的hash值获取key在数组中对应的下标，获取该下标上的链表，通过eques方法从链表中找到对应的value。
+
+
+ &lt;!-- more --&gt;</code></pre><p>*以下是代码实现：</p>
 <pre><code>public class MyHashMap&lt;K, V&gt; {
     /**
      * 初始化容量 1的4次方
@@ -1247,11 +1240,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
