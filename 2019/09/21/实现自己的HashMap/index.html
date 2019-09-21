@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="白崽儿世界">
 <meta property="og:description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  * HashMap中重要的概念：     初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量     最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量     扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容     扩容阈值：扩容阈值=容">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-09-21T15:28:18.491Z">
+<meta property="og:updated_time" content="2019-09-21T15:29:54.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现自己的HashMap">
 <meta name="twitter:description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  * HashMap中重要的概念：     初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量     最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量     扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容     扩容阈值：扩容阈值=容">
@@ -195,10 +195,9 @@
     扩容次数：可限制扩容
 * key允许为null,存储时key为Null,在table中的下标为0.取值时从table[0]中获取链表，查找链表中k为null的节点。
 * HashMap使用数组+链表的形式实现的，通过计算key的hash值获取key在数组中对应的下标，添加新的节点到该下标的链表中。
-* 取值时，通过计算key的hash值获取key在数组中对应的下标，获取该下标上的链表，通过eques方法从链表中找到对应的value。
+* 取值时，通过计算key的hash值获取key在数组中对应的下标，获取该下标上的链表，通过eques方法从链表中找到对应的value。</code></pre><a id="more"></a>
 
-
- &lt;!-- more --&gt;</code></pre><p>*以下是代码实现：</p>
+<p>*以下是代码实现：</p>
 <pre><code>public class MyHashMap&lt;K, V&gt; {
     /**
      * 初始化容量 1的4次方
@@ -876,15 +875,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">自增</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
