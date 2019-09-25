@@ -162,6 +162,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/25/面试总结/">面试进化史</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/25/面试总结/" class="archive-article-date">
+  	<time datetime="2019-09-25T14:42:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>仅以此记录自己的每次面试心情。</code></pre><p>2019.9.23 第一面</p>
+<pre><code>全程过于紧张。
+精神高度紧绷。
+脑子已经不是我的了。
+
+抖个不停。</code></pre><p>2019.9.24</p>
+<pre><code>全程虚脱。
+脑子一片空白。
+完全不受控制，第一反应回答。
+
+面后虚脱，整个身体被掏空。</code></pre>
+        
+          <a class="article-more-a" href="/2019/09/25/面试总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">心得</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/25/面试总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hexo-踩过的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -526,7 +616,213 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <pre><code>基本数据的基本类型以及占得字节数？
+byte     1字节                short    2字节
+int      4字节                long     8字节
+char     2字节
+float    4字节                double   8字节
+boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
+
+
+其他数据类型转String的多种方式？
+1.先把基本数据类型装箱，再用对象的toString()方法
+2.String类的valueOf方法 
+3.加一个””来实现自动转型
+4.如果是数组的话，通过构造方法可以直接把数组转换为字符串
+
+
+String StringBuffer StringBuilder 的区别？
+相同点：都是final修饰的类，底层都是char[]实现的。
+
+不同点：
+1.String的char[]是final修饰的，是字符串常量，内容是不可变的。而StringBuffer和StringBulider是继承了AbstractStringBuilder来实现的，父类的char[]是普通私有变量，可以使用append追加，内容是可改变的。因为AbstractStringBuilder实现了append接口。
+2.StringBuffer是线程安全的，而StringBuilder是非线程安全的。StringBuilder是StringBuffer的一个补充类，拥有StringBuffer的所有操作，但速度比StringBuffer快，因为它不执行同步，不会有线程安全带来的额外消耗，使用时推荐使用StringBuilder.
+
+
+ArrayList底层介绍，是否是线程安全的？与之相对的线程安全的？
+1.ArrayList的底层数据结构就是一个数组，数组元素的类型为Object类型
+2.类内部使用默认缺省时对象数组的容量大小，为10
+3.ArrayList中的对象数组的最大数组容量为Integer.MAX_VALUE - 8。
+4.默认为每次扩容为原来的1.5倍。
+5.ArrayList是线程不安全的
+6.Vector是线程安全的
+
+HashMap底层介绍，是否是线程安全的？与之相对的线程安全的？
+HashMap是线程不安全的，当多线程时，容易出现同一个位置数据被覆盖的情况。
+底层是由数组+链表结构实现的：
+     put时通过计算K的hash值获取在数组中的下标位置，将值存储到该下标位置的链表上。
+     get时通过计算K的hash值获取在数组中的下标位置，获取该下标位置的链表，使用eques方法比较k值是否相等，或是比较对象的地址值是否相等，来找到对应的value
+     扩容:默认扩容因子是0.75，初始容量为16，在Put的时候判断是否达到扩容条件（容量已使用3/4），默认扩容为原容量的2倍。扩容时创建一个新的数组，将老数组的值转移到新数组，同时重新计算在新数组的存放位置。
+
+HashMap jdk1.7和1.8的区别
+实现方式：1.7 数组+链表  1.8 增加了红黑树
+节点类：1.7 Entry类 1.8 Node类
+Hash值的计算方式有所改变
+存放数据时，1.8 当有哈希冲突并且链表的长度大于8时，就会将数据放到红黑树中
+插入方式：1.7 头插 1.8 尾插
+
+ConcurrentHashMap
+底层采用分段的数组+链表实现，线程安全
+通过把整个Map分为N个Segment，可以提供相同的线程安全，但是效率提升N倍，默认提升16倍。(读操作不加锁，由于HashEntry的value变量是 volatile的，也能保证读取到最新的值。)
+Hashtable的synchronized是针对整张Hash表的，即每次锁住整张表让线程独占，ConcurrentHashMap允许多个修改操作并发进行，其关键在于使用了锁分离技术
+有些方法需要跨段，比如size()和containsValue()，它们可能需要锁定整个表而而不仅仅是某个段，这需要按顺序锁定所有段，操作完毕后，又按顺序释放所有段的锁
+扩容：段内扩容（段内元素超过该段对应Entry数组长度的75%触发扩容，不会对整个Map进行扩容），插入前检测需不需要扩容，有效避免无效扩容
+
+锁分段技术：首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。
+
+ConcurrentHashMap提供了与Hashtable和SynchronizedMap不同的锁机制。Hashtable中采用的锁机制是一次锁住整个hash表，从而在同一时刻只能由一个线程对其进行操作；而ConcurrentHashMap中则是一次锁住一个桶。
+
+ConcurrentHashMap的并发度是多少？
+并发度可以理解为程序运行时能够同时更新ConccurentHashMap且不产生锁竞争的最大线程数，实际上就是ConcurrentHashMap中的分段锁个数，即Segment[]的数组长度。ConcurrentHashMap默认的并发度为16，但用户也可以在构造函数中设置并发度。当用户设置并发度时，ConcurrentHashMap会使用大于等于该值的最小2幂指数作为实际并发度（假如用户设置并发度为17，实际并发度则为32）。运行时通过将key的高n位（n = 32 – segmentShift）和并发度减1（segmentMask）做位与运算定位到所在的Segment。segmentShift与segmentMask都是在构造过程中根据concurrency level被相应的计算出来。
+
+HashMap查询变慢的原因？
+    哈希冲突过多，导致的链表长度增大
+
+HashMap什么时候链表会转变为红黑树？
+    当链表的长度超过8的时候，会进行转变。
+HashMap解决Hash冲突:jdk1.7版本
+static int indexFor(int h, int length) {
+     return h &amp; (length-1);
+ }
+前提
+首先大家知道普通的Hash打散的算法都是mod表的长度，比如h%length,但是HashMap却用的是位运算
+分析
+HashMap的初始大小和扩容都是以2的次方来进行的，换句话说length-1换成二进制永远是全部为1，比如容量为16，则length-1为1111，大家知道位运算的&apos;&amp;&apos;规则是两个1才得1，遇0得0，也就是说length-1中的某一位为1，则对应位置的计算结果才取决于h中的对应位置（h中对应位取0,对应位结果为0，h对应位取1，对应位结果为1。这样就有两个结果），但是如果length-1中某一位为0，则不论h中对应位的数字为几，对应位结果都是0，这样就让两个h取到同一个结果，这就是hash冲突了，恰恰length-1又是全部为1的数，所以结果自然就将hash冲突最小化了
+对比
+仔细观察可以发现其实老方法h%length与h&amp;（length-1）得到的结果其实是一个值，但是为什么hashmap中要用后者呢
+1.length（2的整数次幂）的特殊性导致了length-1的特殊性（二进制全为1）
+2.位运算快于十进制运算，hashmap扩容也是按位扩容，所以相比较就选择了后者
+
+
+
+Servlet的生命周期？
+1.加载和实例化。Servlet容器负责加载和实例化Servlet。当Servlet容器启动时，或者在容器检测到需要这个Servlet来响应第一个请求时，创建Servlet实例
+2.初始化。在Servlet实例化之后，容器将调用Servlet的init()方法初始化这个对象。
+3.请求处理。Servlet容器调用Servlet的service()方法对请求进行处理。
+4.服务终止。当容器检测到一个Servlet实例应该从服务中被移除的时候，容器就会调用实例的destroy()方法，以便让该实例可以释放它所使用的资源。
+
+    JVM的内存结构？
+1.方法区（也就是&quot;持久代&quot;），java8里彻底被移除，取而代之的是元数据区
+2.堆
+3.栈（在hotspot JVM中，JVM方法栈--Java虚拟栈，与本地方法栈是同一个）
+4.PC寄存器（程序计数器）
+
+    Java gc 的机制？
+对象优先在新生代Eden区中分配。当Eden区没有足够空间进行分配时，虚拟机将一次Minor GC。
+
+长期存活的对象将进入老年代：虚拟机采用了分代收集的思想来管理内存，那么内存回收时就必须能识别那些对象应放在新生代，那些对象应放在老年代，为了做到这点，虚拟机给每个对象定义了一个对象年龄计数器。如果对象在Eden处并经过第一次Minor GC后仍然存活，并且能被Survivor容纳的话，将被移动到Survivor空间中，并且对象年龄设为1，对在Survivor区中每“熬过”一次Minor GC，年龄就增加1岁，当它的年龄增加到一定程度，就将会被晋升到老年代。
+
+动态对象年龄判断：虚拟机并不是永远要求对象的年龄必须达到了Max Tenuring Threashold 才能晋升老年代，如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无须等到Max Tenuring Threshold 中要求的年龄。
+
+空间分配担保：在发生Minor GC之前，虚拟机会先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，如果这个条件成立，那么Minor GC可以确保是安全的。如果不成立，则虚拟机会查看HandlePromotionFailure设置值是否允许担保失败。
+
+
+    垃圾回收的算法有哪些？
+1.标记—清除算法：算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象。
+不足之处：效率问题；标记和清除两个过程的销量都不高。
+空间问题：标记清楚之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后会在程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集工作。
+
+2.复制算法：将可用内存按容量划分为大小相等的两块，每次只使用其中的一块，当这一快的内存用完了，就将还存活着的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可。实现简单，运行高效。算法的代价是将内存缩小为原来的一半。
+
+3.标记—整理算法：算法实现：标记出所有需要回收的对象、让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。
+
+4.分代收集算法：算法实现：根据对象存活周期的不同将内存划分为几块，一般是把Java堆分为新生代和老生代，这样就可以根据各个年代的特点采用最适当的收集算法，在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法。只需要付出少量存活对象的复制成本既可以完成收集。而老年代中因为对象存活率高、没有额外空间对它进行分配担保，就必须使用“标记-清理”算法来进行回收。
+新生代：分为三个空间，一个Eden空间，两个Survivor空间。绝大多数最新被创建的对象会被分配到这里，由于大部分对象在创建后会很快变得不可到达，所有很多对象被创建在新生代，然后消失。对象从这个区域消失的过程我们称之为“minor GC”
+老年代：对象没有变得不可达，并且从新生代中存活下来，会被拷贝到这里。其所占用的空间要比新生代多。也正由于其相对较大的空间，发生在老年代上的GC要比新生代少的多。对象从老年代中消失的过程，我们称之为“major GC”。绝大多数刚刚被创建的对象会存放在Eden空间，在Eden空间执行了第一次GC之后，存活的对象被移动到其中一个Survovor空间。此后，存活的对象被移动到其中一个Survivor空间。此后，在Eden空间执行GC之后，存活的对象会被堆积在同一个Survivor空间，当一个Survivor空间饱满，还存在以上的步骤中重复几次依然存活的对象，就会被移动到老年代。
+
+    Javaweb的三大组件？
+        Servlet,Listener,Filter.
+
+    Object的公共方法？
+1.clone方法。保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。主要是JAVA里除了8种基本类型传参数是值传递，其他的类对象传参数都是引用传递，我们有时候不希望在方法里讲参数改变，这是就需要在类中复写clone方法。
+2.getClass方法。final方法，获得运行时类型。
+3.toString方法。该方法用得比较多，一般子类都有覆盖。
+4.finalize方法。该方法用于释放资源。因为无法确定该方法什么时候被调用，很少使用。
+5.equals方法。该方法是非常重要的一个方法。一般equals和==是不一样的，但是在Object中两者是一样的。子类一般都要重写这个方法。
+6.hashCode方法。该方法用于哈希查找，可以减少在查找中使用equals的次数，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。一般必须满足obj1.equals(obj2)==true。可以推出obj1.hash- Code()==obj2.hashCode()，但是hashCode相等不一定就满足equals。不过为了提高效率，应该尽量使上面两个条件接近等价。如果不重写hashcode(),在HashSet中添加两个equals的对象，会将两个对象都加入进去。
+7.wait方法。wait方法就是使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(long timeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。
+8.notify方法。该方法唤醒在该对象上等待的某个线程。
+9.notifyAll方法。该方法唤醒在该对象上等待的所有线程。
+
+    你了解过的java的底层代码？
+        建议可以深入了解一下，java until,lang,text包下源码
+
+    动态代理的两种方式和区别？
+JDK动态代理：利用反射机制生成一个实现代理接口的匿名类，在调用具体方法前调用InvokeHandler来处理。
+CGlib动态代理：利用ASM（开源的Java字节码编辑库，操作字节码）开源包，将代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。
+
+区别：JDK代理只能对实现接口的类生成代理；CGlib是针对类实现代理，对指定的类生成一个子类，并覆盖其中的方法，这种通过继承类的实现方式，不能代理final修饰的类。
+
+spring框架：
+讲一下Spring IOC和AOP？
+    IOC：IOC，另外一种说法叫DI（Dependency Injection），即依赖注入。它并不是一种技术实现，而是一种设计思想。在任何一个有实际开发意义的程序项目中，我们会使用很多类来描述它们特有的功能，并且通过类与类之间的相互协作来完成特定的业务逻辑。这个时候，每个类都需要负责管理与自己有交互的类的引用和依赖，代码将会变的异常难以维护和极度的高耦合。而IOC的出现正是用来解决这个问题，我们通过IOC将这些相互依赖对象的创建、协调工作交给Spring容器去处理，每个对象只需要关注其自身的业务逻辑关系就可以了。在这样的角度上来看，获得依赖的对象的方式，进行了反转，变成了由spring容器控制对象如何获取外部资源（包括其他对象和文件资料等等）
+AOP：面向切面编程，往往被定义为促使软件系统实现关注点的分离的技术。系统是由许多不同的组件所组成的，每一个组件各负责一块特定功能。除了实现自身核心功能之外，这些组件还经常承担着额外的职责。例如日志、事务管理和安全这样的核心服务经常融入到自身具有核心业务逻辑的组件中去。这些系统服务经常被称为横切关注点，因为它们会跨越系统的多个组件。
+
+    SpringMVC的工作原理？
+
+常用的注解有什么？
+主要的返回值？
+说一下你用的springboot？
+    @Bean的实现机制？（spring bean加载原理）
+    @AutoWired的实现机制？（Spring Autowired原理）
+Spring的依赖注入类型？
+Spring的事务有哪些？默认的是哪一个？事务的传播机制是哪些？
+
+ORM框架：
+    Mybatis中$和#的区别？哪一个可以防止SQL注入？为什么？
+1.#将传入的数据都当成一个字符串，会对自动传入的数据加一个双引号, $将传入的数据直接显示生成在sql中
+2.#方式能够很大程度防止sql注入
+3.$方式一般用于传入数据库对象，例如传入表名,列名.
+    Mybatis的工作原理？
+1.加载配置文件(数据源，以及映射文件)，解析配置文件，生成Configuration，MapperedStatement
+2.sqlSessionFactoryBuild通过使用Configuration对象，创建sqlSessionFactory，用来生成SqlSeesion
+3.sqlSession通过调用api或者mapper接口传入statementId找到对应的MapperedStatement，来调用执行sql
+4.通过Executor核心器，负责sql动态语句的生成和查询缓存的维护，来进行sql的参数转换，动态sql的拼接，生成Statement对象
+5.借助于MapperedStatement来访问数据库，它里面封装了sql语句的相关信息，以及返回结果信息
+
+分布式：
+    SOA项目的分布式
+    使用过的分布式框架？简单介绍？
+分布式锁？如何实现？
+高并发：
+    线程的创建方式？这些方式中可以获取返回值的是哪一个？
+    Thread和Runnable的区别？
+    线程的公平和非公平竞争？
+线程池的核心内容？
+    你了解的锁有哪些？有什么区别？
+    Volatile关键字的作用？
+    如何在两个线程之间共享数据？
+线程队列的使用场景？
+MYSQL：
+    select语句的执行顺序？
+    分库分表时的数据分页查询？
+    事务的级别？分别具体介绍？
+    数据的表锁、行所、分页锁在什么条件下产生？
+REDIS：
+    redis为什么是单线程的？
+Redis为什么查询快？实现原理是什么？
+    简单介绍Redis的集群？
+redis的数据种类？
+本地化的策略？
+如何应对缓存穿透和缓存雪崩问题？
+Redis的哨兵模式是怎样的？
+前端：
+    了解的前端语言、框架
+    Ajax的使用
+    Jstl的使用
+Cookie的特点？除了cookie前端的储存技术？
+WEB杂项：
+    碰到的乱码问题以及处理策略？
+    Utf8和utf8mb4的区别？
+    接触过的高可用的方案？
+    日志管理策略？
+    Java1.8的新特性？
+服务：
+    服务器调优？
+    Linux的基本指令？
+    Shell脚本的使用？
+业务逻辑：
+    分布式事务进行秒杀，例如100的库存，怎么保证100件库存不会多也不会少？</code></pre>
       
 
       
@@ -540,6 +836,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		
 		</ul>
@@ -855,15 +1155,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">自增</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心得</a>
               </li>
              
               <li class="article-tag-list-item">
