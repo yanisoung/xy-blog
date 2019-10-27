@@ -176,6 +176,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-嗝嗝老师" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/27/嗝嗝老师/">嗝嗝老师</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#C4C5FD;font-size:14px;">
+        阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+
+        
+        <a href="/2019/10/27/嗝嗝老师/" class="archive-article-date">
+  	<time datetime="2019-10-27T11:21:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2019.10.27</p>
+<p>世俗的偏见与眼光，根深蒂固<br>我们能做的，只有改变自己</p>
+        
+          <a class="article-more-a" href="/2019/10/27/嗝嗝老师/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">观后感</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/观影日记//" class="article-tag-list-link color5">观影日记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/27/嗝嗝老师/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-哪吒之魔童降世" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,15 +404,6 @@
 <p>本周主要围绕精卫学习，和同学一起完成开发测试的需求。</p>
 <p>背景：<br>因原来采用的是定时任务方案，过指定时间之后去捞一下数据库，将新插入的数据统一处理，并集中发送消息给用户。这就导致了数据存在了延时，以及消息会集中发送给用户，可能导致用户体验不好。在此基础上对此方案进行了优化，改为使用精卫系统监控DB的变更，精卫发送消息我们自主消费的模式，实现实时监控，实时消费，实时服务用户。</p>
 <p>精卫系统有两种实现方式，jingwei client和上传tar包的形式。jingwei client是在应用中引入jingwei的依赖，配置精卫任务taskName，自主消费精卫任务发送的消息。<br>tar包是实现精卫提供的Appli，将类打包成tar格式，上传到精卫控制台，自主实现消费模式。</p>
-<p>经过初步讨论，我们采用了tar的形式来开发，实现Appli接口，进行数据的转换，并将转换后的结果发送消息给客户端。在开发过程中遇到一个问题，我们希望可以在预发消费精卫发送的消息，但是精卫不存在预发环境，消息发出来就是在线上。如何解决这个问题呢？<br>我们在官方API中找到了解决方式，但是这种解决方式是适用于jingwei client模式的。基于这个原因，我们就改为了jingwei cliet模式去开发，开发完毕之后准备测试的过程中却发现该模式已经下线，最后又回到了原点，使用tar的形式开发。</p>
-<p>在学习精卫系统的过程中，存在或者遇到的一些问题：<br>1.文档查看不仔细，导致jingwei client模式下线了却不知。<br>2.在开发前已经预示到将来可能会发生的问题，却没有深入准备应对方案，导致开发工作完成后更换了方案。<br>3.在开发过程中，沟通不及时，问题反馈不及时，导致效率比较低。</p>
-<p>此事告诉我，在开发前一定想清楚，看清楚文档，应对明白，不至于重复返工。</p>
-<p>同样的代码，我已经麻木了，不会去想为什么会这样做，这样做到底是否合理。<br>以及沟通过程中，遇到前辈向我解释或者交代问题时，听到某个不太明白的问题或者述求时候，脑袋中的第一反应，他说的是这个？然后就根据自己脑中的想法去回答。这样往往导致了我可能没有真正理解前辈所表达的意思，就脑补了他想问的可能是这个，根据这个去回答。我需要改进的点是，在遇到不太明白的问题或者述求时，第一反应不是去回答，而是先反问，是这样吗？是那样吗？我理解的对吗？</p>
-<p>第一次自己去学习新东西并且立马就应用，出错是肯定的。我总是需要一个熟悉的过程。从陌生到熟悉，磕磕绊绊，这个过程是怎么都少不了的。</p>
-<p>2019.10.12</p>
-<p>一切都只是过程，而不是目的。你所经历的一切，都不过是别人已经经历过或者在经历的，仅此而已。</p>
-<p>待成长点：<br>1.考虑不周全，没有想清楚就慌张开始了。<br>一定要三思而后行！！<br>一定要知道自己在做什么说了什么！！<br>再紧急的情况也要努力做到冷静！！<br>2.沟通要到细节，哪怕麻烦点也要沟通清楚，有疑问一定要问清楚。<br>3.一定要学会自己思考，不要别人说什么就是什么！要分清楚厉害关系！<br>4.不要带有色眼光去看待别人，努力做到成长型思维。</p>
-<p>值得表扬的点：<br>1.比以前镇定了不少。<br>2.心理素质提高了不少。<br>3.承受能力也提高了。</p>
         
           <a class="article-more-a" href="/2019/10/13/成长日记/#more">more >></a>
         
@@ -1018,111 +1105,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/21/hexo-踩过的坑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-实现自己的HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/21/实现自己的HashMap/">实现自己的HashMap</a>
-    </h1>
-  
-
-
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-        <span class="icon-sort"></span>
-        <span id="busuanzi_container_page_pv" style="color:#C4C5FD;font-size:14px;">
-        阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-        </span>
-        </a>
-
-        
-        <a href="/2019/09/21/实现自己的HashMap/" class="archive-article-date">
-  	<time datetime="2019-09-21T12:35:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>HsahMap1.7jdk原理分析：<a href="https://www.jianshu.com/p/068b6d25b593" target="_blank" rel="noopener">https://www.jianshu.com/p/068b6d25b593</a></p>
-<ul>
-<li>HashMap中重要的概念：<br>初始化容量直： 1 &lt;&lt; 4 map的初始化容量<br>最大容量值：1 &lt;&lt; 30 map可容纳的最大容量<br>扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容<br>扩容阈值：扩容阈值=容量(table的size)*扩容因子<br>size:map中存储的键值对的数量<br>table：存储实体<br>实际扩容因子：创建时可由有参构造给出<br>实际容量：创建时可由有参构造给出<br>扩容次数：可限制扩容</li>
-<li>key允许为null,存储时key为Null,在table中的下标为0.取值时从table[0]中获取链表，查找链表中k为null的节点。</li>
-<li>HashMap使用数组+链表的形式实现的，通过计算key的hash值获取key在数组中对应的下标，添加新的节点到该下标的链表中。</li>
-<li>取值时，通过计算key的hash值获取key在数组中对应的下标，获取该下标上的链表，通过eques方法从链表中找到对应的value。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/09/21/实现自己的HashMap/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/21/实现自己的HashMap/">展开全文 >></a>
         </p>
       
 
