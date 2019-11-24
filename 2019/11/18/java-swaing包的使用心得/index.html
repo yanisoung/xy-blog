@@ -13,18 +13,18 @@
   <link rel="dns-prefetch" href="http://yanisyoung.com">
   <title>java swing  绘制简单的运动圆 | 白崽儿世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="思考：1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。2.画板的部分为什么提供内部类？    因为画板是这个窗口的一部分。 public class MyCircleRun {">
+  <meta name="description" content="思考：1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。2.画板的部分为什么提供内部类？    因为画板是这个窗口的一部分。 /**  入口启动  /public static v">
 <meta name="keywords" content="java,game,游戏,swing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java swing  绘制简单的运动圆">
 <meta property="og:url" content="http://yanisyoung.com/2019/11/18/java-swaing包的使用心得/index.html">
 <meta property="og:site_name" content="白崽儿世界">
-<meta property="og:description" content="思考：1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。2.画板的部分为什么提供内部类？    因为画板是这个窗口的一部分。 public class MyCircleRun {">
+<meta property="og:description" content="思考：1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。2.画板的部分为什么提供内部类？    因为画板是这个窗口的一部分。 /**  入口启动  /public static v">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-11-24T09:17:39.099Z">
+<meta property="og:updated_time" content="2019-11-24T10:27:45.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java swing  绘制简单的运动圆">
-<meta name="twitter:description" content="思考：1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。2.画板的部分为什么提供内部类？    因为画板是这个窗口的一部分。 public class MyCircleRun {">
+<meta name="twitter:description" content="思考：1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。2.画板的部分为什么提供内部类？    因为画板是这个窗口的一部分。 /**  入口启动  /public static v">
   
     <link rel="alternative" href="/atom.xml" title="白崽儿世界" type="application/atom+xml">
   
@@ -204,154 +204,98 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>思考：<br>1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？<br>    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。<br>2.画板的部分为什么提供内部类？<br>    因为画板是这个窗口的一部分。</p>
-<p>public class MyCircleRun {</p>
-<pre><code>public static void main(String[] args) {
-
-    int sceneWidth = 800;
-    int sceneHeight = 800;
-
-    // init data
-    int N = 10;
-    Circle[] circles = new Circle[N];
-    double r = 70;
-
-    for (int i = 0; i &lt; N; i++) {
-        //sceneWidth - 2 * r  画布的宽-直径 作为随机取值的最大值  +r是为了不让圆在画布边缘随生成
-        double x = (Math.random() * (sceneWidth - 2 * r)) + r;
-        double y = (Math.random() * (sceneHeight - 2 * r)) + r;
-        //随机生成速度
-        double vx = (Math.random() * 11) - 5;
-        double vy = (Math.random() * 11) - 5;
-
-        circles[i] = new Circle(x, y, r, vx, vy);
-    }
-
-    EventQueue.invokeLater(() -&gt; {
-        MyCircleJFrame frame = new MyCircleJFrame(&quot;Welcome&quot;, sceneWidth, sceneHeight);
-
-        new Thread(() -&gt; {
-            // TODO: 2019/11/24 为什么用循环？ 不停的重新绘制
-            while (true) {
-                // 绘制数据
-                frame.render(circles);
-                AlgoVisHelper.pause(20);
-
-                // 更新数据（重新绘制后生效）
-                for (Circle circle : circles) {
-                    circle.move(sceneWidth, sceneHeight);
-                }
-            }
-        }).start();
-    });
-}</code></pre><p>}</p>
-<a id="more"></a>
-
 <p>/**</p>
 <ul>
-<li><p>窗口类</p>
+<li><p>入口启动</p>
 </li>
-<li></li>
-<li><p>@author xu yan</p>
+<li><p>/<br>public static void main(String[] args) {</p>
+<p> int sceneWidth = 800;<br>  int sceneHeight = 800;<br>  int count = 10;</p>
+<p>  MyCircleRun myCircleRun = new MyCircleRun(sceneWidth, sceneHeight, count);<br>  myCircleRun.run(“我的圈圈”);<br>}</p>
 </li>
-<li><p>/<br>@Data<br>public class MyCircleJFrame extends JFrame {</p>
-<p>  /**</p>
-<ul>
-<li><p>窗口标题</p>
-</li>
-<li><p>/<br>private String windowTitle;</p>
+</ul>
 <p>/**</p>
+<ul>
+<li><p>启动类</p>
 </li>
+<li><p>@Author xu yan</p>
+</li>
+<li><p>@Date 2019-11-24 18:12</p>
+</li>
+<li><p>/<br>public class MyCircleRun {<br>  /**</p>
+<ul>
 <li><p>窗口宽</p>
 </li>
-<li><p>/<br>private Integer windowWidth;</p>
-<p>/**</p>
+<li><p>/<br>private Integer sceneWidth;<br>/**</p>
 </li>
 <li><p>窗口高</p>
 </li>
-<li><p>/<br>private Integer windowHigh;</p>
-<p>public MyCircleJFrame(String windowTitle, Integer windowWidth, Integer windowHigh) {<br>  super(windowTitle);<br>  this.windowHigh = windowHigh;<br>  this.windowWidth = windowWidth;</p>
-<p>  //是否显示<br>  setVisible(true);<br>  //窗口的大小<br>  setSize(windowWidth, windowHigh);<br>  //叉号关闭窗口<br>  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);<br>  //不允许修改窗口大小<br>  setResizable(false);</p>
-<p>  //初始化画布<br>  MyJPanel panel = new MyJPanel();<br>  setContentPane(panel);<br>}</p>
+<li><p>/<br>private Integer sceneHeight;</p>
 <p>/**</p>
 </li>
-<li><p>具体绘制图形</p>
+<li><p>要绘制的数据</p>
 </li>
 <li><p>/<br>private Circle[] circles;</p>
-<p>public void render(Circle[] circles) {<br>  this.circles = circles;<br>  //重绘<br>  repaint();<br>}</p>
-<p>/**</p>
-</li>
-<li><p>画布</p>
-</li>
-<li><p>/<br>class MyJPanel extends JPanel {<br>  public MyJPanel() {</p>
-<pre><code>//双缓存
-super(true);</code></pre><p>  }</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
+<p>public MyCircleRun(int sceneWidth, int sceneHeight, int count) {<br>  this.sceneHeight = sceneHeight;<br>  this.sceneWidth = sceneWidth;</p>
+<p>  circles = new Circle[count];<br>  double r = 70;</p>
+<p>  for (int i = 0; i &lt; count; i++) {</p>
+<pre><code>//sceneWidth - 2 * r  画布的宽-直径 作为随机取值的最大值  +r是为了不让圆在画布边缘随生成
+double x = (Math.random() * (sceneWidth - 2 * r)) + r;
+double y = (Math.random() * (sceneHeight - 2 * r)) + r;
+//随机生成速度
+double vx = (Math.random() * 11) - 5;
+double vy = (Math.random() * 11) - 5;
 
-        Graphics2D g2d = (Graphics2D) g;
+circles[i] = new Circle(x, y, r, vx, vy);</code></pre><p>  }<br>}</p>
+<p>public void run(String windowTitle) {<br>  EventQueue.invokeLater(() -&gt; {</p>
+<pre><code>MyCircleJFrame frame = new MyCircleJFrame(windowTitle, sceneWidth, sceneHeight);
 
-        // 抗锯齿
-        RenderingHints hints = new RenderingHints(
-                RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
-        hints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        g2d.addRenderingHints(hints);
+new Thread(() -&gt; {
+    // TODO: 2019/11/24 为什么用循环？ 不停的重新绘制
+    while (true) {
+        // 绘制数据
+        frame.render(circles);
+        AlgoVisHelper.pause(20);
 
-        // 具体绘制
-        AlgoVisHelper.setStrokeWidth(g2d, 1);
-        AlgoVisHelper.setColor(g2d, Color.RED);
-        if (null == circles) {
-            return;
-        }
+        // 更新数据（重新绘制后生效）
         for (Circle circle : circles) {
-            AlgoVisHelper.strokeCircle(g2d, circle.getX(), circle.getY(), circle.getR());
+            circle.move(sceneWidth, sceneHeight);
         }
     }
-}</code></pre><p>}</p>
+}).start();</code></pre><p>  });<br>}<br>}</p>
+</li>
+</ul>
+</li>
+</ul>
 <p>/**</p>
 <ul>
-<li>圆形类</li>
+<li><p>要绘制的类</p>
+</li>
+<li><p>/<br>@Data<br>public class Circle {<br>  private double x;<br>  private double y;<br>  private double r;</p>
+<p>  private double xv;<br>  private double yv;</p>
+<p>  public Circle(double x, double y, double r, double xv, double yv) {</p>
+<pre><code>this.x = x;
+this.y = y;
+this.r = r;
+this.xv = xv;
+this.yv = yv;</code></pre><p>  }</p>
+<p>  /**</p>
+<ul>
+<li><p>移动</p>
+</li>
+<li><p>/<br>public void move(int sceneWidth, int sceneHeight) {<br>  //碰到画布边缘自动弹回来<br>  //计算最小边缘<br>  double yMin = r;<br>  double xMin = r;<br>  //计算最大边缘<br>  double yMax = sceneHeight - r;<br>  double xMax = sceneWidth - r;<br>  //移动速度可以是负的 往反方向移动<br>  if (x &gt;= xMax || x &lt;= xMin) {</p>
+<pre><code>xv = -xv;</code></pre><p>  }<br>  if (y &gt;= yMax || y &lt;= yMin) {</p>
+<pre><code>yv = -yv;</code></pre><p>  }</p>
+<p>  x += xv;<br>  y += yv;<br>}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>}</p>
+<p>/**</p>
+<ul>
+<li>绘制工具类</li>
 <li>/</li>
 </ul>
-<p>@Data<br>public class Circle {<br>    private double x;<br>    private double y;<br>    private double r;</p>
-<pre><code>private double xv;
-private double yv;
-
-public Circle(double x, double y, double r, double xv, double yv) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
-    this.xv = xv;
-    this.yv = yv;
-}
-
-/**
- * 移动
- */
-public void move(int sceneWidth, int sceneHeight) {
-    //碰到画布边缘自动弹回来
-    //计算最小边缘
-    double yMin = r;
-    double xMin = r;
-    //计算最大边缘
-    double yMax = sceneHeight - r;
-    double xMax = sceneWidth - r;
-    //移动速度可以是负的 往反方向移动
-    if (x &gt;= xMax || x &lt;= xMin) {
-        xv = -xv;
-    }
-    if (y &gt;= yMax || y &lt;= yMin) {
-        yv = -yv;
-    }
-
-    x += xv;
-    y += yv;
-}</code></pre><p>}</p>
 <p>public class AlgoVisHelper {</p>
 <pre><code>private AlgoVisHelper() {
 }
@@ -513,6 +457,15 @@ public static void pause(int t) {
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/11/18/java-swing包的使用心得/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java swing  绘制简单的运动圆
+        
+      </div>
+    </a>
   
   
     <a href="/2019/11/02/视频学习/" id="article-nav-older" class="article-nav-link-wrap">
@@ -697,23 +650,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">自增</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,6 +667,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心得</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
               </li>
              
               <li class="article-tag-list-item">
