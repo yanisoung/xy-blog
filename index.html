@@ -73,6 +73,8 @@
 	        
 				<li><a href="/categories/编程">编程</a></li>
 	        
+				<li><a href="/categories/观后感">观后感</a></li>
+	        
 				<li><a href="/categories/旅行的意义">旅行的意义</a></li>
 	        
 			</ul>
@@ -133,6 +135,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -151,15 +155,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/随笔">随笔</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/随笔">随笔</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/读书">读书</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/读书">读书</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/编程">编程</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/编程">编程</a></li>
 		        
-					<li style="width: 20%"><a href="/categories/旅行的意义">旅行的意义</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/观后感">观后感</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/旅行的意义">旅行的意义</a></li>
 		        
 				</ul>
 			</nav>
@@ -175,141 +181,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-java-swing包的使用心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/18/java-swing包的使用心得/">java swing  绘制简单的运动圆</a>
-    </h1>
-  
-
-
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-        <span class="icon-sort"></span>
-        <span id="busuanzi_container_page_pv" style="color:#C4C5FD;font-size:14px;">
-        阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-        </span>
-        </a>
-
-        
-        <a href="/2019/11/18/java-swing包的使用心得/" class="archive-article-date">
-  	<time datetime="2019-11-18T15:25:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>思考：<br>1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？<br>    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。<br>2.画板的部分为什么提供内部类？<br>    因为画板是这个窗口的一部分。</p>
-<p>public class MyCircleRun {</p>
-<pre><code>public static void main(String[] args) {
-
-    int sceneWidth = 800;
-    int sceneHeight = 800;
-
-    // init data
-    int N = 10;
-    Circle[] circles = new Circle[N];
-    double r = 70;
-
-    for (int i = 0; i &lt; N; i++) {
-        //sceneWidth - 2 * r  画布的宽-直径 作为随机取值的最大值  +r是为了不让圆在画布边缘随生成
-        double x = (Math.random() * (sceneWidth - 2 * r)) + r;
-        double y = (Math.random() * (sceneHeight - 2 * r)) + r;
-        //随机生成速度
-        double vx = (Math.random() * 11) - 5;
-        double vy = (Math.random() * 11) - 5;
-
-        circles[i] = new Circle(x, y, r, vx, vy);
-    }
-
-    EventQueue.invokeLater(() -&gt; {
-        MyCircleJFrame frame = new MyCircleJFrame(&quot;Welcome&quot;, sceneWidth, sceneHeight);
-
-        new Thread(() -&gt; {
-            // TODO: 2019/11/24 为什么用循环？ 不停的重新绘制
-            while (true) {
-                // 绘制数据
-                frame.render(circles);
-                AlgoVisHelper.pause(20);
-
-                // 更新数据（重新绘制后生效）
-                for (Circle circle : circles) {
-                    circle.move(sceneWidth, sceneHeight);
-                }
-            }
-        }).start();
-    });
-}</code></pre><p>}</p>
-        
-          <a class="article-more-a" href="/2019/11/18/java-swing包的使用心得/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java绘图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/18/java-swing包的使用心得/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
     <article id="post-java-swaing包的使用心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1229,6 +1100,7 @@ public static void pause(int t) {
 <li><p>固有型思维模式的坏处</p>
 </li>
 </ul>
+<p>事无绝对？什么情况下该成长型？什么情况下固有？</p>
         
           <a class="article-more-a" href="/2019/10/06/终身成长/#more">more >></a>
         
@@ -1270,6 +1142,93 @@ public static void pause(int t) {
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/06/终身成长/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-带父母去旅行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/06/带父母去旅行/">带父母去旅行</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#C4C5FD;font-size:14px;">
+        阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+
+        
+        <a href="/2019/10/06/带父母去旅行/" class="archive-article-date">
+  	<time datetime="2019-10-06T12:27:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>赚钱。带父母看世界。</p>
+<p>杭州之游  2019.10.2-2019.10.6</p>
+<p>买不到回来杭州的票，只买到4号的票，临时起意让父母来杭州玩。</p>
+<p>10.1 下午3点-10.2早晨6点45，只买到硬座。<br>在火车站出口，一见面妹妹朝我飞奔而来，接着妈妈看到我就哭了。心疼。<br>10.2午饭因为一碗没有吃完的面条，和妈妈发脾气。<br>10.2晚上因为担心坐轮船要花很多钱</p>
+        
+          <a class="article-more-a" href="/2019/10/06/带父母去旅行/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/旅行的意义//" class="article-tag-list-link color1">旅行的意义</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/06/带父母去旅行/">展开全文 >></a>
         </p>
       
 
@@ -1404,10 +1363,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java绘图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
@@ -1420,7 +1375,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java绘图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1432,11 +1395,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+                <a href="javascript:void(0)" class="js-tag color5">视频学习</a>
               </li>
              
               <li class="article-tag-list-item">
