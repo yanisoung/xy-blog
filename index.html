@@ -211,166 +211,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>概念<br>    保证一个类的实例全局只有一个，并提供一个全局访问点。<br>特性<br>    构造私有化</p>
-<p>实现方式 8种<br>饿汉式<br> 优点：不会产生线程问题，保证唯一单例<br> 缺点；如果不使用时调用，会导致占用资源<br> demo</p>
-<pre><code>public class HungrySingleton {
-
-private static final HungrySingleton hungrySingleton = new HungrySingleton();
-
-/**
- * 构造私有化
- */
-private HungrySingleton() {
-}
-
-public static HungrySingleton getInstance() {
-    return hungrySingleton;
-}</code></pre><p>}</p>
-<p>public class HungrySingletonThread implements Runnable {<br>    @Override<br>    public void run() {<br>        HungrySingleton instance = HungrySingleton.getInstance();<br>        System.out.println(instance);<br>    }<br>}</p>
-<p>懒汉式（线程安全/不安全）<br>线程不安全</p>
-<ul>
-<li><p>优点：节省资源</p>
-<ul>
-<li><p>缺点：有线程安全问题<br>public class LazySingleton {</p>
-<p>private static LazySingleton lazySingleton = null;</p>
-<p>private LazySingleton() {<br>}</p>
-<p>public static LazySingleton getInstance() {</p>
-<pre><code>if (null == lazySingleton) {
-    lazySingleton = new LazySingleton();
-}
-return lazySingleton;</code></pre><p>}</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>}<br>public class LazySingletonTread implements Runnable {</p>
-<pre><code>@Override
-public void run() {
-    LazySingleton laySingleton = LazySingleton.getInstance();
-    System.out.println(laySingleton);
-}</code></pre><p>}</p>
-<p>线程安全</p>
-<ul>
-<li><p>优点：节省内存资源 无线程问题</p>
-<ul>
-<li><p>缺点：性能下降 资源占用时间过长 ，会锁住整个类<br>public class LazySyncSingleton {</p>
-<p>private static LazySyncSingleton lazySingleton = null;</p>
-<p>private LazySyncSingleton() {<br>}</p>
-<p>public static synchronized LazySyncSingleton getInstance() {</p>
-<pre><code>if (null == lazySingleton) {
-    lazySingleton = new LazySyncSingleton();
-}
-return lazySingleton;</code></pre><p>}</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>}</p>
-<p>public class LazySyncSingletonTread implements Runnable {</p>
-<pre><code>@Override
-public void run() {
-    LazySyncSingleton laySingleton = LazySyncSingleton.getInstance();
-    System.out.println(laySingleton);
-}</code></pre><p>}</p>
-<p>双重锁校验<br>public class LazyDoubleCheckSyncSingleton {<br>    private static LazyDoubleCheckSyncSingleton lazySingleton = null;</p>
-<pre><code>private LazyDoubleCheckSyncSingleton() {
-}
-
-public static LazyDoubleCheckSyncSingleton getInstance() {
-    //一层校验：为了提高性能。如果将synchronized锁在方法上或是判断条件上，当有一个线程获取到锁的时候，
-    // 其他线程就会处于等待状态，进入不了内部逻辑。
-    if (null == lazySingleton) {
-        synchronized (LazyDoubleCheckSyncSingleton.class) {
-            //第二层校验 防止两个线程同时满足了第一层校验，再做一次校验，防止多次创建
-            if (null == lazySingleton) {
-                lazySingleton = new LazyDoubleCheckSyncSingleton();
-            }
-        }
-    }
-    return lazySingleton;
-}</code></pre><p>}<br>public class LazyDoubleCheckSyncSingletonTread implements Runnable {</p>
-<pre><code>@Override
-public void run() {
-    LazyDoubleCheckSyncSingleton laySingleton = LazyDoubleCheckSyncSingleton.getInstance();
-    System.out.println(laySingleton);
-}</code></pre><p>}</p>
-<p>静态内部类</p>
-<ul>
-<li>优点：性能最优。不需要使用线程，利用JVM加载静态内部类的机制保证多线程安全</li>
-<li>懒汉式单例</li>
-<li>缺点：</li>
-<li>需要注意反射破坏单例的问题 解决：在构造中直接抛异常</li>
-<li>需要注意序列化出现的问题 ： 添加readResolve方法<br>public class InnerSingleton implements Serializable, Cloneable {</li>
-</ul>
-<p>//    private static Boolean open = true;</p>
-<pre><code>private InnerSingleton() {
-    // TODO:  设置开关这种方式不行 因为私有属性也可以被反射重新赋值</code></pre><p>//        if (open) {<br>//            synchronized (InnerSingleton.class) {<br>//                if (open) {<br>//                    open = false;<br>//                }<br>//            }<br>//        } else {<br>//            throw new RuntimeException(“不可实例化”);<br>//        }</p>
-<pre><code>    //被实例化后 类就被加载到内存中，不会被重复加载
-    if (null != InnerSingletonHandle.inner) {
-        throw new RuntimeException(&quot;不可实例化&quot;);
-    }
-
-}
-
-public static InnerSingleton getInstance() {
-    return InnerSingletonHandle.inner;
-}
-
-private static class InnerSingletonHandle {
-    private static final InnerSingleton inner = new InnerSingleton();
-}
-
-/**
- * 解决反射问题
- *
- * @return
- */
-public Object readResolve() {
-    return InnerSingletonHandle.inner;
-}
-
-/**
- * 允许复制实例
- * @return
- * @throws CloneNotSupportedException
- */
-@Override
-protected Object clone() throws CloneNotSupportedException {
-    return InnerSingletonHandle.inner;
-}</code></pre><p>}<br>public class InnerSingletonTread implements Runnable {</p>
-<pre><code>@Override
-public void run() {
-    InnerSingleton laySingleton = InnerSingleton.getInstance();
-    System.out.println(laySingleton);
-}</code></pre><p>}</p>
-<p>注册式单例：枚举<br>public enum RegisterSingleton {<br>    SINGLETON;<br>    private Object object;</p>
-<pre><code>public void setObject(Object object) {
-    this.object = object;
-}
-
-public Object getObject() {
-    return object;
-}
-
-public static RegisterSingleton getInstance() {
-    return SINGLETON;
-}</code></pre><p>}<br>public class RegisterSingletonThread implements Runnable {<br>    @Override<br>    public void run() {<br>        RegisterSingleton singleton = RegisterSingleton.SINGLETON;<br>        System.out.println(singleton);<br>    }<br>}</p>
-<p>容器式单例<br>public class ContainerSingleton {<br>    private ContainerSingleton() {<br>    }</p>
-<pre><code>private static Map&lt;String, Object&gt; container = new HashMap&lt;&gt;();
-
-public static Object getBean(String className) {
-    try {
-        if (!container.containsKey(className)) {
-            Object object = Class.forName(className).newInstance();
-            container.put(className, object);
-            return object;
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    return container.get(className);
-}</code></pre><p>}</p>
-<p>public class ContainerSingletonThread implements Runnable {<br>    @Override<br>    public void run() {<br>        Object bean = ContainerSingleton.getBean(“com.xy.blog.test.model.Person”);<br>        System.out.println(bean);<br>    }<br>}</p>
-<p>ThreadLocal实现单例<br>    优点<br>    缺点<br>    demo<br>需要注意的点：预防反射、序列化、克隆破坏单例</p>
         
           <a class="article-more-a" href="/2020/07/22/设计模式之-单例/#more">more >></a>
         
@@ -554,14 +394,12 @@ public static Object getBean(String className) {
 男孩名叫本田润一，正在上中学二年级，因为某些缘故被舅舅叫做小哥白尼，后经好朋友水谷的传播，在学校中也被人称作小哥白尼。
 有一天小哥白尼跟舅舅在商场大厦的楼顶上，天淅淅沥沥的下着小雨，小哥白尼俯瞰来来往往的车辆和人群，不由得感叹人就像水分子，并以此与舅舅展开了交流，舅舅为此感到很欣慰，开始了为小哥白尼写日记的旅程。
 小哥白尼有两个要的朋友，水谷和山本。而小哥白尼所在班上却有一个不被大家所接受的同学，这位同学家里开了卖豆腐的铺子，与班上其他非富即贵家庭里长大的孩子格格不入，因此常常受到班里同学的欺负，尤其是山口经常以捉弄蒲川为乐。在一起班级演讲中，山口在班里传纸条让大家一起捉弄蒲川：让炸豆片上台演讲，炸豆皮是山口给蒲川起的外号，只因蒲川的午饭里时常有炸豆片。山本看不下去了，大声斥责山口不要欺人太甚，两人因此打了起来，被老师制止并训斥了两人。老师问清楚打架缘由后对山口进行了惩罚。
+&lt;!-- more --&gt;
 人与人之间的联系
  看似不与外界交流的生活，也无时无刻的不在于外界交流。看看房间里的桌子，椅子，茶具，电视机等等，哪个的生成离的了人们的协同工作？
  从快递-》运输-》厂家生产-》原材料的采集等等，每一环都有形形色色的人组成。
 蒲川连着一周没有来上课了，一般情况下在休息第三天时就应该会有好朋友去探望，但是蒲川估计没有朋友吧，小哥白尼想着这天放学后去看下蒲川，便随着依稀的记忆找到了蒲川的家。蒲川的家位于道路比较狭窄的巷子里，第一次来这种地方的小哥白尼仿佛来到了另外一个世界。熙熙攘攘的街道，成排挨着的店铺，各种杂货小店，蒲川家旁边还有一家鲷鱼烧。豆腐店里一个女人在招呼来往客人，小哥白尼站在旁边看着，犹豫着要不要开口，这个女人先开口喊住了他，他磕磕巴巴回答说找蒲川。正在后面炸豆片的蒲川知道后，特别开心，坚持炸完了剩下的豆片，领着小哥白尼上了楼。小哥白尼也第一次尝试了鲷鱼烧，这种妈妈平时不会让他吃的粗糙点心，蒲川教给小哥白尼操作发动机，度过了愉快的一段时光。小哥白尼随后跟两位好朋友分享了这次经历，大家一致决定于蒲川做好朋友。
 冬天来了，高年级的学生越来越看不惯低年级的学生，扬言要揍那些不懂规矩的低年级同学，而不幸的是山本正在其中，大家为此惴惴不安。一次水谷家的四人聚会上，讲起了这件事，水谷的姐姐也积极参与其中讨论，想着应对方法。蒲川提议说如果水谷挨打的话，大家就一起站出来一起扛。每个人都赞同了这个约定，大家觉得这个事也算解决了。不幸的事情终于还是发生了，在高年级同学围住水谷和山本的时候，蒲川勇敢的站了出来与他们一起，而小哥白尼却突然胆怯退缩了。最后高年级同学离去时，水谷、山本、蒲川三个人相互支撑站了起来越走越远。而小哥白尼却站在原地无法动弹，心里的懊悔悲痛侵蚀着他。回家后大病了一场，本来开朗的性格也变得郁郁寡欢，在舅舅的开导下，终于鼓起勇气给他们三人写了道歉信，期盼他们可以说点什么。最后三人原谅了他。</code></pre>
-        
-          <a class="article-more-a" href="/2020/05/18/你想活出怎样的人生/#more">more >></a>
-        
       
 
       
@@ -740,136 +578,9 @@ public static Object getBean(String className) {
     <div class="article-entry" itemprop="articleBody">
       
         <p>思考：<br>1.为什么我没有想到要提供canvasWidth和canvasHeight的get方法？而且只提供get方法？为什么不提供set方法？<br>    因为canvasWidth和canvasHeight是窗口的宽和高，给外部提供set方法之后，就可以被外部随意修改产生安全问题。<br>2.画板的部分为什么提供内部类？<br>    因为画板是这个窗口的一部分。</p>
-<p>/**</p>
-<ul>
-<li><p>入口启动</p>
-</li>
-<li><p>/<br>public static void main(String[] args) {</p>
-<p> int sceneWidth = 800;<br>  int sceneHeight = 800;<br>  int count = 10;</p>
-<p>  MyCircleRun myCircleRun = new MyCircleRun(sceneWidth, sceneHeight, count);<br>  myCircleRun.run(“我的圈圈”);<br>}</p>
-</li>
-</ul>
-<p>/**</p>
-<ul>
-<li><p>启动类</p>
-</li>
-<li><p>@Author xu yan</p>
-</li>
-<li><p>@Date 2019-11-24 18:12</p>
-</li>
-<li><p>/<br>public class MyCircleRun {<br>  /**</p>
-<ul>
-<li><p>窗口宽</p>
-</li>
-<li><p>/<br>private Integer sceneWidth;<br>/**</p>
-</li>
-<li><p>窗口高</p>
-</li>
-<li><p>/<br>private Integer sceneHeight;</p>
-<p>/**</p>
-</li>
-<li><p>要绘制的数据</p>
-</li>
-<li><p>/<br>private Circle[] circles;</p>
-<p>public MyCircleRun(int sceneWidth, int sceneHeight, int count) {<br>  this.sceneHeight = sceneHeight;<br>  this.sceneWidth = sceneWidth;</p>
-<p>  circles = new Circle[count];<br>  double r = 70;</p>
-<p>  for (int i = 0; i &lt; count; i++) {</p>
-<pre><code>//sceneWidth - 2 * r  画布的宽-直径 作为随机取值的最大值  +r是为了不让圆在画布边缘随生成
-double x = (Math.random() * (sceneWidth - 2 * r)) + r;
-double y = (Math.random() * (sceneHeight - 2 * r)) + r;
-//随机生成速度
-double vx = (Math.random() * 11) - 5;
-double vy = (Math.random() * 11) - 5;
-
-circles[i] = new Circle(x, y, r, vx, vy);</code></pre><p>  }<br>}</p>
-<p>public void run(String windowTitle) {<br>  EventQueue.invokeLater(() -&gt; {</p>
-<pre><code>MyCircleJFrame frame = new MyCircleJFrame(windowTitle, sceneWidth, sceneHeight);
-
-new Thread(() -&gt; {
-    // TODO: 2019/11/24 为什么用循环？ 不停的重新绘制
-    while (true) {
-        // 绘制数据
-        frame.render(circles);
-        AlgoVisHelper.pause(20);
-
-        // 更新数据（重新绘制后生效）
-        for (Circle circle : circles) {
-            circle.move(sceneWidth, sceneHeight);
-        }
-    }
-}).start();</code></pre><p>  });<br>}<br>}</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>/**</p>
-<ul>
-<li><p>要绘制的类</p>
-</li>
-<li><p>/<br>@Data<br>public class Circle {<br>  private double x;<br>  private double y;<br>  private double r;</p>
-<p>  private double xv;<br>  private double yv;</p>
-<p>  public Circle(double x, double y, double r, double xv, double yv) {</p>
-<pre><code>this.x = x;
-this.y = y;
-this.r = r;
-this.xv = xv;
-this.yv = yv;</code></pre><p>  }</p>
-<p>  /**</p>
-<ul>
-<li><p>移动</p>
-</li>
-<li><p>/<br>public void move(int sceneWidth, int sceneHeight) {<br>  //碰到画布边缘自动弹回来<br>  //计算最小边缘<br>  double yMin = r;<br>  double xMin = r;<br>  //计算最大边缘<br>  double yMax = sceneHeight - r;<br>  double xMax = sceneWidth - r;<br>  //移动速度可以是负的 往反方向移动<br>  if (x &gt;= xMax || x &lt;= xMin) {</p>
-<pre><code>xv = -xv;</code></pre><p>  }<br>  if (y &gt;= yMax || y &lt;= yMin) {</p>
-<pre><code>yv = -yv;</code></pre><p>  }</p>
-<p>  x += xv;<br>  y += yv;<br>}</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>}</p>
-<p>/**</p>
-<ul>
-<li>绘制工具类</li>
-<li>/</li>
-</ul>
-<p>public class AlgoVisHelper {</p>
-<pre><code>private AlgoVisHelper() {
-}
-
-public static void strokeCircle(Graphics2D g, double x, double y, double r) {
-
-    Ellipse2D circle = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
-    g.draw(circle);
-}
-
-public static void fillCircle(Graphics2D g, int x, int y, int r) {
-
-    Ellipse2D circle = new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
-    g.fill(circle);
-}
-
-public static void setColor(Graphics2D g, Color color) {
-    g.setColor(color);
-}
-
-public static void setStrokeWidth(Graphics2D g, int w) {
-    int strokeWidth = w;
-    g.setStroke(new BasicStroke(strokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-}
-
-/**
- * 绘制等待时间
- *
- * @param t
- */
-public static void pause(int t) {
-    try {
-        Thread.sleep(t);
-    } catch (InterruptedException e) {
-        System.out.println(&quot;Error sleeping&quot;);
-    }
-}</code></pre><p>}</p>
-
+        
+          <a class="article-more-a" href="/2019/11/18/java-swaing包的使用心得/#more">more >></a>
+        
       
 
       
@@ -962,7 +673,6 @@ public static void pause(int t) {
     <div class="article-entry" itemprop="articleBody">
       
         <p>2019.11.2<br>如何更迅速的学习？<br>1.掌握8020原则：只专注于完成一两件事<br>    怎么明确做事的目标？怎么确定在做的事就是围绕这两件事的<br>2.番茄工作法 ： 培养注意力<br>3.从实践中学习总结<br>4.坚持不懈<br>5.充足的睡眠,有利于大脑更好的休息和学习接受新知识</p>
-<p>比尔盖茨的阅读方法<br>比尔盖茨：当你阅读足够多的书，你就会发现事物之间都是关联的。<br>1.你需要建立一个自己的知识框架，学习知识的时候只需要将知识填充进这个框架。<br>    如何建立知识框架？<br>2.如果你阅读的书足够多，就会发现有些事物又是相反的看法，所以需要你弄明白这是为什么。<br>3.学习科学知识的时候，最后读一下历史名人的传记，学习一下他们在遇到问题时是如何解决和洞察问题的。</p>
         
           <a class="article-more-a" href="/2019/11/02/视频学习/#more">more >></a>
         
@@ -1331,11 +1041,9 @@ public static void pause(int t) {
       
         <p>2019.10.16<br>同样的代码，我已经麻木了，不会去想为什么会这样做，这样做到底是否合理。<br>以及沟通过程中，遇到前辈向我解释或者交代问题时，听到某个不太明白的问题或者述求时候，脑袋中的第一反应，他说的是这个？然后就根据自己脑中的想法去回答。这样往往导致了我可能没有真正理解前辈所表达的意思，就脑补了他想问的可能是这个，根据这个去回答。我需要改进的点是，在遇到不太明白的问题或者述求时，第一反应不是去回答，而是先反问，是这样吗？是那样吗？我理解的对吗？</p>
 <p>第一次自己去学习新东西并且立马就应用，出错是肯定的。我总是需要一个熟悉的过程。从陌生到熟悉，磕磕绊绊，这个过程是怎么都少不了的。</p>
-<p>2019.10.12</p>
-<p>一切都只是过程，而不是目的。你所经历的一切，都不过是别人已经经历过或者在经历的，仅此而已。</p>
-<p>待成长点：<br>1.考虑不周全，没有想清楚就慌张开始了。<br>一定要三思而后行！！<br>一定要知道自己在做什么说了什么！！<br>再紧急的情况也要努力做到冷静！！<br>2.沟通要到细节，哪怕麻烦点也要沟通清楚，有疑问一定要问清楚。<br>3.一定要学会自己思考，不要别人说什么就是什么！要分清楚厉害关系！<br>4.不要带有色眼光去看待别人，努力做到成长型思维。</p>
-<p>值得表扬的点：<br>1.比以前镇定了不少。<br>2.心理素质提高了不少。<br>3.承受能力也提高了。</p>
-
+        
+          <a class="article-more-a" href="/2019/10/13/成长日记/#more">more >></a>
+        
       
 
       
@@ -1524,11 +1232,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自增</a>
+                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
+                <a href="javascript:void(0)" class="js-tag color3">自增</a>
               </li>
              
               <li class="article-tag-list-item">
