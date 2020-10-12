@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="白崽儿世界">
 <meta property="og:description" content="一直以来都想维护一个自己的小博客，抒发情感也好，记录生活也好，整理学习笔记也好，遂开始了解各种博客：自己开发维护一整套网站或是使用现在已有的博客网站，例如 CSDN。原来是想独立开发一个完整的博客，后来发现维护成本太高，遂寻找替代方案。我是那种又想自己维护一个博客的生命周期，又不想太过操心的人，自己开发维护一套网站成本都太大了，CSDN 又满足不了我想对博客做自定义，最后了解到 hexo，既不需要">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-10-11T15:30:43.498Z">
+<meta property="og:updated_time" content="2020-10-12T15:43:39.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo + github +语雀 搭建一个属于自己的博客">
 <meta name="twitter:description" content="一直以来都想维护一个自己的小博客，抒发情感也好，记录生活也好，整理学习笔记也好，遂开始了解各种博客：自己开发维护一整套网站或是使用现在已有的博客网站，例如 CSDN。原来是想独立开发一个完整的博客，后来发现维护成本太高，遂寻找替代方案。我是那种又想自己维护一个博客的生命周期，又不想太过操心的人，自己开发维护一套网站成本都太大了，CSDN 又满足不了我想对博客做自定义，最后了解到 hexo，既不需要">
@@ -225,7 +225,7 @@
 
 <p>**</p>
 <h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>我们现在已经有 github 账号了，还需要拥有一个可以存放博客的仓库，所以这里我们需要配置一下 github pages。什么？ ！你还不会用 github！去官网学一波再回来：<a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a>。什么？！官方操作看不懂？那百度会吧? 贴心的我已经为你们准备好了步骤，请结合官方教程食用     ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.登录github,点击右上角头像，选择 Your projects，进入仓库页面</span><br><span class="line">2.点击页面上的 New 按钮，进入新建仓库页面，这里可结合官方教程一起看</span><br><span class="line">3.在Repository name中输入你的想叫的博客名，以github.io为后缀，例如我的是 my-blog.github.io</span><br><span class="line">4.接下来选择仓库私有还是公共，私有：private  公共:public，这里我们先选择public</span><br><span class="line">5.其他选项 大家可以自由添加，这里我们先不填</span><br><span class="line">6.点击create repository，我们的公共仓库也就创建好了</span><br><span class="line">7.按照以上步骤，大家再创建一个私有仓库，私有仓库命名只要标识清楚即可</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.登录github,点击右上角头像，选择 Your projects，进入仓库页面</span><br><span class="line">2.点击页面上的 New 按钮，进入新建仓库页面，这里可结合官方教程一起看</span><br><span class="line">3.在Repository name中输入你的想叫的博客名，以github.io为后缀，例如我的是 my-blog.github.io</span><br><span class="line">	如果你希望你的站点能通过 &lt;你的 GitHub 用户名&gt;.github.io 域名访问，你的 repository 应该直接命名为 &lt;你的 GitHub 用户名&gt;.github.io</span><br><span class="line">4.接下来选择仓库私有还是公共，私有：private  公共:public，这里我们先选择public</span><br><span class="line">5.其他选项 大家可以自由添加，这里我们先不填</span><br><span class="line">6.点击create repository，我们的公共仓库也就创建好了</span><br><span class="line">7.按照以上步骤，大家再创建一个私有仓库，私有仓库命名只要标识清楚即可</span><br></pre></td></tr></table></figure>
 
 <p><strong>注意：我们需要准备两个仓库，一个私有，一个公开，私有的仓库用来存放博客源码，公共的仓库用来存放博客的静态资源，用于给大家展示我们的博客。</strong><br>**</p>
 <h3 id="clone-仓库到本地"><a href="#clone-仓库到本地" class="headerlink" title="clone 仓库到本地"></a>clone 仓库到本地</h3><h4 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.要访问我们的仓库就需要依靠git，安装git可以参考下hexo官方文档中提到的下载方式(https://hexo.io/zh-cn/docs)，这里我们可以直接从官网下载，根据自己电脑系统来选择对应的git版本：https://git-scm.com/downloads，两种方式都可以，直接从官网下载可能会很慢</span><br><span class="line">2.这里以Windows10为例，git下载完毕后，运行git.exe文件 选择安装路径，一路安装默认选择 安装就可以了。</span><br><span class="line">3.git安装好后，需要在电脑中配置环境变量，这里还是以Windows10为例，mac或其他操作系统大家可以自行百度:</span><br><span class="line">  1&gt;在桌面上右键单击计算机图标。</span><br><span class="line">  2&gt;从上下文菜单中选择属性。</span><br><span class="line">  3&gt;单击高级系统设置链接。</span><br><span class="line">  4&gt;单击环境变量。在系统变量部分中，找到并选择 PATH 环境变量。单击编辑。如果 PATH 环境变量不存在，请单击新建。</span><br><span class="line">  5&gt;在编辑系统变量（或新建系统变量）窗口中，指定 PATH 环境变量的值，这里我们制定的环境变量的值就是你安装的git目录，需要指定到bin文件夹，以我的举例：</span><br><span class="line">  		D:\develop\Git\bin。单击确定。通过单击确定关闭所有剩余窗口。</span><br><span class="line">  6&gt;打开命令提示符窗口，输入 git --version 回车,如果窗口输出了git 版本，则表示安装成功</span><br></pre></td></tr></table></figure>
@@ -235,7 +235,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.登录github,进入你上一步创建的公共仓库页面，例如我的仓库页面：https://github.com/yanisoung/xy-blog.github.io，在这个页面上找到code按钮，这里选择HTTPS方式clone,复制一下https链接，例如我的链接是：https://github.com/yanisoung/xy-blog.github.io</span><br><span class="line">2.在d盘新建一个文件夹命名为mylog（此处以我的为例），进入新建的空文件夹内</span><br><span class="line">3.在文件夹内右键，选择 Git Bash here</span><br><span class="line">4.在打开窗口内，输入以下命令回车</span><br><span class="line">git clone 你刚才复制的https链接</span><br><span class="line">例如我的就是：</span><br><span class="line">git clone https://github.com/yanisoung/xy-blog.github.io.git</span><br><span class="line">5.在clone的过程中会让你输入github的用户名和密码，遇到这种情况直接填写即可</span><br></pre></td></tr></table></figure>
 
 <h2 id="二：本地安装-hexo"><a href="#二：本地安装-hexo" class="headerlink" title="二：本地安装 hexo"></a>二：本地安装 hexo</h2><p>好了，现在我们已经将仓库的代码 clone 到本地了，是不是顿时觉得有那么点意思了，别急，让我们来了解一下 hexo，奉上 hexo 官网：<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/index.html</a>。<br>给大家提个醒，一定要先从官网了解起，官网上对于 hexo 的玩法和介绍已经很丰富了，网上那些教你如何玩 hexo 的，大部分都是从官网 copy 过去的，官方文档实在看不懂的，再去百度。不要问我为什么知道，都是血泪史啊。<strong>一定要看官网！一定要看官网！一定要看官网！重要的事情说三遍！**</strong></p>
-<h3 id="二：在本地构建博客"><a href="#二：在本地构建博客" class="headerlink" title="二：在本地构建博客"></a>二：在本地构建博客</h3><h4 id="安装-node"><a href="#安装-node" class="headerlink" title="安装 node"></a>安装 node</h4><p>安装 hexo 之前，我们需要安装一下 node.js(Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)，大家可以自行去官网下载：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download</a>，或者参考 hexo 官方文档提供的下载方式。<br>安装的时候选择一下路径，其他直接点下一步就可以了。<br>安装完成后，打开命令提示符，也就是 cmd 窗口，输入 node -v ，来验证是否安装成功，如果可以看到 node 的安装版本既表示安装成功。</p>
+<h4 id="安装-node"><a href="#安装-node" class="headerlink" title="安装 node"></a>安装 node</h4><p>安装 hexo 之前，我们需要安装一下 node.js(Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)，大家可以自行去官网下载：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download</a>，或者参考 hexo 官方文档提供的下载方式。<br>安装的时候选择一下路径，其他直接点下一步就可以了。<br>安装完成后，打开命令提示符，也就是 cmd 窗口，输入 node -v ，来验证是否安装成功，如果可以看到 node 的安装版本既表示安装成功。</p>
 <h4 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h4><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo，安装 hexo 有两种安装方式，一种是全局安装方式 既安装一次即可随意使用，一种是局部安装，只安装在指定目录，其他地方如需要使用 hexo，还需要重新安装，这里选择全局安装。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">安装方式：打开命令提示符窗口，执行下面的命令，全局和局部安装，选择其一即可</span><br><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">$ npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 局部安装</span></span><br><span class="line">$ npm install hexo</span><br><span class="line"></span><br><span class="line">需要说明一点的是，如果选择局部安装，需要将 Hexo 所在的目录下的 node_modules 添加到环境变量之中即可直接使用 hexo &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
 
@@ -250,17 +250,111 @@
 <p>4.执行完上面的命令后，本地博客就建成了，执行下面的命令，访问这个链接 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 就可以看到你的博客长什么样了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo server</span><br></pre></td></tr></table></figure>
 
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p>使用 hexo 需要我们熟悉一下常用的命令，之后就会用得到。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理生成的静态文件 也就是清理掉public文件夹以其下所有内容</span></span><br><span class="line">hexo clea</span><br><span class="line"><span class="comment"># 重新编译生成静态文件 也就是生成public文件夹</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 本地服务启动 主要用于本地调试博客</span></span><br><span class="line">hexo server</span><br><span class="line"><span class="comment"># 上传博客到github，也就是将public文件夹下的所有内容上传到github</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line">这些命令可以连起来一起用</span><br></pre></td></tr></table></figure>
+<h3 id="三：hexo-gitbub-部署博客"><a href="#三：hexo-gitbub-部署博客" class="headerlink" title="三：hexo+gitbub 部署博客"></a>三：hexo+gitbub 部署博客</h3><p>到目前为止我们，这边都还是在本地查看和部署博客，怎么才能分享给网络的人呢？<br><strong>1.安装 **[</strong>hexo-deployer-git<strong>](<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">https://github.com/hexojs/hexo-deployer-git</a>)</strong>。**</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-deployer-git</span> <span class="bullet">--save</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="寻找自己喜欢的博客主题"><a href="#寻找自己喜欢的博客主题" class="headerlink" title="寻找自己喜欢的博客主题"></a>寻找自己喜欢的博客主题</h4><p>如果不喜欢默认的博客主题，可以去官网主题下面看看，各种主题任君挑选：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes</a> 1.首先找到喜欢的主题，点进去看 demo，在博客中找到作者的 github，一般在 github 中都会有作者提供的主题仓库，下载 zip 包。</p>
+<p><strong>2.修改_conift.yml</strong><br>打开根目录下的_conift.yml 文件，不是主题里的_conift.yml，添加下面一段配置，如果已经存在配置，则需要修改为你自己的 git 仓库</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">修改为你的仓库地址</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span> <span class="comment">#published 分支</span></span><br><span class="line"><span class="attr">  message:</span> <span class="string">"<span class="template-variable">&#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.推送博客至仓库</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">&amp;&amp;</span> <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.设置仓库显示分支</strong><br>登入 Github，在库设置（Repository Settings）中将默认分支设置为<code>_config.yml</code>配置中的分支名称。</p>
+<p><strong>5.访问线上博客</strong><br>在浏览器里访问 &lt;你的 GitHub 用户名&gt;.github.io，即可看到你的博客，可以将这个链接分享给朋友，让朋友也访问你的博客。<br>例如我的仓库名是 my-blog.github.io ，直接在浏览器里访问  my-blog.github.io 即可。</p>
+<h3 id="四：语雀文档同步到-hexo"><a href="#四：语雀文档同步到-hexo" class="headerlink" title="四：语雀文档同步到 hexo"></a>四：语雀文档同步到 hexo</h3><p>我们这里使用<a href="https://github.com/x-cold/yuque-hexo" target="_blank" rel="noopener">yuque-hexo</a>插件将语雀文档同步到 hexo，官网：<a href="https://github.com/x-cold/yuque-hexo" target="_blank" rel="noopener">https://github.com/x-cold/yuque-hexo</a>，还是那句话，先看官网，按照官网流程走，实在不懂再回来！！！！<br><strong>1.创建文档库 &amp;&amp; 获取语雀 token</strong></p>
+<ul>
+<li>首先注册语雀账号，语雀官网：<a href="https://www.yuque.com/" target="_blank" rel="noopener">https://www.yuque.com/</a></li>
+<li>登录语雀账号，新建一个文档库</li>
+<li>在语雀上点击 个人头像 -&gt; 设置 -&gt; Token 即可获取</li>
+</ul>
+<p>**<br><strong>2.配置 yuque-hexo</strong></p>
+<ul>
+<li><strong>在根目录下的 package.json 中添加以下配置</strong><ul>
+<li>adapter 使用 hexo 和 markdown 都可以，我这里推荐使用 markdown，经过我自己测试 markdown 对 front-matter 支持的更好</li>
+<li>login 和 repo 可以点击 个人头像 -&gt; 设置 -&gt; Token 即可获取</li>
+<li>login 和 repo 可以从 你的仓库路径中获取，例如我的 仓库路径 ：<a href="https://www.yuque.com/jinjidexiaobai/myblog" target="_blank" rel="noopener">https://www.yuque.com/jinjidexiaobai/myblog</a> ,其中 jinjidexiaobai 就是我的 login，myblog 就是我的 repo</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"yuqueConfig"</span>: &#123;</span><br><span class="line">    <span class="string">"baseUrl"</span>: <span class="string">"https://www.yuque.com/api/v2"</span>,</span><br><span class="line">    <span class="string">"login"</span>: <span class="string">"替换成你的语雀login"</span>,  <span class="comment">#jinjidexiaobai</span></span><br><span class="line">    <span class="string">"repo"</span>: <span class="string">"替换成你的语雀仓库短名"</span>,  <span class="comment">#myblog</span></span><br><span class="line">    <span class="string">"mdNameFormat"</span>: <span class="string">"title"</span>,</span><br><span class="line">    <span class="string">"postPath"</span>: <span class="string">"source/_posts/yuque"</span>,</span><br><span class="line">    <span class="string">"cachePath"</span>: <span class="string">"yuque.json"</span>,</span><br><span class="line">    <span class="string">"adapter"</span>: <span class="string">"markdown"</span>,</span><br><span class="line">    <span class="string">"token"</span>: <span class="string">"语雀toke"</span>,</span><br><span class="line">    <span class="string">"onlyPublished"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"onlyPublic"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">   <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"clean"</span>: <span class="string">"hexo clean"</span>,</span><br><span class="line">    <span class="string">"clean:yuque"</span>: <span class="string">"yuque-hexo clean"</span>,</span><br><span class="line">    <span class="string">"deploy"</span>: <span class="string">"yuque-hexo sync &amp;&amp; hexo deploy"</span>,</span><br><span class="line">    <span class="string">"publish"</span>: <span class="string">"npm run clean &amp;&amp; npm run deploy"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"hexo s"</span>,</span><br><span class="line">    <span class="string">"sync"</span>: <span class="string">"yuque-hexo sync"</span>,</span><br><span class="line">    <span class="string">"reset"</span>: <span class="string">"npm run clean:yuque &amp;&amp; npm run sync"</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"yuque-hexo"</span>: <span class="string">"^1.6.5"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>postPath</td>
+<td>文档同步后生成的路径</td>
+<td>source/_posts/yuque</td>
+</tr>
+<tr>
+<td>cachePath</td>
+<td>文档下载缓存文件</td>
+<td>yuque.json</td>
+</tr>
+<tr>
+<td>mdNameFormat</td>
+<td>文件名命名方式 (title / slug)</td>
+<td>title</td>
+</tr>
+<tr>
+<td>adapter</td>
+<td>文档生成格式 (hexo/markdown)</td>
+<td>hexo</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>下载文章并发数</td>
+<td>5</td>
+</tr>
+<tr>
+<td>baseUrl</td>
+<td>语雀 API 地址</td>
+<td>-</td>
+</tr>
+<tr>
+<td>login</td>
+<td>语雀 login (group), 也称为个人路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>repo</td>
+<td>语雀仓库短名称，也称为语雀知识库路径</td>
+<td>-</td>
+</tr>
+<tr>
+<td>onlyPublished</td>
+<td>只展示已经发布的文章</td>
+<td>false</td>
+</tr>
+<tr>
+<td>onlyPublic</td>
+<td>只展示公开文章</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<ul>
+<li>*<em>首次发布时 需要在你本地仓库内执行以下命令安装 yuque-hexo *</em></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g yuque-hexo</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">npm i --save-dev yuque-hexo</span><br></pre></td></tr></table></figure>
+
+<p>*<em>3.常用命令     *</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同步语雀的文档到本地</span></span><br><span class="line">yuque-hexo sync</span><br><span class="line"><span class="comment">#  清理语雀文档</span></span><br><span class="line">yuque-hexo clean</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>使用 hexo 需要我们熟悉一下常用的命令，之后就会用得到。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成文章 会在source文件夹下生成 文章名.md</span></span><br><span class="line">hexo new <span class="string">"文章名"</span></span><br><span class="line"><span class="comment"># 清理生成的静态文件 也就是清理掉public文件夹以其下所有内容</span></span><br><span class="line">hexo clea</span><br><span class="line"><span class="comment"># 重新编译生成静态文件 也就是生成public文件夹</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 本地服务启动 主要用于本地调试博客</span></span><br><span class="line">hexo server</span><br><span class="line"><span class="comment"># 上传博客到github，也就是将public文件夹下的所有内容上传到github</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line">这些命令可以连起来一起用</span><br></pre></td></tr></table></figure>
+
+<h1 id="寻找自己喜欢的博客主题"><a href="#寻找自己喜欢的博客主题" class="headerlink" title="寻找自己喜欢的博客主题"></a>寻找自己喜欢的博客主题</h1><p>如果不喜欢默认的博客主题，可以去官网主题下面看看，各种主题任君挑选：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes</a> 1.首先找到喜欢的主题，点进去看 demo，在博客中找到作者的 github，一般在 github 中都会有作者提供的主题仓库，下载 zip 包。</p>
 <ul>
 <li>这里以 blur 主题为例，主题 demo：<a href="https://kiten46087.github.io/" target="_blank" rel="noopener">https://kiten46087.github.io/</a>，在 demo 中找到 github 相关标识的东西，点击进入 github。</li>
 <li>在作者的仓库列表中找到<a href="https://github.com/kiten46087/hexo-theme-blur" target="_blank" rel="noopener">hexo-theme-blur</a>，点击进入仓库详情页</li>
 <li>下载主题的 zip 包到本地</li>
 </ul>
-<p>2.只要在  themes  文件夹内，新增一个任意名称的文件夹，并修改  _config.yml  内的  theme  设定，即可切换主题</p>
-<h3 id="三：hexo-gitbub-部署博客"><a href="#三：hexo-gitbub-部署博客" class="headerlink" title="三：hexo+gitbub 部署博客"></a>三：hexo+gitbub 部署博客</h3><h3 id="四：语雀文档同步到-hexo"><a href="#四：语雀文档同步到-hexo" class="headerlink" title="四：语雀文档同步到 hexo"></a>四：语雀文档同步到 hexo</h3><p>**</p>
+<p>2.只要在  themes  文件夹内，新增一个任意名称的文件夹，并修改  _config.yml  内的  theme  设定，即可切换主题<br>**</p>
 
       
 
@@ -386,7 +480,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/11/yuque/成功日记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/12/yuque/成功日记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
