@@ -194,14 +194,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-java" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-yuque/hexo 踩过的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/01/java/">java</a>
+      <a class="article-title" href="/2019/09/21/yuque/hexo 踩过的坑/">hexo 踩过的坑</a>
     </h1>
   
 
@@ -211,8 +211,8 @@
         </a>
 
         
-        <a href="/2019/09/01/java/" class="archive-article-date">
-  	<time datetime="2019-09-01T08:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+        <a href="/2019/09/21/yuque/hexo 踩过的坑/" class="archive-article-date">
+  	<time datetime="2019-09-21T14:11:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
 </a>
 
         
@@ -220,21 +220,108 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>基本数据的基本类型以及占得字节数？
-byte     1字节                short    2字节
-int      4字节                long     8字节
-char     2字节
-float    4字节                double   8字节
-boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
-
-
-其他数据类型转String的多种方式？
-1.先把基本数据类型装箱，再用对象的toString()方法
-2.String类的valueOf方法 
-3.加一个””来实现自动转型
-4.如果是数组的话，通过构造方法可以直接把数组转换为字符串</code></pre>
+        <p>* 最近在使用 hexo d 时一直报下面的错误：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access <span class="string">'https://github.com/yanisoung/xy-blog.github.io/'</span>: Failed to connect to github.com port <span class="number">443</span>: Timed out</span><br><span class="line">FATAL Something<span class="string">'s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string">Error: Spawn failed</span></span><br><span class="line"><span class="string">    at ChildProcess.&lt;anonymous&gt; (D:\develop\hexo-home\node_modules\hexo-util\lib\spawn.js:52:19)</span></span><br><span class="line"><span class="string">    at ChildProcess.emit (events.js:198:13)</span></span><br><span class="line"><span class="string">    at ChildProcess.cp.emit (D:\develop\hexo-home\node_modules\cross-spawn\lib\enoent.js:40:29)</span></span><br><span class="line"><span class="string">    at Process.ChildProcess._handle.onexit (internal/child_process.js:248:12)</span></span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2019/09/01/java/#more">more >></a>
+          <a class="article-more-a" href="/2019/09/21/yuque/hexo 踩过的坑/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/code//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/21/yuque/hexo 踩过的坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yuque/实现自己的HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/21/yuque/实现自己的HashMap/">实现自己的HashMap</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        </a>
+
+        
+        <a href="/2019/09/21/yuque/实现自己的HashMap/" class="archive-article-date">
+  	<time datetime="2019-09-21T12:35:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HsahMap1.7jdk 原理分析：<a href="https://www.jianshu.com/p/068b6d25b593" target="_blank" rel="noopener">https://www.jianshu.com/p/068b6d25b593</a></p>
+<ul>
+<li>HashMap 中重要的概念：<br>初始化容量直： 1 &lt;&lt; 4 map 的初始化容量<br>最大容量值：1 &lt;&lt; 30 map 可容纳的最大容量<br>扩容因子 ： 0.75   即容量已达到该设置条件,put 时会进行扩容<br>扩容阈值：扩容阈值=容量(table 的 size)*扩容因子<br>size:map 中存储的键值对的数量<br>table：存储实体<br>实际扩容因子：创建时可由有参构造给出<br>实际容量：创建时可由有参构造给出<br>扩容次数：可限制扩容</li>
+<li>key 允许为 null,存储时 key 为 Null,在 table 中的下标为 0.取值时从 table[0]中获取链表，查找链表中 k 为 null 的节点。</li>
+<li>HashMap 使用数组+链表的形式实现的，通过计算 key 的 hash 值获取 key 在数组中对应的下标，添加新的节点到该下标的链表中。</li>
+<li>取值时，通过计算 key 的 hash 值获取 key 在数组中对应的下标，获取该下标上的链表，通过 eques 方法从链表中找到对应的 value。
+        
+          <a class="article-more-a" href="/2019/09/21/yuque/实现自己的HashMap/#more">more >></a>
         
       
 
@@ -273,7 +360,7 @@ boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/01/java/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/21/yuque/实现自己的HashMap/">展开全文 >></a>
         </p>
       
 
@@ -303,14 +390,14 @@ boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
 
 
   
-    <article id="post-把时间当作朋友" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-拥抱变化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/01/把时间当作朋友/">把时间当作朋友</a>
+      <a class="article-title" href="/2019/09/16/拥抱变化/">拥抱变化</a>
     </h1>
   
 
@@ -320,7 +407,281 @@ boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
         </a>
 
         
-        <a href="/2019/09/01/把时间当作朋友/" class="archive-article-date">
+        <a href="/2019/09/16/拥抱变化/" class="archive-article-date">
+  	<time datetime="2019-09-16T12:19:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2019.9.16<br>    虽然已经预料到了，可是真正得知的时候还是惊了一下。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ilke//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/16/拥抱变化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-无法言喻的一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/02/无法言喻的一天/">无法言喻的一天</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        </a>
+
+        
+        <a href="/2019/09/02/无法言喻的一天/" class="archive-article-date">
+  	<time datetime="2019-09-02T14:56:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>无法形容此时此刻的心情，比上坟还沉重。</li>
+<li>午饭点了很久没吃的麻辣烫，想让那酸酸辣辣的感觉淹没掉已经有些麻木的喉咙，想要辣的刺啦刺啦留口水，擦擦鼻涕继续喝一口辣的销魂的汤，或许这样才会让我已经失去灵魂的身体恢复一点神经。</li>
+<li>奈何，生活又一次给我上了一课。小哥将我的外卖送错了人。看着站在雨中不断对我抱歉的小哥，满心的埋怨与不耐烦都说不出口，只道了句没关系，就接过小哥递来的麻辣烫，看到塑料袋封口季的挺好，还蛮心的以为拿错的人没有吃这份我心心念念的麻辣烫，心里暗道了一声开心，毕竟等待了那么久。跟小哥道了别提着麻辣烫往回走，上了楼才发现麻辣烫的包装已经拆了，汤盒旁边沾满了惹人的酸酸辣辣的汤汁，本该有的一次性餐具也了无踪影，那张订单也不见了踪影，顿时心下一沉，这怎么看都是被人吃过了。打开餐盖，果不其然，点的食材已所剩无几，唯有满盒的汤汁告诉我这曾经是一份怎么样美味的麻辣烫。霎时，心里委屈极了。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/09/02/无法言喻的一天/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">碎碎念</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ilke//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/02/无法言喻的一天/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yuque/java面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/yuque/java面试题/">java面试题</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        </a>
+
+        
+        <a href="/2019/09/01/yuque/java面试题/" class="archive-article-date">
+  	<time datetime="2019-09-01T08:42:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基本数据的基本类型以及占得字节数？<br>       byte     1 字节                short    2 字节<br>       int      4 字节                long     8 字节<br>       char     2 字节<br>       float    4 字节                double   8 字节<br>       boolean  false/true(理论上占用 1bit,1/8 字节，实际处理按 1byte 处理)<br>        其他数据类型转 String 的多种方式？<br>       1.先把基本数据类型装箱，再用对象的 toString()方法<br>       2.String 类的 valueOf 方法<br>       3.加一个””来实现自动转型<br>       4.如果是数组的话，通过构造方法可以直接把数组转换为字符串</p>
+        
+          <a class="article-more-a" href="/2019/09/01/yuque/java面试题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/code//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/01/yuque/java面试题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yuque/把时间当作朋友" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/yuque/把时间当作朋友/">把时间当作朋友</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        </a>
+
+        
+        <a href="/2019/09/01/yuque/把时间当作朋友/" class="archive-article-date">
   	<time datetime="2019-09-01T08:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
 </a>
 
@@ -329,7 +690,10 @@ boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
+
+<p><strong>我的博客地址：</strong><a href="https://yanisyoung.com/"><strong>https://yanisyoung.com/</strong></a></p>
+
       
 
       
@@ -367,7 +731,7 @@ boolean  false/true(理论上占用1bit,1/8字节，实际处理按1byte处理)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/01/把时间当作朋友/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/01/yuque/把时间当作朋友/">展开全文 >></a>
         </p>
       
 
@@ -595,11 +959,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
+                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,11 +983,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">观影日记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,27 +1011,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">文学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
               </li>
             
             <div class="clearfix"></div>
