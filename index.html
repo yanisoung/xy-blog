@@ -201,7 +201,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/25/yuque/每周计划及反馈/">每周计划及反馈</a>
+      <a class="article-title" href="/2020/10/26/yuque/每周计划及反馈/">每周计划及反馈</a>
     </h1>
   
 
@@ -211,8 +211,8 @@
         </a>
 
         
-        <a href="/2020/10/25/yuque/每周计划及反馈/" class="archive-article-date">
-  	<time datetime="2020-10-25T15:38:01.079Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/2020/10/26/yuque/每周计划及反馈/" class="archive-article-date">
+  	<time datetime="2020-10-26T12:54:59.133Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-26</time>
 </a>
 
         
@@ -222,7 +222,7 @@
       
         <p>用于制定每周计划，以及完成情况。自己是个懒惰的人，将自己的计划放置到网上，无形中也会起到一部分监督的作用，只希望可以坚持的久点，再久点，再久点！</p>
         
-          <a class="article-more-a" href="/2020/10/25/yuque/每周计划及反馈/#more">more >></a>
+          <a class="article-more-a" href="/2020/10/26/yuque/每周计划及反馈/#more">more >></a>
         
       
 
@@ -257,7 +257,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/25/yuque/每周计划及反馈/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/26/yuque/每周计划及反馈/">展开全文 >></a>
         </p>
       
 
@@ -294,7 +294,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/25/yuque/成功日记/">成功日记</a>
+      <a class="article-title" href="/2020/10/26/yuque/成功日记/">成功日记</a>
     </h1>
   
 
@@ -304,8 +304,8 @@
         </a>
 
         
-        <a href="/2020/10/25/yuque/成功日记/" class="archive-article-date">
-  	<time datetime="2020-10-25T15:38:01.026Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/2020/10/26/yuque/成功日记/" class="archive-article-date">
+  	<time datetime="2020-10-26T12:54:59.062Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-26</time>
 </a>
 
         
@@ -315,7 +315,7 @@
       
         <p>仅此记录每天印象深刻的点点滴滴，或悲伤或快乐或开心或难过，等回过头看时，自己竟然走过了那样的岁月，但愿可以成为生活的见证~</p>
         
-          <a class="article-more-a" href="/2020/10/25/yuque/成功日记/#more">more >></a>
+          <a class="article-more-a" href="/2020/10/26/yuque/成功日记/#more">more >></a>
         
       
 
@@ -350,7 +350,113 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/25/yuque/成功日记/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/26/yuque/成功日记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yuque/设计模式 之 代理模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>代理模式分为两种 静态代理，动态代理。</strong><br><strong>代理中的角色：     代理类，目标方法，目标类</strong></p>
+<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>静态代理是由我们自己编写的代理类，代理类中指定引用的真实对象，使用真实对象去执行接口，在编译时期就确定了。</p>
+<h4 id="优点和缺点"><a href="#优点和缺点" class="headerlink" title="优点和缺点"></a>优点和缺点</h4><p><strong>优点：</strong> 1.因为是我们手动编写的代理类，可控性好，可针对指定接口做扩展，例如增加日志或是数据统计等。 2.避免了生成大对象，造成资源浪费<br><strong>缺点</strong>： 1.手动编写 维护等成本增加，如果有多个类需要代理，则维护成本更增加。 2.代码耦合度高，不利于通用性。</p>
+<h4 id="dome"><a href="#dome" class="headerlink" title="dome"></a>dome</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接口类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Bai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020-10-26 14:25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">(String msg)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 真实对象：被代理对象</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Bai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020-10-26 14:25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceImpl</span> <span class="keyword">implements</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"向大家say"</span> + msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 代理类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Bai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020-10-26 14:26</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceProxy</span> <span class="keyword">implements</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 真实引用对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> HelloService target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HelloServiceProxy</span><span class="params">(HelloService target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"say proxy 开始"</span>);</span><br><span class="line">        target.say(msg);</span><br><span class="line">        System.out.println(<span class="string">"say proxy 结束"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      HelloService helloService = <span class="keyword">new</span> HelloServiceImpl();</span><br><span class="line">      HelloServiceProxy proxy = <span class="keyword">new</span> HelloServiceProxy(helloService);</span><br><span class="line">      proxy.say(<span class="string">"hello world"</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">执行结果</span><br><span class="line"></span><br><span class="line">say proxy 开始</span><br><span class="line">向大家sayhello world</span><br><span class="line">say proxy 结束</span><br></pre></td></tr></table></figure>
+
+<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h2><p>动态代理有种实现方式，JDK 动态代理和 CGLB。JDK 动态代理 主要是 java.lang.reflect 包下的类，实现 jdk 动态代理需要实现 InvocationHandler。CGLB 是第三方字节码处理库，它的底层是基于 ASM 框架来处理字节码实现代理的。</p>
+<h3 id="JDK-动态代理"><a href="#JDK-动态代理" class="headerlink" title="JDK 动态代理"></a>JDK 动态代理</h3><h4 id="原理-todo"><a href="#原理-todo" class="headerlink" title="原理 todo"></a>原理 todo</h4><p>主要基于 java.lang.reflect.Proxy 和 java.lang.reflect.InvocationHandler 来实现动态代理，所有生成的代理类都继承于 Proxy，InvocationHandler 是一个接口，类似于调用处理器，我们自己在实现动态代理时都必须要实现 java.lang.reflect.InvocationHandler。<br>反射是 JDK 动态代理的一种实现方式。</p>
+<h4 id="优点和缺点-todo"><a href="#优点和缺点-todo" class="headerlink" title="优点和缺点 todo"></a>优点和缺点 todo</h4><p><strong>优点：</strong> 1.不需要手动编写代理类，运行时会自动生成代理类<br><strong>缺点</strong>： 1.被代理的类 必须要实现接口，没有实现接口或是抽象类的 类 无法被代理</p>
+<h4 id="dome-1"><a href="#dome-1" class="headerlink" title="dome"></a>dome</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * JDK动态代理handler</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Bai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020-10-26 14:52</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 真实对象：被代理的对象引用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> proxy  代理类</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> method 目标方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args   入参</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Throwable</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"MyInvocationHandler#invoke start"</span>);</span><br><span class="line">        <span class="comment">//两者执行有何区别？target or proxy</span></span><br><span class="line">        <span class="comment">//proxy 会造成死循环，猜测可能是因为invoke内部实现 需要生成proxy的实例，去调用proxy实例的invoke,就会造成循环调用</span></span><br><span class="line"><span class="comment">//        Object invoke = method.invoke(proxy, args);</span></span><br><span class="line">        Object invoke = method.invoke(target, args);</span><br><span class="line">        System.out.println(<span class="string">"MyInvocationHandler#invoke end"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取代理对象</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), target.getClass().getInterfaces(), <span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * jdk动态代理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jdkProxyTest</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">//真实对象</span></span><br><span class="line">        HelloService helloService = <span class="keyword">new</span> HelloServiceImpl();</span><br><span class="line">        <span class="comment">//代理handler</span></span><br><span class="line">        MyInvocationHandler handler = <span class="keyword">new</span> MyInvocationHandler(helloService);</span><br><span class="line">        <span class="comment">// 代理对象</span></span><br><span class="line">        HelloService helloProxyService = (HelloService) handler.getProxy();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用代理对象执行</span></span><br><span class="line">        System.out.println(<span class="string">"--- helloProxyService.result ---"</span>);</span><br><span class="line">        helloService.say(<span class="string">"helloProxyService.jdk动态代理"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用handler执行</span></span><br><span class="line">        String[] args = <span class="keyword">new</span> String[]&#123;<span class="string">"helloProxyService.invoke"</span>&#125;;</span><br><span class="line">        <span class="comment">//对应 Object invoke = method.invoke(proxy, args)</span></span><br><span class="line"><span class="comment">//        Object say = handler.invoke(helloProxyService, helloProxyService.getClass().getMethod("say", String.class), args);</span></span><br><span class="line">        <span class="comment">//对应 Object invoke = method.invoke(target, args)</span></span><br><span class="line">        Object say = handler.invoke(helloProxyService, helloService.getClass().getMethod(<span class="string">"say"</span>, String.class), args);</span><br><span class="line">        System.out.println(<span class="string">"--- HelloProxyService.result ---"</span> + say);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="CGLB-代理"><a href="#CGLB-代理" class="headerlink" title="CGLB 代理"></a>CGLB 代理</h3><h4 id="原理-todo-1"><a href="#原理-todo-1" class="headerlink" title="原理 todo"></a>原理 todo</h4><p>第三方字节码处理库，底层是 asm 框架</p>
+<h4 id="优点和缺点-todo-1"><a href="#优点和缺点-todo-1" class="headerlink" title="优点和缺点 todo"></a>优点和缺点 todo</h4><p><strong>优点：</strong></p>
+<ol>
+<li>被代理对象无须实现接口，对类的入侵没有那么深</li>
+</ol>
+<p><strong>缺点</strong>：</p>
+<h4 id="dome-2"><a href="#dome-2" class="headerlink" title="dome"></a>dome</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.cglib.proxy.Enhancer;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cglib.proxy.MethodProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * cglb动态代理实现</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Bai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020-10-26 16:00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CglibProxy</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取代理类</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> clazz 真实类</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxy</span><span class="params">(Class clazz)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//设置需要创建子类的类</span></span><br><span class="line">        enhancer.setSuperclass(clazz);</span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">//通过字节码技术动态创建子类实例</span></span><br><span class="line">        <span class="keyword">return</span> enhancer.create();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"前置代理"</span>);</span><br><span class="line">        <span class="comment">//通过代理类调用父类中的方法</span></span><br><span class="line">        Object result = proxy.invokeSuper(obj, args);</span><br><span class="line">        System.out.println(<span class="string">"后置代理"</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * jdk动态代理</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cglbProxyTest</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">       <span class="comment">//真实对象</span></span><br><span class="line">       CglibProxy cglibProxy = <span class="keyword">new</span> CglibProxy();</span><br><span class="line">       HelloService helloService = (HelloService) cglibProxy.getProxy(HelloServiceImpl.class);</span><br><span class="line">       helloService.say(<span class="string">"cglb动态代理"</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">执行结果：</span><br><span class="line"></span><br><span class="line">前置代理</span><br><span class="line">向大家saycglb动态代理</span><br><span class="line">后置代理</span><br></pre></td></tr></table></figure>
+
+<h3 id="两者区别：JDK-动态代理-CGLB-动态代理"><a href="#两者区别：JDK-动态代理-CGLB-动态代理" class="headerlink" title="两者区别：JDK 动态代理/CGLB 动态代理"></a>两者区别：JDK 动态代理/CGLB 动态代理</h3><p>jdk 动态代理需要 实现接口<br>CGLB 不需要实现接口</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h3 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h3><p>aop 由 JDK 动态代理和 CGLB 动态代理实现，当需要代理的类实现了接口，既使用 jdk 动态代理，如果需要代理的类没有实现接口则自动切换为 CGLB 代理。<br>jdk 动态代理是基于反射来获取被代理的类，要去被代理的类必须要实现接口。<br>cjlb 是代码生成的类库，它是在运行过程中动态的生成类的子类来实现代理的，cglb 是基于继承来实现的，所以如果一个类被 final 修饰，那么这个类将不能被 cglb 代理。</p>
+<h4 id="源码分析-todo"><a href="#源码分析-todo" class="headerlink" title="源码分析 todo"></a>源码分析 todo</h4>
+        
+          <a class="article-more-a" href="/2020/10/26/yuque/设计模式 之 代理模式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/code//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/26/yuque/设计模式 之 代理模式/">展开全文 >></a>
         </p>
       
 
@@ -1022,88 +1128,6 @@
 
 
   
-    <article id="post-yuque/无病呻吟" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/14/yuque/无病呻吟/">无病呻吟</a>
-    </h1>
-  
-
-
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-        <span class="icon-sort"></span>
-        </a>
-
-        
-        <a href="/2020/10/14/yuque/无病呻吟/" class="archive-article-date">
-  	<time datetime="2020-10-14T15:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这两天心情属实有点 down，终于感受到了现实的毒打，体会了“这就是现实”这句话背后的辛酸和无奈，当理想和现实的碰撞，理想变得支离破碎时，人或许真的会成熟吧。</p>
-        
-          <a class="article-more-a" href="/2020/10/14/yuque/无病呻吟/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ilke//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/14/yuque/无病呻吟/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1212,11 +1236,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,7 +1244,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1273,6 +1297,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">文学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>
