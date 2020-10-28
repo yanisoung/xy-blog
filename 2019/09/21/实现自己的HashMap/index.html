@@ -5,26 +5,26 @@
   
 
   
-  <meta name="keywords" content="每周计划,博客,终身成长者,学习,读书,java,hexo,观后感,观影日记,yanisyoung,yanisyoung.com,白崽儿世界,白崽儿">
+  <meta name="keywords" content="hashmap,java,实现自己的HashMap,博客,终身成长者,学习,读书,java,hexo,观后感,观影日记,yanisyoung,yanisyoung.com,白崽儿世界,白崽儿">
   
 
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yanisyoung.com">
-  <title>每周计划及反馈 | 白崽儿世界</title>
+  <title>实现自己的HashMap | 白崽儿世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="用于制定每周计划，以及完成情况。自己是个懒惰的人，将自己的计划放置到网上，无形中也会起到一部分监督的作用，只希望可以坚持的久点，再久点，再久点！">
-<meta name="keywords" content="每周计划">
+  <meta name="description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  HashMap中重要的概念：初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容扩容阈值：扩容阈值=容量(table的size)*扩容因子size">
+<meta name="keywords" content="hashmap,java,实现自己的HashMap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每周计划及反馈">
-<meta property="og:url" content="http://yanisyoung.com/2020/10/26/yuque/每周计划及反馈/index.html">
+<meta property="og:title" content="实现自己的HashMap">
+<meta property="og:url" content="http://yanisyoung.com/2019/09/21/实现自己的HashMap/index.html">
 <meta property="og:site_name" content="白崽儿世界">
-<meta property="og:description" content="用于制定每周计划，以及完成情况。自己是个懒惰的人，将自己的计划放置到网上，无形中也会起到一部分监督的作用，只希望可以坚持的久点，再久点，再久点！">
+<meta property="og:description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  HashMap中重要的概念：初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容扩容阈值：扩容阈值=容量(table的size)*扩容因子size">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-10-26T12:54:59.134Z">
+<meta property="og:updated_time" content="2020-10-28T12:05:34.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="每周计划及反馈">
-<meta name="twitter:description" content="用于制定每周计划，以及完成情况。自己是个懒惰的人，将自己的计划放置到网上，无形中也会起到一部分监督的作用，只希望可以坚持的久点，再久点，再久点！">
+<meta name="twitter:title" content="实现自己的HashMap">
+<meta name="twitter:description" content="HsahMap1.7jdk原理分析：https://www.jianshu.com/p/068b6d25b593  HashMap中重要的概念：初始化容量直： 1 &amp;lt;&amp;lt; 4 map的初始化容量最大容量值：1 &amp;lt;&amp;lt; 30 map可容纳的最大容量扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容扩容阈值：扩容阈值=容量(table的size)*扩容因子size">
   
     <link rel="alternative" href="/atom.xml" title="白崽儿世界" type="application/atom+xml">
   
@@ -193,14 +193,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-yuque/每周计划及反馈" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-实现自己的HashMap" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      每周计划及反馈
+      实现自己的HashMap
     </h1>
   
 
@@ -210,8 +210,8 @@
         </a>
 
         
-        <a href="/2020/10/26/yuque/每周计划及反馈/" class="archive-article-date">
-  	<time datetime="2020-10-26T12:54:59.133Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-26</time>
+        <a href="/2019/09/21/实现自己的HashMap/" class="archive-article-date">
+  	<time datetime="2019-09-21T12:35:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
 </a>
 
         <!-- 不蒜子统计 -->
@@ -222,293 +222,388 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用于制定每周计划，以及完成情况。自己是个懒惰的人，将自己的计划放置到网上，无形中也会起到一部分监督的作用，只希望可以坚持的久点，再久点，再久点！</p>
+        <p>HsahMap1.7jdk原理分析：<a href="https://www.jianshu.com/p/068b6d25b593" target="_blank" rel="noopener">https://www.jianshu.com/p/068b6d25b593</a></p>
+<ul>
+<li>HashMap中重要的概念：<br>初始化容量直： 1 &lt;&lt; 4 map的初始化容量<br>最大容量值：1 &lt;&lt; 30 map可容纳的最大容量<br>扩容因子 ： 0.75  即容量已达到该设置条件,put时会进行扩容<br>扩容阈值：扩容阈值=容量(table的size)*扩容因子<br>size:map中存储的键值对的数量<br>table：存储实体<br>实际扩容因子：创建时可由有参构造给出<br>实际容量：创建时可由有参构造给出<br>扩容次数：可限制扩容</li>
+<li>key允许为null,存储时key为Null,在table中的下标为0.取值时从table[0]中获取链表，查找链表中k为null的节点。</li>
+<li>HashMap使用数组+链表的形式实现的，通过计算key的hash值获取key在数组中对应的下标，添加新的节点到该下标的链表中。</li>
+<li>取值时，通过计算key的hash值获取key在数组中对应的下标，获取该下标上的链表，通过eques方法从链表中找到对应的value。</li>
+</ul>
 <a id="more"></a>
 
-<h1 id="通用事项"><a href="#通用事项" class="headerlink" title="通用事项"></a>通用事项</h1><table>
-<thead>
-<tr>
-<th align="center"><strong>代号</strong></th>
-<th align="center"><strong>事项</strong></th>
-<th align="center"><strong>重要程度</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">read</td>
-<td align="center">读书</td>
-<td align="center">★★★★★</td>
-</tr>
-<tr>
-<td align="center">read_a_book</td>
-<td align="center">读一本书</td>
-<td align="center">★★★★★</td>
-</tr>
-<tr>
-<td align="center">write</td>
-<td align="center">写博客一篇，不限类型</td>
-<td align="center">★★★★★</td>
-</tr>
-<tr>
-<td align="center">learn_java</td>
-<td align="center">学习 java 相关知识，不限学习方式</td>
-<td align="center">★★★★★</td>
-</tr>
-<tr>
-<td align="center">write_java_blog</td>
-<td align="center">写一篇技术博客</td>
-<td align="center">★★★★★</td>
-</tr>
-<tr>
-<td align="center">write_reading_notes</td>
-<td align="center">写读书笔记</td>
-<td align="center">★★★★</td>
-</tr>
-</tbody></table>
-<h1 id="每周计划"><a href="#每周计划" class="headerlink" title="每周计划"></a>每周计划</h1><h2 id="2020-10-26-11-01"><a href="#2020-10-26-11-01" class="headerlink" title="2020.10.26-11.01"></a>2020.10.26-11.01</h2><h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><h3 id="计划完成事项"><a href="#计划完成事项" class="headerlink" title="计划完成事项"></a>计划完成事项</h3><table>
-<thead>
-<tr>
-<th align="center"><strong>事项**</strong>代号**</th>
-<th align="center"><strong>具体计划</strong></th>
-<th align="center"><strong>整体完成进度</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">read_a_book</td>
-<td align="center">读完 动物农庄</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">write</td>
-<td align="center">读书笔记（动物农庄）</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">learn_java</td>
-<td align="center">设计模式-代理模式</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="具体完成情况"><a href="#具体完成情况" class="headerlink" title="具体完成情况"></a>具体完成情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">周一：</span><br><span class="line">	learn_java 整理代理模式文档</span><br><span class="line"> 	read 读动物庄园</span><br><span class="line">周二：</span><br><span class="line">周三：</span><br><span class="line">周四：</span><br><span class="line">周五：</span><br><span class="line">周六：</span><br><span class="line">周日：</span><br></pre></td></tr></table></figure>
+<p>*以下是代码实现：</p>
+<pre><code>public class MyHashMap&lt;K, V&gt; {
+    /**
+     * 初始化容量 1的4次方
+     */
+    private final Integer DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4;
 
-<h2 id="2020-10-19-10-25"><a href="#2020-10-19-10-25" class="headerlink" title="2020.10.19-10.25"></a>2020.10.19-10.25</h2><h3 id="本周总结-1"><a href="#本周总结-1" class="headerlink" title="本周总结"></a>本周总结</h3><p>本周学习计划 还是以习惯来推动，导致没有养成固定节奏时，整个人还是很懒惰，以习惯来推动学习的方式不时候我。<br>下周换成以结果为导向来完成任务。</p>
-<h3 id="计划完成事项-1"><a href="#计划完成事项-1" class="headerlink" title="计划完成事项"></a>计划完成事项</h3><table>
-<thead>
-<tr>
-<th align="center"><strong>事项**</strong>代号**</th>
-<th align="center"><strong>具体计划</strong></th>
-<th align="center"><strong>整体完成进度</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">read</td>
-<td align="center">每天读书，不限时长</td>
-<td align="center">42%</td>
-</tr>
-<tr>
-<td align="center">write</td>
-<td align="center">读书笔记（人生副本/理财）、设计模式</td>
-<td align="center">100%</td>
-</tr>
-<tr>
-<td align="center">learn_java</td>
-<td align="center">每天抽取时间学习 java</td>
-<td align="center">29%</td>
-</tr>
-</tbody></table>
-<h3 id="具体完成情况-1"><a href="#具体完成情况-1" class="headerlink" title="具体完成情况"></a>具体完成情况</h3><table>
-<thead>
-<tr>
-<th align="center"><strong>事项代号\周期</strong></th>
-<th align="center"><strong>周一</strong></th>
-<th align="center"><strong>周二</strong></th>
-<th align="center"><strong>周三</strong></th>
-<th align="center"><strong>周四</strong></th>
-<th align="center"><strong>周五</strong></th>
-<th align="center"><strong>周六</strong></th>
-<th align="center"><strong>周日</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><strong>read</strong></td>
-<td align="center">吸引力法则</td>
-<td align="center">吸引力法则</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">人生副本</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><strong>write</strong></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center">人生副本 读后感</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><strong>learn_java</strong></td>
-<td align="center">中华石杉 扫盲笔记</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">咕泡-架构师经验分享</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h2 id="2020-10-12-10-18"><a href="#2020-10-12-10-18" class="headerlink" title="2020.10.12-10.18"></a>2020.10.12-10.18</h2><h3 id="本周总结-2"><a href="#本周总结-2" class="headerlink" title="本周总结"></a>本周总结</h3><p>第一周懒惰 没有写总结</p>
-<h3 id="计划完成事项-2"><a href="#计划完成事项-2" class="headerlink" title="计划完成事项"></a>计划完成事项</h3><table>
-<thead>
-<tr>
-<th align="center"><strong>事项**</strong>代号**</th>
-<th align="center"><strong>具体计划</strong></th>
-<th align="center"><strong>整体完成进度</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">read</td>
-<td align="center">每天读书，不限时长</td>
-<td align="center">85.7%</td>
-</tr>
-<tr>
-<td align="center">write</td>
-<td align="center">本周完成一篇不限博客</td>
-<td align="center">100%</td>
-</tr>
-<tr>
-<td align="center">learn_java</td>
-<td align="center">每天抽取时间学习</td>
-<td align="center">14.2%</td>
-</tr>
-</tbody></table>
-<h3 id="具体完成情况-2"><a href="#具体完成情况-2" class="headerlink" title="具体完成情况"></a>具体完成情况</h3><table>
-<thead>
-<tr>
-<th align="center"><strong>事项代号\周期</strong></th>
-<th align="center"><strong>周一</strong></th>
-<th align="center"><strong>周二</strong></th>
-<th align="center"><strong>周三</strong></th>
-<th align="center"><strong>周四</strong></th>
-<th align="center"><strong>周五</strong></th>
-<th align="center"><strong>周六</strong></th>
-<th align="center"><strong>周日</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><strong>read</strong></td>
-<td align="center">三体</td>
-<td align="center"></td>
-<td align="center">人生副本</td>
-<td align="center">人生副本</td>
-<td align="center">人生副本/半小时漫画经济学 4 理财篇</td>
-<td align="center">人生副本</td>
-<td align="center">人生副本</td>
-</tr>
-<tr>
-<td align="center"><strong>write</strong></td>
-<td align="center">heox+github 搭建</td>
-<td align="center"></td>
-<td align="center">随笔一篇</td>
-<td align="center"></td>
-<td align="center">问题整理</td>
-<td align="center"></td>
-<td align="center">问题整理</td>
-</tr>
-<tr>
-<td align="center"><strong>learn_java</strong></td>
-<td align="center"></td>
-<td align="center">读了一篇关于 mysql 索引的博客</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">读书笔记</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<p><strong>我的博客地址：</strong><a href="https://yanisyoung.com/"><strong>https://yanisyoung.com/</strong></a></p>
+    /**
+     * 最大容量 1的30次方 超过最大量将被最大量所赋值
+     */
+    private final Integer MAXIMUM_CAPACITY = 1 &lt;&lt; 30;
+
+    /**
+     * 实际容量
+     */
+    private Integer capacity;
+
+    /**
+     * 默认扩容因子 四分之三
+     */
+    private final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+    /**
+     * 实际扩容因子
+     */
+    private float loadFactor;
+
+    /**
+     * 扩容阈值=容量(table的size)*扩容因子
+     */
+    private int threshold;
+
+    /**
+     * 实际存储
+     */
+    private MyEntry&lt;K, V&gt;[] table = null;
+
+    /**
+     * map 的size  既Map中键值对的数量
+     */
+    private static int size = 0;
+    /**
+     * 扩容次数：可做扩容限制
+     */
+    private static int resizeIndex = 0;
+
+    /**
+     * 无参构造
+     */
+    public MyHashMap() {
+        //实际扩容因子
+        this.loadFactor = DEFAULT_LOAD_FACTOR;
+        //实际容量
+        this.capacity = DEFAULT_INITIAL_CAPACITY;
+        //扩容阈值
+        this.threshold = tableSizeFor(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
+        //初始化table
+        this.table = new MyEntry[DEFAULT_INITIAL_CAPACITY];
+    }
+
+    /**
+     * @param initialCapacity 初始化容量
+     * @param loadFactor      扩容因子
+     */
+    public MyHashMap(int initialCapacity, float loadFactor) {
+        //如果初始化容量大于默认最大容量 则等于最大容量
+        if (initialCapacity &gt;= MAXIMUM_CAPACITY) {
+            initialCapacity = MAXIMUM_CAPACITY;
+        }
+        //实际扩容因子
+        this.loadFactor = loadFactor;
+        //实际容量
+        this.capacity = initialCapacity;
+        //计算扩容阈值
+        this.threshold = tableSizeFor(initialCapacity, loadFactor);
+        //初始化table
+        this.table = new MyEntry[initialCapacity];
+    }
+
+    /**
+     * @param initialCapacity 初始化容量
+     */
+    public MyHashMap(int initialCapacity) {
+        if (initialCapacity &gt;= MAXIMUM_CAPACITY) {
+            initialCapacity = MAXIMUM_CAPACITY;
+        }
+        //实际容量
+        this.capacity = initialCapacity;
+        //实际扩容因子
+        this.loadFactor = DEFAULT_LOAD_FACTOR;
+        //扩容阈值
+        this.threshold = tableSizeFor(initialCapacity, loadFactor);
+        //初始化table
+        this.table = new MyEntry[initialCapacity];
+    }
+
+    public V get(K k) {
+        if (null == table) {
+            return null;
+        }
+        if (null == k) {
+            return getForNullKey();
+        }
+        //计算k对应的hash值,根据hash计算在table中对应下标
+        int hash = k.hashCode();
+        int index = getIndex(hash, capacity);
+        MyEntry&lt;K, V&gt; entry = table[index];
+        while (null != entry) {
+            //hash值相同 同时key相同
+            if (hash == entry.getHash() &amp;&amp; (k == entry.getK() || k.equals(entry.getK()))) {
+                return entry.getV();
+            }
+            entry = entry.getNext();
+        }
+        return null;
+    }
+
+    /**
+     * 获取key为null时的值
+     *
+     * @return
+     */
+    private V getForNullKey() {
+        MyEntry&lt;K, V&gt; entry = table[0];
+        while (null != entry) {
+            if (null == entry.getHash() &amp;&amp; null == entry.getK()) {
+                return entry.getV();
+            }
+            entry = entry.getNext();
+        }
+        return null;
+    }
+
+    /**
+     * 添加数据
+     *
+     * @param k
+     * @param v
+     * @return
+     */
+    public V put(K k, V v) {
+        //put时扩容
+        resize();
+        //key==null时
+        if (null == k) {
+            return putForNullKey(k, v);
+        }
+        //计算k的hash
+        int hash = k.hashCode();
+        //计算k在数组中对应的下标
+        int index = getIndex(hash, capacity);
+
+        //获取对应下标上的Entry:若新增时 则为下个节点
+        MyEntry&lt;K, V&gt; nextEntry = table[index];
+        for (MyEntry&lt;K, V&gt; entry = table[index]; entry != null; entry = entry.getNext()) {
+            //判断是否已经存在对应的key
+            if (hash == entry.getHash() &amp;&amp; (k == entry.getK() || k.equals(entry.getK()))) {
+                V oldValue = entry.getV();
+                entry.setV(v);
+                return oldValue;
+            }
+        }
+        size++;
+        //新增
+        table[index] = new MyEntry&lt;&gt;(k, v, nextEntry, hash);
+        //新增时返回Null
+        return null;
+    }
+
+    /**
+     * 存储key为null的值
+     *
+     * @param k
+     * @return
+     */
+    private V putForNullKey(K k, V v) {
+        MyEntry&lt;K, V&gt; entry = table[0];
+        //判断是否已经存在key为null的键值对，如果存在则替换
+        while (null != entry) {
+            if (null == entry.getHash() &amp;&amp; null == entry.getK()) {
+                V oldValue = entry.getV();
+                entry.setV(v);
+                entry.setNext(entry);
+                return oldValue;
+            }
+            entry = entry.getNext();
+        }
+        //新增
+        size++;
+        table[0] = new MyEntry&lt;&gt;(k, v, entry, null);
+        return null;
+    }
+
+    /**
+     * 计算k在数组中对应的下标
+     *
+     * @param hash     hash值
+     * @param capacity table容量
+     * @return
+     */
+    private int getIndex(int hash, int capacity) {
+        //table的容量
+        int index = hash % capacity;
+        return index &gt;= 0 ? index : -index;
+    }
+
+    /**
+     * 扩容
+     */
+    private void resize() {
+        //已是最大扩容，不再扩容
+        if (capacity &gt;= MAXIMUM_CAPACITY) {
+            //将阈值设置为Inter的最大容量
+            threshold = Integer.MAX_VALUE;
+            return;
+        }
+        //未达到最大阈值 无需扩容
+        if (size &lt; threshold) {
+            return;
+        }
+        int newCapacity = capacity * 2;
+        if (newCapacity &gt;= MAXIMUM_CAPACITY) {
+            newCapacity = MAXIMUM_CAPACITY;
+        }
+        //扩容次数
+        resizeIndex++;
+        //重新计算扩容阈值
+        threshold = tableSizeFor(newCapacity, loadFactor);
+        //新容量
+        capacity = newCapacity;
+        MyEntry&lt;K, V&gt;[] oldEntry = table;
+        //创建新数组
+        MyEntry&lt;K, V&gt;[] newEntry = new MyEntry[newCapacity];
+        //将旧数组的值转移到新数组
+        transition(oldEntry, newEntry);
+        //重新定义table
+        table = newEntry;
+    }
+
+    /**
+     * 转移数组上的数据
+     *
+     * @param oldEntries
+     * @param newEntries
+     */
+    private void transition(MyEntry&lt;K, V&gt;[] oldEntries, MyEntry&lt;K, V&gt;[] newEntries) {
+        for (int i = 0; i &lt; oldEntries.length; i++) {
+            MyEntry&lt;K, V&gt; entry = oldEntries[i];
+            while (null != entry) {
+                MyEntry&lt;K, V&gt; next = entry.getNext();
+                //扩容之后重新计算在数组中的下标
+                int index = getIndex(entry.getK().hashCode(), capacity);
+                //将元素放在数组上：
+                //采用单链表的头插入方式 = 在链表头上存放数据 = 将数组位置的原有数据放在后1个指针、将需放入的数据放到数组位置中
+                // 即 扩容后，可能出现逆序：按旧链表的正序遍历链表、在新链表的头部依次插入
+                entry.setNext(newEntries[index]);
+                //赋值到新数组
+                newEntries[index] = entry;
+                entry = next;
+            }
+        }
+    }
+
+    /**
+     * 计算扩容阈值
+     */
+    private int tableSizeFor(int initialCapacity, float loadFactor) {
+        BigDecimal init = new BigDecimal(initialCapacity);
+        BigDecimal bigLoad = new BigDecimal(loadFactor);
+        BigDecimal multiply = init.multiply(bigLoad);
+        return multiply.intValue();
+    }
+}</code></pre><ul>
+<li>entry组成了链表</li>
+</ul>
+<pre><code>    public final class MyEntry&lt;K, V&gt; {
+
+    private K k;
+
+    private V v;
+
+    private MyEntry&lt;K, V&gt; next;
+
+    private Integer hash;
+
+    public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next, Integer hash) {
+        this.k = k;
+        this.v = v;
+        this.next = next;
+        this.hash = hash;
+    }
+
+    public MyEntry() {
+
+    }
+
+
+    public MyEntry(K k, V v) {
+        this.k = k;
+        this.v = v;
+    }
+
+    public MyEntry(K k, V v, MyEntry&lt;K, V&gt; next) {
+        this.k = k;
+        this.v = v;
+        this.next = next;
+    }
+
+    public Integer getHash() {
+        return hash;
+    }
+
+    public void setHash(Integer hash) {
+        this.hash = hash;
+    }
+
+    public K getK() {
+        return k;
+    }
+
+    public void setK(K k) {
+        this.k = k;
+    }
+
+    public V getV() {
+        return v;
+    }
+
+    public void setV(V v) {
+        this.v = v;
+    }
+
+    public MyEntry&lt;K, V&gt; getNext() {
+        return next;
+    }
+
+    public void setNext(MyEntry&lt;K, V&gt; next) {
+        this.next = next;
+    }
+}</code></pre><ul>
+<li><p>最后测试一下：</p>
+<pre><code>@Test
+public void demo() {
+    MyHashMap&lt;String, String&gt; map = new MyHashMap();
+    System.out.println(&quot;-------------------MyHashMap begin-------------------------&quot;);
+    Long t1 = System.currentTimeMillis();
+    for (int i = 0; i &lt; 1000; i++) {
+        map.put(&quot;key&quot; + i, &quot;value&quot; + i);
+    }
+    for (int i = 0; i &lt; 1000; i++) {
+        String value = map.get(&quot;key&quot; + i);
+        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + value);
+        assert (value.equals(&quot;value&quot; + i));
+    }
+    //null key
+    map.put(null, &quot;value:key is null&quot;);
+    System.out.printf(map.get(null));
+    Long t2 = System.currentTimeMillis();
+    System.out.println(&quot;MyHashMap耗时：&quot; + (t2 - t1));
+    System.out.println(&quot;-------------------MyHashMap end-------------------------&quot;);
+    Map&lt;String, String&gt; hashMap = new HashMap();
+    Long t3 = System.currentTimeMillis();
+    for (int i = 0; i &lt; 1000; i++) {
+        hashMap.put(&quot;key&quot; + i, &quot;value&quot; + i);
+    }
+    for (int i = 0; i &lt; 1000; i++) {
+        System.out.println(&quot;key: &quot; + &quot;key&quot; + i + &quot;---&quot; + &quot;value: &quot; + hashMap.get(&quot;key&quot; + i));
+    }
+    Long t4 = System.currentTimeMillis();
+    System.out.println(&quot;JDK的HashMap耗时：&quot; + (t4 - t3));
+
+}</code></pre></li>
+</ul>
 
       
 
@@ -553,7 +648,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">成长日记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
         		</li>
       		
 		</ul>
@@ -565,7 +664,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/thinking//" class="article-tag-list-link color3">思考</a>
+        			<a href="/categories/code//" class="article-tag-list-link color3">编程</a>
         		</li>
       		
 		</ul>
@@ -620,7 +719,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yanisyoung.com/2020/10/26/yuque/每周计划及反馈/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yanisyoung.com/2019/09/21/实现自己的HashMap/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -634,9 +733,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/09/21/yuque/hexo 踩过的坑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hexo 踩过的坑
+        
+      </div>
+    </a>
   
-    <a href="/2020/10/26/yuque/成功日记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">成功日记</div>
+  
+    <a href="/2019/09/21/yuque/实现自己的HashMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实现自己的HashMap</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -798,7 +906,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,15 +918,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
