@@ -13,18 +13,18 @@
   <link rel="dns-prefetch" href="http://yanisyoung.com">
   <title>白崽儿世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类 静态代理原理静态代理是由我们自己编写的代理类，代理类中指定引用的真实对象，使用真实对象去执行接口，在编译时期就确定了。 优点和缺点优点： 1.因为是我们手动编写的代理类，可控性好，可针对指定接口做扩展，例如增加日志或是数据统计等。 2.避免了生成大对象，造成资源浪费缺点： 1.手动编写 维护等成本增加，如果有多">
+  <meta name="description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类">
 <meta name="keywords" content="java,编程,设计模式,代理模式,CGLB,动态代理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="白崽儿世界">
 <meta property="og:url" content="http://yanisyoung.com/2020/10/26/yuque/设计模式 之 代理模式/index.html">
 <meta property="og:site_name" content="白崽儿世界">
-<meta property="og:description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类 静态代理原理静态代理是由我们自己编写的代理类，代理类中指定引用的真实对象，使用真实对象去执行接口，在编译时期就确定了。 优点和缺点优点： 1.因为是我们手动编写的代理类，可控性好，可针对指定接口做扩展，例如增加日志或是数据统计等。 2.避免了生成大对象，造成资源浪费缺点： 1.手动编写 维护等成本增加，如果有多">
+<meta property="og:description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-10-28T13:27:04.088Z">
+<meta property="og:updated_time" content="2020-10-28T13:32:32.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="白崽儿世界">
-<meta name="twitter:description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类 静态代理原理静态代理是由我们自己编写的代理类，代理类中指定引用的真实对象，使用真实对象去执行接口，在编译时期就确定了。 优点和缺点优点： 1.因为是我们手动编写的代理类，可控性好，可针对指定接口做扩展，例如增加日志或是数据统计等。 2.避免了生成大对象，造成资源浪费缺点： 1.手动编写 维护等成本增加，如果有多">
+<meta name="twitter:description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类">
   
     <link rel="alternative" href="/atom.xml" title="白崽儿世界" type="application/atom+xml">
   
@@ -199,6 +199,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>代理模式分为两种 静态代理，动态代理。</strong><br><strong>代理中的角色：     代理类，目标方法，目标类</strong></p>
+<a id="more"></a>
+
 <h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>静态代理是由我们自己编写的代理类，代理类中指定引用的真实对象，使用真实对象去执行接口，在编译时期就确定了。</p>
 <h4 id="优点和缺点"><a href="#优点和缺点" class="headerlink" title="优点和缺点"></a>优点和缺点</h4><p><strong>优点：</strong> 1.因为是我们手动编写的代理类，可控性好，可针对指定接口做扩展，例如增加日志或是数据统计等。 2.避免了生成大对象，造成资源浪费<br><strong>缺点</strong>： 1.手动编写 维护等成本增加，如果有多个类需要代理，则维护成本更增加。 2.代码耦合度高，不利于通用性。</p>
 <h4 id="dome"><a href="#dome" class="headerlink" title="dome"></a>dome</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接口类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Bai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2020-10-26 14:25</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HelloService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">(String msg)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -232,9 +234,7 @@
 
 <h3 id="两者区别：JDK-动态代理-CGLB-动态代理"><a href="#两者区别：JDK-动态代理-CGLB-动态代理" class="headerlink" title="两者区别：JDK 动态代理/CGLB 动态代理"></a>两者区别：JDK 动态代理/CGLB 动态代理</h3><p>jdk 动态代理需要 实现接口<br>CGLB 不需要实现接口</p>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h3 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h3><p>aop 由 JDK 动态代理和 CGLB 动态代理实现，当需要代理的类实现了接口，既使用 jdk 动态代理，如果需要代理的类没有实现接口则自动切换为 CGLB 代理。<br>jdk 动态代理是基于反射来获取被代理的类，要去被代理的类必须要实现接口。<br>cjlb 是代码生成的类库，它是在运行过程中动态的生成类的子类来实现代理的，cglb 是基于继承来实现的，所以如果一个类被 final 修饰，那么这个类将不能被 cglb 代理。</p>
-<h4 id="源码分析-todo"><a href="#源码分析-todo" class="headerlink" title="源码分析 todo"></a>源码分析 todo</h4><a id="more"></a>
-
-<p>参考资料：<br><a href="http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy" target="_blank" rel="noopener">http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy</a></p>
+<h4 id="源码分析-todo"><a href="#源码分析-todo" class="headerlink" title="源码分析 todo"></a>源码分析 todo</h4><p>参考资料：<br><a href="http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy" target="_blank" rel="noopener">http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy</a></p>
 <p><strong>我的博客地址：</strong><a href="https://yanisyoung.com/"><strong>https://yanisyoung.com/</strong></a></p>
 
       
@@ -558,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
+                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
+                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
              
               <li class="article-tag-list-item">
