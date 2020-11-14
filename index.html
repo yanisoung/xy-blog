@@ -201,7 +201,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/08/yuque/每周计划及反馈/">每周计划及反馈</a>
+      <a class="article-title" href="/2020/11/14/yuque/每周计划及反馈/">每周计划及反馈</a>
     </h1>
   
 
@@ -211,8 +211,8 @@
         </a>
 
         
-        <a href="/2020/11/08/yuque/每周计划及反馈/" class="archive-article-date">
-  	<time datetime="2020-11-08T14:34:41.699Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
+        <a href="/2020/11/14/yuque/每周计划及反馈/" class="archive-article-date">
+  	<time datetime="2020-11-14T04:08:11.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-14</time>
 </a>
 
         
@@ -222,7 +222,7 @@
       
         <p>用于制定每周计划，以及完成情况。自己是个懒惰的人，将自己的计划放置到网上，无形中也会起到一部分监督的作用，只希望可以坚持的久点，再久点，再久点！</p>
         
-          <a class="article-more-a" href="/2020/11/08/yuque/每周计划及反馈/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/14/yuque/每周计划及反馈/#more">more >></a>
         
       
 
@@ -257,7 +257,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/08/yuque/每周计划及反馈/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/14/yuque/每周计划及反馈/">展开全文 >></a>
         </p>
       
 
@@ -294,7 +294,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/08/yuque/成功日记/">成功日记</a>
+      <a class="article-title" href="/2020/11/14/yuque/成功日记/">成功日记</a>
     </h1>
   
 
@@ -304,8 +304,8 @@
         </a>
 
         
-        <a href="/2020/11/08/yuque/成功日记/" class="archive-article-date">
-  	<time datetime="2020-11-08T14:34:41.627Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-08</time>
+        <a href="/2020/11/14/yuque/成功日记/" class="archive-article-date">
+  	<time datetime="2020-11-14T04:08:11.697Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-14</time>
 </a>
 
         
@@ -315,7 +315,7 @@
       
         <p>仅此记录每天印象深刻的点点滴滴，或悲伤或快乐或开心或难过，等回过头看时，自己竟然走过了那样的岁月，但愿可以成为生活的见证~</p>
         
-          <a class="article-more-a" href="/2020/11/08/yuque/成功日记/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/14/yuque/成功日记/#more">more >></a>
         
       
 
@@ -350,7 +350,82 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/08/yuque/成功日记/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/14/yuque/成功日记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yuque/JVM相关零碎知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="GC-垃圾回收"><a href="#GC-垃圾回收" class="headerlink" title="GC 垃圾回收"></a>GC 垃圾回收</h2><p>垃圾的定义：没有引用指向的任何对象都是垃圾</p>
+<h3 id="查找垃圾的两种方式"><a href="#查找垃圾的两种方式" class="headerlink" title="查找垃圾的两种方式"></a>查找垃圾的两种方式</h3><h4 id="计数引用法"><a href="#计数引用法" class="headerlink" title="计数引用法"></a>计数引用法</h4><p>对象每被引用一次 便计数一次，每去除一个引用 计数减一，直到计数为 0 没有被引用时 即可被回收。这种方式不能回收 循环引用的对象，例如 A -&gt; B -&gt; C -&gt; A</p>
+<h4 id="根可达法"><a href="#根可达法" class="headerlink" title="根可达法"></a>根可达法</h4><p>从根对象的引用上 通过每个节点直达被引用的对象，如果从根上到某个对象时，缺少节点，这样的对象就被认为垃圾。<br>补充 根对象有哪些</p>
+<h3 id="清除垃圾的方式"><a href="#清除垃圾的方式" class="headerlink" title="清除垃圾的方式"></a>清除垃圾的方式</h3>
+        
+          <a class="article-more-a" href="/2020/11/09/yuque/JVM相关零碎知识点/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jvm//" class="article-tag-list-link color4">jvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/09/yuque/JVM相关零碎知识点/">展开全文 >></a>
         </p>
       
 
@@ -1032,99 +1107,6 @@
 
 
   
-    <article id="post-yuque/人生副本 - 布莱克·克劳奇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/23/yuque/人生副本 - 布莱克·克劳奇/">人生副本 - 布莱克·克劳奇</a>
-    </h1>
-  
-
-
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-        <span class="icon-sort"></span>
-        </a>
-
-        
-        <a href="/2020/10/23/yuque/人生副本 - 布莱克·克劳奇/" class="archive-article-date">
-  	<time datetime="2020-10-23T07:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主角<br>贾森： 大学物理教授，曾经的天才科学家，为了家庭选择了安稳，放弃了事业<br>丹妮拉：画家 很有艺术天分 贾森的女朋友 为了贾森选择了家庭，放弃了事业<br>查理：贾森与丹妮拉的儿子<br>瑞安：男主好朋友，男主的世界中取得了科学上的重大突破<br>贾森二号：平行世界中的贾森，已经取得了科学上的重大成就，为了事业放弃了丹妮拉，为此后悔不已，制造出了平行世界穿越机。<br>莱顿：平行世界中贾森二号的合伙人<br>阿曼达：平行世界中的心理治疗师，为贾森二号治疗，被贾森二号救过</p>
-        
-          <a class="article-more-a" href="/2020/10/23/yuque/人生副本 - 布莱克·克劳奇/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">读后感</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/read//" class="article-tag-list-link color5">读书等身</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/23/yuque/人生副本 - 布莱克·克劳奇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1237,11 +1219,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,15 +1235,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心灵</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,6 +1252,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">理财</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
               </li>
              
               <li class="article-tag-list-item">
