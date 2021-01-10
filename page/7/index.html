@@ -194,6 +194,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yuque/实现自己的HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/21/yuque/实现自己的HashMap/">实现自己的HashMap</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        </a>
+
+        
+        <a href="/2019/09/21/yuque/实现自己的HashMap/" class="archive-article-date">
+  	<time datetime="2019-09-21T12:35:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-21</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HsahMap1.7jdk 原理分析：<a href="https://www.jianshu.com/p/068b6d25b593" target="_blank" rel="noopener">https://www.jianshu.com/p/068b6d25b593</a></p>
+<ul>
+<li>HashMap 中重要的概念：<br>初始化容量直： 1 &lt;&lt; 4 map 的初始化容量<br>最大容量值：1 &lt;&lt; 30 map 可容纳的最大容量<br>扩容因子 ： 0.75   即容量已达到该设置条件,put 时会进行扩容<br>扩容阈值：扩容阈值=容量(table 的 size)*扩容因子<br>size:map 中存储的键值对的数量<br>table：存储实体<br>实际扩容因子：创建时可由有参构造给出<br>实际容量：创建时可由有参构造给出<br>扩容次数：可限制扩容</li>
+<li>key 允许为 null,存储时 key 为 Null,在 table 中的下标为 0.取值时从 table[0]中获取链表，查找链表中 k 为 null 的节点。</li>
+<li>HashMap 使用数组+链表的形式实现的，通过计算 key 的 hash 值获取 key 在数组中对应的下标，添加新的节点到该下标的链表中。</li>
+<li>取值时，通过计算 key 的 hash 值获取 key 在数组中对应的下标，获取该下标上的链表，通过 eques 方法从链表中找到对应的 value。
+        
+          <a class="article-more-a" href="/2019/09/21/yuque/实现自己的HashMap/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/code//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/21/yuque/实现自己的HashMap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-拥抱变化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -763,10 +865,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -779,11 +877,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">碎碎念</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,11 +901,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
+                <a href="javascript:void(0)" class="js-tag color4">经济学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">经济学</a>
+                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,15 +953,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
