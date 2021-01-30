@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="白崽儿世界">
 <meta property="og:description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2021-01-30T13:28:53.369Z">
+<meta property="og:updated_time" content="2021-01-30T13:38:40.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式 之 代理模式">
 <meta name="twitter:description" content="代理模式分为两种 静态代理，动态代理。代理中的角色：     代理类，目标方法，目标类">
@@ -261,8 +261,7 @@
 <h3 id="两者区别：JDK-动态代理-CGLB-动态代理"><a href="#两者区别：JDK-动态代理-CGLB-动态代理" class="headerlink" title="两者区别：JDK 动态代理/CGLB 动态代理"></a>两者区别：JDK 动态代理/CGLB 动态代理</h3><p>jdk 动态代理需要 实现接口<br>CGLB 不需要实现接口</p>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h3 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h3><p>aop 由 JDK 动态代理和 CGLB 动态代理实现，当需要代理的类实现了接口，既使用 jdk 动态代理，如果需要代理的类没有实现接口则自动切换为 CGLB 代理。<br>jdk 动态代理是基于反射来获取被代理的类，要去被代理的类必须要实现接口。<br>cjlb 是代码生成的类库，它是在运行过程中动态的生成类的子类来实现代理的，cglb 是基于继承来实现的，所以如果一个类被 final 修饰，那么这个类将不能被 cglb 代理。</p>
 <h4 id="源码分析-todo"><a href="#源码分析-todo" class="headerlink" title="源码分析 todo"></a>源码分析 todo</h4><h3 id="问题整理"><a href="#问题整理" class="headerlink" title="问题整理"></a>问题整理</h3><p>1.invoke 接口的第一个入参 proxy 不是很经常用，为什么还要传过来呢？ 2.静态代理为啥要构造参数里给出了来 3.动态代理为什么要实现接口？</p>
-<p>参考资料：<br><a href="http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy" target="_blank" rel="noopener">http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy</a></p>
-<p><strong>我的博客地址：</strong><a href="https://yanisyoung.com/"><strong>https://yanisyoung.com/</strong></a></p>
+<p>参考资料：<br><a href="http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy" target="_blank" rel="noopener">http://hollischuang.gitee.io/tobetopjavaer/#/basics/java-basic/static-proxy</a><br>**</p>
 
       
 
@@ -581,6 +580,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
@@ -597,15 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人生的101个目标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,7 +616,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自增</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,15 +624,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">自增</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">观后感</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习网站</a>
               </li>
              
               <li class="article-tag-list-item">
