@@ -220,8 +220,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
+        <p><escape> &lt;！ –more– &gt; &lt;/ escape&gt;</escape></p>
 <p><strong>第一步：找到冲突的类所在包路径</strong><br><strong>第二步：打印所有的 maven 依赖</strong><br>命令：mvn dependency:tree &gt;&gt; D:/tree.txt<br><strong>第三步：查找</strong></p>
 <ul>
 <li>最后写着 compile 的就是编译成功的。</li>
@@ -229,7 +228,6 @@
 <li>最后写着 omitted for conflict with xxxx 的，说明和别的 jar 包版本冲突了，而该行的 jar 包不会被引入。</li>
 </ul>
 <p><strong>第四步：解决冲突</strong> 1.修改 pom 文件中两个 dependency 元素的位置。如果两个 dependency 都引用了一个 jar 包，但是版本不同，classloader 只会加载 jar 包在 pom 文件中出现的第一个版本，以后出现的其他版本的 jar 包会被忽略。<br>不建议使用该方法，因为引用不同版本的 jar 包本身就是很危险的。<br>2<em><em>.推荐使用 *</em>使用<exclusions>标签来去掉某个 dependency 依赖中的某一个 jar 包或一堆 jar 包，<exclusion>中的 jar 包或者依赖的相关 jar 包都会被忽略，从而在两个 dependency 都依赖某个 jar 包时，可以保证只使用其中的一个。<br>*\</exclusion></exclusions></em></p>
-<p>**</p>
 
       
 
@@ -1362,11 +1360,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
+                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
+                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,11 +1420,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
+                <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
+                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
