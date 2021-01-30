@@ -220,16 +220,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<p><strong>第一步：找到冲突的类所在包路径</strong><br><strong>第二步：打印所有的 maven 依赖</strong><br>命令：mvn dependency:tree &gt;&gt; D:/tree.txt<br><strong>第三步：查找</strong></p>
-<ul>
-<li>最后写着 compile 的就是编译成功的。</li>
-<li>最后写着 omitted for duplicate 的就是有 jar 包被重复依赖了，但是 jar 包的版本是一样的。</li>
-<li>最后写着 omitted for conflict with xxxx 的，说明和别的 jar 包版本冲突了，而该行的 jar 包不会被引入。</li>
-</ul>
-<p><strong>第四步：解决冲突</strong> 1.修改 pom 文件中两个 dependency 元素的位置。如果两个 dependency 都引用了一个 jar 包，但是版本不同，classloader 只会加载 jar 包在 pom 文件中出现的第一个版本，以后出现的其他版本的 jar 包会被忽略。<br>不建议使用该方法，因为引用不同版本的 jar 包本身就是很危险的。<br>2<em><em>.推荐使用 *</em>使用<exclusions>标签来去掉某个 dependency 依赖中的某一个 jar 包或一堆 jar 包，<exclusion>中的 jar 包或者依赖的相关 jar 包都会被忽略，从而在两个 dependency 都依赖某个 jar 包时，可以保证只使用其中的一个。<br>*\</exclusion></exclusions></em></p>
-
+        <p>在平时的工作中经常会出现 jar 包冲突，某个类找不到，导致系统无法启动。</p>
+        
+          <a class="article-more-a" href="/2021/01/30/yuque/解决jar包冲突/#more">more >></a>
+        
       
 
       
@@ -319,105 +313,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<p>句子成分？<br>词性？<br>句子 = 主(n)+谓(v)</p>
-<h1 id="一、名词"><a href="#一、名词" class="headerlink" title="一、名词"></a>一、名词</h1><h2 id="1-名词短语"><a href="#1-名词短语" class="headerlink" title="1.名词短语"></a>1.名词短语</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>限定词 + 修饰词 + 主体词  a good boy</strong><br>修饰词可以省略 例如：a boy<br><strong>名词可以充当 主语、宾语、表语、同位语、宾语补语</strong></p>
-<h3 id="可数名词-vs-不可数名词"><a href="#可数名词-vs-不可数名词" class="headerlink" title="可数名词 vs 不可数名词"></a>可数名词 vs 不可数名词</h3><p>主要区分是看名词所代表的物或人是否可数，例如人是可数的，肉就是不可数的<br>  可数名词：单数、复数 。 复数又分为 规则和不规则<br>  不可数名词分为三种情况：<br>   ① 直接用<br>   ② 量化   一杯水 杯子是可数的，水是不可数的<br>   ③ 转换为可数  have a good time 时间是不可数的，一段时间是可数的</p>
-<h4 id="限定词"><a href="#限定词" class="headerlink" title="限定词"></a>限定词</h4><p>1.冠词 a/an/the 等 2.形容词性物主代词 my his 等 3.名词所有格 one’s Tom’s 4.指示代词 that this 等 5.不定代词 some every another 等 6.基数词  one two three 等 7.疑问代词 what which 等</p>
-<h3 id="限定词可以省略的几种情况"><a href="#限定词可以省略的几种情况" class="headerlink" title="限定词可以省略的几种情况"></a>限定词可以省略的几种情况</h3><h4 id="1-gt-主体是可数名词复数时-限定词可以省略"><a href="#1-gt-主体是可数名词复数时-限定词可以省略" class="headerlink" title="1&gt;主体是可数名词复数时 限定词可以省略"></a>1&gt;主体是可数名词复数时 限定词可以省略</h4><p>例如：good boys   或单独 boys</p>
-<h4 id="2-gt-主体数是不可数名词时"><a href="#2-gt-主体数是不可数名词时" class="headerlink" title="2&gt;主体数是不可数名词时"></a>2&gt;主体数是不可数名词时</h4><p>例如 good news 或单独 news</p>
-<h4 id="3-gt-专有名词"><a href="#3-gt-专有名词" class="headerlink" title="3&gt;专有名词"></a>3&gt;专有名词</h4><p>限定词+修饰词都可以省略的情况 例如 国家 China   人名 Tom<br>主体可以省略的情况，当主体指笼统一类 或是 明显指某一类 时：<br>例如 the rich people -&gt; the rich 富有的人 笼统<br>  the best students -&gt; the best   明显<br>  those</p>
-<h2 id="2-代词（人称代词、指示代词、疑问代词、不定代词）"><a href="#2-代词（人称代词、指示代词、疑问代词、不定代词）" class="headerlink" title="2.代词（人称代词、指示代词、疑问代词、不定代词）"></a>2.代词（人称代词、指示代词、疑问代词、不定代词）</h2><h3 id="1-人称代词"><a href="#1-人称代词" class="headerlink" title="1.人称代词"></a>1.人称代词</h3><table>
-<thead>
-<tr>
-<th align="center">主格(s)</th>
-<th align="center">宾格(o p)</th>
-<th align="center">形物代(adj)</th>
-<th align="center">名物代</th>
-<th align="center">反身代</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">I</td>
-<td align="center">me</td>
-<td align="center">my</td>
-<td align="center">mine</td>
-<td align="center">myself</td>
-</tr>
-<tr>
-<td align="center">you</td>
-<td align="center">you</td>
-<td align="center">your</td>
-<td align="center">yours</td>
-<td align="center">yourself</td>
-</tr>
-<tr>
-<td align="center">he</td>
-<td align="center">him</td>
-<td align="center">his</td>
-<td align="center">his</td>
-<td align="center">himself</td>
-</tr>
-<tr>
-<td align="center">she</td>
-<td align="center">her</td>
-<td align="center">her</td>
-<td align="center">hers</td>
-<td align="center">herself</td>
-</tr>
-<tr>
-<td align="center">it</td>
-<td align="center">it</td>
-<td align="center">its</td>
-<td align="center">its</td>
-<td align="center">itself</td>
-</tr>
-<tr>
-<td align="center">we</td>
-<td align="center">us</td>
-<td align="center">our</td>
-<td align="center">ours</td>
-<td align="center">ourselves</td>
-</tr>
-<tr>
-<td align="center">you</td>
-<td align="center">you</td>
-<td align="center">your</td>
-<td align="center">yours</td>
-<td align="center">yourself</td>
-</tr>
-<tr>
-<td align="center">they</td>
-<td align="center">them</td>
-<td align="center">their</td>
-<td align="center">theirs</td>
-<td align="center">themselves</td>
-</tr>
-</tbody></table>
-<p><strong>形物代不能单独使用 需要搭配名词，形物代+名称=名物代</strong><br>例句：<br>  It is me.<br>  This book is mine.<br>  This is my book.<br>  I love myself.</p>
-<h3 id="2-指示代词"><a href="#2-指示代词" class="headerlink" title="2.指示代词"></a>2.指示代词</h3><p>指示代词一共有 4 个：this、these、that、those</p>
-<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><p>代指这个，附近的东西。<br>This is a book.</p>
-<h4 id="these"><a href="#these" class="headerlink" title="these"></a>these</h4><p>代指这些，是 this 的复数。<br>These are books.</p>
-<h4 id="that"><a href="#that" class="headerlink" title="that"></a>that</h4><p>代指 那些，范围比较远的<br>That is a book.</p>
-<h4 id="those"><a href="#those" class="headerlink" title="those"></a>those</h4><p>that 的复数形式<br>Those are books.</p>
-<h4 id="that-vs-those"><a href="#that-vs-those" class="headerlink" title="that vs those"></a>that vs those</h4><p>同类不同个。<br>that 通常是 指代 可数名词单个 or 不可数名称<br>those 通常是指代 可数名称的复数<br>例如：<br>The color of the orange is beautiful than that of apple. <strong>这里的 that 代指 the coler</strong><br>The oranges of HN are beautiful than those of HB.<strong>这里的 those 代指 the oranges</strong></p>
-<h3 id="3-不定代词"><a href="#3-不定代词" class="headerlink" title="3.不定代词"></a>3.不定代词</h3><h4 id="常见不定代词"><a href="#常见不定代词" class="headerlink" title="常见不定代词"></a>常见不定代词</h4><p>some any every each no<br>both either neither all none<br>mony much more most<br>little a little few a few<br>other others another the other the others<br>half    several</p>
-<h4 id="复合不定代词"><a href="#复合不定代词" class="headerlink" title="复合不定代词"></a>复合不定代词</h4><p>every            body<br>some            thing<br>any                one<br>no<br>4x3 =12 种组合代词，例如 some body,evey body</p>
-<h3 id="4-疑问代词"><a href="#4-疑问代词" class="headerlink" title="4. 疑问代词"></a>4. 疑问代词</h3><p>who<br>what</p>
-<h2 id="3-数词"><a href="#3-数词" class="headerlink" title="3.数词"></a>3.数词</h2><h3 id="基数词"><a href="#基数词" class="headerlink" title="基数词"></a>基数词</h3><p>one two three<br>基数词又可分为 整数、小数、分数、百分数。<br>整数 1 2 3 这种<br>小数 1.1<br>分数 分为 分子 分母，分子用基数，分为用序数，当分子&gt;1 时 分母+s，例如：1/3 one/third 2/3 two/thirds</p>
-<h3 id="序数词"><a href="#序数词" class="headerlink" title="序数词"></a>序数词</h3><p>first second 等,<br>词性偏形容词，不用作限定词</p>
-<h2 id="4-5-6-不定式-动名词-句子"><a href="#4-5-6-不定式-动名词-句子" class="headerlink" title="4.5.6 不定式.动名词.句子"></a>4.5.6 不定式.动名词.句子</h2><p>这三类都可以看做是一个名词</p>
-<h3 id="4-不定式"><a href="#4-不定式" class="headerlink" title="4.不定式"></a>4.不定式</h3><p>to do something</p>
-<h3 id="5-动名词"><a href="#5-动名词" class="headerlink" title="5.动名词"></a>5.动名词</h3><p>smoking</p>
-<h3 id="6-句子"><a href="#6-句子" class="headerlink" title="6.句子"></a>6.句子</h3><p>you are a pig.</p>
-<h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><h4 id="1-做主语时，都被看作单数"><a href="#1-做主语时，都被看作单数" class="headerlink" title="1.做主语时，都被看作单数"></a>1.做主语时，都被看作单数</h4><p>例如：<br>To learn English well is very important.<br>Smoking is bad.<br>That you are a pig is fact.</p>
-<h4 id="2-”头重脚轻时”-可以使用-it-作形式主语-宾语"><a href="#2-”头重脚轻时”-可以使用-it-作形式主语-宾语" class="headerlink" title="2.”头重脚轻时” 可以使用 it 作形式主语/宾语"></a>2.”头重脚轻时” 可以使用 it 作形式主语/宾语</h4><p>例如：<br>It is very important to learn English well.<br>It is fact that you are a pig.</p>
-<h1 id="二、主语"><a href="#二、主语" class="headerlink" title="二、主语"></a>二、主语</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p><strong>句子成分， 一般充当句子的主要成分，可由六种名词构成。</strong></p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p><strong>1.During the 1990s,**</strong> American country music*<strong>* has become’ more and more popular.**</strong> 名词短语**<br><strong>2.We**</strong> often speak English in class. *<strong>*人称代词</strong><br><strong>3.One-third of **</strong>the students*<strong>* in this class are girls.**</strong>名词短语**<br><strong>4.To swim in the river**</strong> is a great pleasure.*<strong>*不定式</strong><br><strong>5.Smoking**</strong> does harm to the health. *<strong>*动名词</strong><br><strong>6.The rich**</strong> should help the poor.*<strong>*专有名词</strong><br><strong>7.When we are going to have an English test**</strong> has not been decided. *<strong>*主语从句</strong><br><strong>8.It is necessary**</strong> to master a foreign language*<strong>*. **</strong>it 形式主语，不定代词**<br><strong>9.**</strong>That he isn’t at home*<strong>* is not true. **</strong>主语从句**</p>
-<h2 id="定语"><a href="#定语" class="headerlink" title="定语"></a>定语</h2><p>定语主要用来修饰名称，可以是形容词，也可以是介词短语。定语是用来限定名称范围的。</p>
-<h4 id="后置定语"><a href="#后置定语" class="headerlink" title="后置定语"></a>后置定语</h4><p>后置定语是用来现在前面词句的，例如：<br><strong>One-third</strong> of <strong>the students</strong> in this class are girls. <strong>the students</strong> 就是后置定语，用来限制<strong>One-third 的。One-third 范围比 the students 广。</strong></p>
-
+        <p>句子成分？<br>词性？<br>句子 = 主(n)+谓(v)</p>
+        
+          <a class="article-more-a" href="/2021/01/26/yuque/词性及句子成分/#more">more >></a>
+        
       
 
       
@@ -441,6 +340,99 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/01/26/yuque/词性及句子成分/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-yuque/定语从句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/25/yuque/定语从句/">定语从句</a>
+    </h1>
+  
+
+
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        </a>
+
+        
+        <a href="/2021/01/25/yuque/定语从句/" class="archive-article-date">
+  	<time datetime="2021-01-25T14:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-25</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="名称解析"><a href="#名称解析" class="headerlink" title="名称解析"></a>名称解析</h2><h3 id="定语从句"><a href="#定语从句" class="headerlink" title="定语从句"></a>定语从句</h3><p>定语主要用于修饰名称，定语可以是 形容词，介词短语。形容词放在名称前，介词短语放在名称后。而定语从句是相对于介词短语来说的，把作为介词短语的定语扩展成为 be 句型或者是 do 句型。</p>
+        
+          <a class="article-more-a" href="/2021/01/25/yuque/定语从句/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">定语从句</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/英语//" class="article-tag-list-link color3">英语</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/25/yuque/定语从句/">展开全文 >></a>
         </p>
       
 
@@ -672,53 +664,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h2 id="Spring-MVC-初体验"><a href="#Spring-MVC-初体验" class="headerlink" title="Spring MVC 初体验"></a>Spring MVC 初体验</h2><h3 id="初探-Spring-MVC-请求处理流程"><a href="#初探-Spring-MVC-请求处理流程" class="headerlink" title="初探 Spring MVC 请求处理流程"></a>初探 Spring MVC 请求处理流程</h3><p>Spring MVC 相对于前面的章节算是比较简单的，我们首先引用《Spring in Action》上的一张图来了解 Spring MVC 的核心组件和大致处理流程：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610630264473-a7017042-2d1d-4f01-8ecd-2bfc766c016d.png#align=left&display=inline&height=228&margin=%5Bobject%20Object%5D&name=image.png&originHeight=455&originWidth=709&size=60552&status=done&style=none&width=354.5" alt="image.png"><br>从上图中看到 ①DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controller), 负责接收 Request 并将 Request 转发给对应的处理组件。② HanlerMapping 是 SpringMVC 中 完 成 url 到 Controller 映 射 的 组 件 。 DispatcherServlet 接 收 Request, 然 后 从 HandlerMapping 查 找 处 理 Request 的 Controller。③、Controller 处理 Request,并返回 ModelAndView 对象,Controller 是 SpringMVC 中负责处理 Request 的组件(类似于 Struts2 中的 Action),ModelAndView 是封装结果视图的组件。④、⑤、⑥ 视图解析器解析 ModelAndView 对象并返回对应的视图给客户端。<br>容器初始化时会建立所有 url 和 Controller 中的 Method 的对应关系，保存到 HandlerMapping 中，用户请求是根据 Request 请求的 url 快速定位到 Controller 中的某个方法。在 Spring 中先将 url 和 Controller 的对应关 系,保存到 Map&lt;url,Controller&gt;中。Web 容器启动时会通知 Spring 初始化容器(加载<br>Bean 的定义信息和初始化所有单例 Bean),然后 SpringMVC 会遍历容器中的 Bean，获取每一个 Controller 中的所有方法访问的 url，然后将 url 和 Controller 保存到一个 Map 中；这样就可以根据 Request 快速定位到 Controller，因为最终处理 Request 的是 Controller 中的方法，Map 中只保留了 url 和 Controller 中的对应关系，所以要根据 Request 的 url 进一步确认 Controller 中的 Method，这一步工作的原理就是拼接 Controller 的 url(Controller 上@RequestMapping 的值)和方法的 url(Method 上@RequestMapping 的值)，与 request 的 url 进行匹配，找到匹配的那个方法；确定处 理请求的 Method 后，接下来的任务就是参数绑定，把 Request 中参数绑定到方法的形式参数上，这一步是整个请求处理过程中最复杂的一个步骤。</p>
-<h3 id="Spring-MVC-九大组件"><a href="#Spring-MVC-九大组件" class="headerlink" title="Spring MVC 九大组件"></a>Spring MVC 九大组件</h3><h4 id="HandlerMappings"><a href="#HandlerMappings" class="headerlink" title="HandlerMappings"></a>HandlerMappings</h4><p>HandlerMapping 是用来查找 Handler 的，也就是处理器，具体的表现形式可以是类也可以是方法。比如，标注了@RequestMapping 的每个 method 都可以看成是一个 Handler，由 Handler 来负责实际的请求处理。 HandlerMapping 在请求到达之后，它的作用便是找到请求相应的处理器 Handler 和 Interceptors。</p>
-<h4 id="HandlerAdapters"><a href="#HandlerAdapters" class="headerlink" title="HandlerAdapters"></a>HandlerAdapters</h4><p>从名字上看，这是一个适配器。因为 Spring MVC 中 Handler 可以是任意形式的，只要能够处理请求便行, 但是把请求交给 Servlet 的时候，由于 Servlet 的方法结构都是如 doService(HttpServletRequest req, HttpServletResponse resp) 这样的形式，让固定的 Servlet 处理方法调用 Handler 来进行处理，这一步工作便是 HandlerAdapter 要做的事。</p>
-<h4 id="HandlerExceptionResolvers"><a href="#HandlerExceptionResolvers" class="headerlink" title="HandlerExceptionResolvers"></a>HandlerExceptionResolvers</h4><p>从这个组件的名字上看，这个就是用来处理 Handler 过程中产生的异常情况的组件。 具体来说，此组件的作用是根据异常设置 ModelAndView, 之后再交给 render()方法进行渲染 ， 而 render() 便 将 ModelAndView 渲 染 成 页 面 。 不过有一点 ，HandlerExceptionResolver 只是用于解析对请求做处理阶段产生的异常，而渲染阶段的 异常则不归他管了，这也是 Spring MVC 组件设计的一大原则分工明确互不干涉。</p>
-<h4 id="ViewResolvers"><a href="#ViewResolvers" class="headerlink" title="ViewResolvers"></a>ViewResolvers</h4><p>视图解析器，相信大家对这个应该都很熟悉了。因为通常在 SpringMVC 的配置文件中，都会配上一个该接口的实现类来进行视图的解析。 这个组件的主要作用，便是将 String 类型的视图名和 Locale 解析为 View 类型的视图。这个接口只有一个 resolveViewName() 方法。从方法的定义就可以看出，Controller 层返回的 String 类型的视图名 viewName，最终会在这里被解析成为 View。View 是用来渲染页面的，也就是说，它会将程序返回的参数和数据填入模板中，最终生成 html 文件。ViewResolver 在这个过程中，主要做两件大事，即，ViewResolver 会找到渲染所用的模板（使用什么模板来渲染？）和所用的技术（其实也就是视图的类型，如 JSP 啊还是其他什么 Blabla 的）填入参数。默认情况下，Spring MVC 会为我们自动配置一个 InternalResourceViewResolver，这个是针对 JSP 类型视图的。</p>
-<h4 id="RequestToViewNameTranslator"><a href="#RequestToViewNameTranslator" class="headerlink" title="RequestToViewNameTranslator"></a>RequestToViewNameTranslator</h4><p>这个组件的作用，在于从 Request 中获取 viewName. 因为 ViewResolver 是根据 ViewName 查找 View, 但有的 Handler 处理完成之后，没有设置 View 也没有设置 ViewName， 便要通过这个组件来从 Request 中查找 viewName。</p>
-<h4 id="LocaleResolver"><a href="#LocaleResolver" class="headerlink" title="LocaleResolver"></a>LocaleResolver</h4><p>在上面我们有看到 ViewResolver 的 resolveViewName()方法，需要两个参数。那么第二个参数 Locale 是从哪来的呢，这就是 LocaleResolver 要做的事了。 LocaleResolver 用于从 request 中解析出 Locale, 在中国大陆地区，Locale 当然就会是 zh-CN 之类， 用来表示一个区域。这个类也是 i18n 的基础。</p>
-<h4 id="ThemeResolver"><a href="#ThemeResolver" class="headerlink" title="ThemeResolver"></a>ThemeResolver</h4><p>从名字便可看出，这个类是用来解析主题的。主题，就是样式，图片以及它们所形成的显示效果的集合。Spring MVC 中一套主题对应一个 properties 文件，里面存放着跟当前主题相关的所有资源，如图片，css 样式等。创建主题非常简单，只需准备好资源，然后新建一个 “主题名.properties” 并将资源设置进去，放在 classpath 下，便可以在页面中使用了。 Spring MVC 中跟主题有关的类有 ThemeResolver, ThemeSource 和 Theme。 ThemeResolver 负责从 request 中解析出主题名， ThemeSource 则根据主题名找到具体的主题， 其抽象也就是 Theme, 通过 Theme 来获取主题和具体的资源。</p>
-<h4 id="MultipartResolver"><a href="#MultipartResolver" class="headerlink" title="MultipartResolver"></a>MultipartResolver</h4><p>其实这是一个大家很熟悉的组件，MultipartResolver 用于处理上传请求，通过将普通的 Request 包装成 MultipartHttpServletRequest 来实现。MultipartHttpServletRequest 可以通过 getFile() 直接获得文件，如果是多个文件上传，还可以通过调用 getFileMap 得到 Map&lt;FileName, File&gt; 这样的结构。MultipartResolver 的作用就是用来封装普通的 request，使其拥有处理文件上传的功能。</p>
-<h4 id="FlashMapManager"><a href="#FlashMapManager" class="headerlink" title="FlashMapManager"></a>FlashMapManager</h4><p>说到 FlashMapManager，就得先提一下 FlashMap。FlashMap 用于重定向 Redirect 时的参数数据传递，比如，在处理用户订单提交时，为了避免重复提交，可以处理完 post 请求后 redirect 到一个 get 请求，这个 get 请求可以用来显示订单详情之类的信息。这样做虽然可以规避用户刷新重新提交表单的问题，但是在这个页面上要显示订单的信息，那这些数据从哪里去获取呢，因为 redirect 重定向是没有传递参数这一功能的，如果不想把参数写进 url(其实也不推荐这么做，url 有长度限制不说，把参数都直接暴露，感觉也不安全)， 那么就可以通过 flashMap 来传递。只需 要 在 redirect 之 前 ， 将 要 传 递 的 数 据 写 入 request （ 可 以 通 过 ServletRequestAttributes.getRequest()获得）的属性 OUTPUT_FLASH_MAP_ATTRIBUTE 中，这样在 redirect 之后的 handler 中 Spring 就会自动将其设置到 Model 中，在显示订单信息的页面上，就可以直接从 Model 中取得<br>数据了。而 FlashMapManager 就是用来管理 FlashMap 的。</p>
-<h2 id="Spring-MVC-源码分析"><a href="#Spring-MVC-源码分析" class="headerlink" title="Spring MVC 源码分析"></a>Spring MVC 源码分析</h2><p>根据上面分析的 Spring MVC 工作机制，从三个部分来分析 Spring MVC 的源代码。<br>其一，ApplicationContext 初始化时用 Map 保存所有 url 和 Controller 类的对应关系；<br>其二，根据请求 url 找到对应的 Controller，并从 Controller 中找到处理请求的方法;<br>其三，Request 参数绑定到方法的形参，执行方法处理请求，并返回结果视图。</p>
-<h3 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h3><p>我们首先找到 DispatcherServlet 这个类，必然是寻找 init()方法。然后，我们发现其 init 方法其实在父类 HttpServletBean 中，其源码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">			logger.debug(<span class="string">"Initializing servlet '"</span> + getServletName() + <span class="string">"'"</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Set bean properties from init parameters.</span></span><br><span class="line">		PropertyValues pvs = <span class="keyword">new</span> ServletConfigPropertyValues(getServletConfig(), <span class="keyword">this</span>.requiredProperties);</span><br><span class="line">		<span class="keyword">if</span> (!pvs.isEmpty()) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">//定位资源</span></span><br><span class="line">				BeanWrapper bw = PropertyAccessorFactory.forBeanPropertyAccess(<span class="keyword">this</span>);</span><br><span class="line">				<span class="comment">//加载配置信息</span></span><br><span class="line">				ResourceLoader resourceLoader = <span class="keyword">new</span> ServletContextResourceLoader(getServletContext());</span><br><span class="line">				bw.registerCustomEditor(Resource.class, <span class="keyword">new</span> ResourceEditor(resourceLoader, getEnvironment()));</span><br><span class="line">				initBeanWrapper(bw);</span><br><span class="line">				bw.setPropertyValues(pvs, <span class="keyword">true</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">				<span class="keyword">if</span> (logger.isErrorEnabled()) &#123;</span><br><span class="line">					logger.error(<span class="string">"Failed to set bean properties on servlet '"</span> + getServletName() + <span class="string">"'"</span>, ex);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">throw</span> ex;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Let subclasses do whatever initialization they like.</span></span><br><span class="line">		initServletBean();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">			logger.debug(<span class="string">"Servlet '"</span> + getServletName() + <span class="string">"' configured successfully"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我 们 看 到 在 这 段 代 码 中 ， 又 调 用 了 一 个 重 要 的 initServletBean() 方 法 。 进 入 initServletBean()方法看到以下源码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">initServletBean</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		getServletContext().log(<span class="string">"Initializing Spring FrameworkServlet '"</span> + getServletName() + <span class="string">"'"</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.logger.isInfoEnabled()) &#123;</span><br><span class="line">			<span class="keyword">this</span>.logger.info(<span class="string">"FrameworkServlet '"</span> + getServletName() + <span class="string">"': initialization started"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">long</span> startTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">this</span>.webApplicationContext = initWebApplicationContext();</span><br><span class="line">			initFrameworkServlet();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (ServletException ex) &#123;</span><br><span class="line">			<span class="keyword">this</span>.logger.error(<span class="string">"Context initialization failed"</span>, ex);</span><br><span class="line">			<span class="keyword">throw</span> ex;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (RuntimeException ex) &#123;</span><br><span class="line">			<span class="keyword">this</span>.logger.error(<span class="string">"Context initialization failed"</span>, ex);</span><br><span class="line">			<span class="keyword">throw</span> ex;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>.logger.isInfoEnabled()) &#123;</span><br><span class="line">			<span class="keyword">long</span> elapsedTime = System.currentTimeMillis() - startTime;</span><br><span class="line">			<span class="keyword">this</span>.logger.info(<span class="string">"FrameworkServlet '"</span> + getServletName() + <span class="string">"': initialization completed in "</span> +</span><br><span class="line">					elapsedTime + <span class="string">" ms"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码中最主要的逻辑就是初始化 IOC 容器，最终会调用 refresh()方法，前面的章节中对 IOC 容器的初始化细节我们已经详细掌握，在此我们不再赘述。我们看到上面的代码中，IOC 容器初始化之后，最后有调用了 onRefresh()方法。这个方法最终是在 DisptcherServlet 中实现，来看源码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">(ApplicationContext context)</span> </span>&#123;</span><br><span class="line">	initStrategies(context);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化策略</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initStrategies</span><span class="params">(ApplicationContext context)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//多文件上传的组件</span></span><br><span class="line">	initMultipartResolver(context);</span><br><span class="line">	<span class="comment">//初始化本地语言环境</span></span><br><span class="line">	initLocaleResolver(context);</span><br><span class="line">	<span class="comment">//初始化模板处理器</span></span><br><span class="line">	initThemeResolver(context);</span><br><span class="line">	<span class="comment">//handlerMapping</span></span><br><span class="line">	initHandlerMappings(context);</span><br><span class="line">	<span class="comment">//初始化参数适配器</span></span><br><span class="line">	initHandlerAdapters(context);</span><br><span class="line">	<span class="comment">//初始化异常拦截器</span></span><br><span class="line">	initHandlerExceptionResolvers(context);</span><br><span class="line">	<span class="comment">//初始化视图预处理器</span></span><br><span class="line">	initRequestToViewNameTranslator(context);</span><br><span class="line">	<span class="comment">//初始化视图转换器</span></span><br><span class="line">	initViewResolvers(context);</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	initFlashMapManager(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>到这一步就完成了 Spring MVC 的九大组件的初始化。接下来，我们来看 url 和 Controller 的关系是如何建立的呢 ？HandlerMapping 的子类 AbstractDetectingUrlHandlerMapping 实现了 initApplicationContext()方法，所以我们直接看子类中的初始化容器方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initApplicationContext</span><span class="params">()</span> <span class="keyword">throws</span> ApplicationContextException </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.initApplicationContext();</span><br><span class="line">	detectHandlers();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 建立当前ApplicationContext中的所有controller和url的对应关系</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">detectHandlers</span><span class="params">()</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">	ApplicationContext applicationContext = obtainApplicationContext();</span><br><span class="line">	<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">		logger.debug(<span class="string">"Looking for URL mappings in application context: "</span> + applicationContext);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 获取ApplicationContext容器中所有bean的Name</span></span><br><span class="line">	String[] beanNames = (<span class="keyword">this</span>.detectHandlersInAncestorContexts ?</span><br><span class="line">			BeanFactoryUtils.beanNamesForTypeIncludingAncestors(applicationContext, Object.class) :</span><br><span class="line">			applicationContext.getBeanNamesForType(Object.class));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Take any bean name that we can determine URLs for.</span></span><br><span class="line">	<span class="comment">// 遍历beanNames,并找到这些bean对应的url</span></span><br><span class="line">	<span class="keyword">for</span> (String beanName : beanNames) &#123;</span><br><span class="line">		<span class="comment">// 找bean上的所有url(controller上的url+方法上的url),该方法由对应的子类实现</span></span><br><span class="line">		String[] urls = determineUrlsForHandler(beanName);</span><br><span class="line">		<span class="keyword">if</span> (!ObjectUtils.isEmpty(urls)) &#123;</span><br><span class="line">			<span class="comment">// URL paths found: Let's consider it a handler.</span></span><br><span class="line">			<span class="comment">// 保存urls和beanName的对应关系,put it to Map&lt;urls,beanName&gt;,该方法在父类AbstractUrlHandlerMapping中实现</span></span><br><span class="line">			registerHandler(urls, beanName);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">				logger.debug(<span class="string">"Rejected bean name '"</span> + beanName + <span class="string">"': no URL paths identified"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 获取controller中所有方法的url,由子类实现,典型的模板模式 **/</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">abstract</span> String[] determineUrlsForHandler(String beanName);</span><br></pre></td></tr></table></figure>
-
-<p>determineUrlsForHandler(String beanName)方法的作用是获取每个 Controller 中的 url，不同的子类有不同的实现，这是一个典型的模板设计模式。因为开发中我们用的最多的就是用注解来配置 Controller 中的 url，BeanNameUrlHandlerMapping 是 AbstractDetectingUrlHandlerMapping 的子类,处理注解形式的 url 映射.所以我们这里以 BeanNameUrlHandlerMapping 来进行分析 。 我们看 BeanNameUrlHandlerMapping 是如何查 beanName 上所有映射的 url。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">protected</span> String[] determineUrlsForHandler(String beanName) &#123;</span><br><span class="line">		List&lt;String&gt; urls = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">if</span> (beanName.startsWith(<span class="string">"/"</span>)) &#123;</span><br><span class="line">			urls.add(beanName);</span><br><span class="line">		&#125;</span><br><span class="line">		String[] aliases = obtainApplicationContext().getAliases(beanName);</span><br><span class="line">		<span class="keyword">for</span> (String alias : aliases) &#123;</span><br><span class="line">			<span class="keyword">if</span> (alias.startsWith(<span class="string">"/"</span>)) &#123;</span><br><span class="line">				urls.add(alias);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> StringUtils.toStringArray(urls);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>到这里 HandlerMapping 组件就已经建立所有 url 和 Controller 的对应关系。</p>
-<h3 id="运行调用阶段"><a href="#运行调用阶段" class="headerlink" title="运行调用阶段"></a>运行调用阶段</h3><p>这一步步是由请求触发的，所以入口为 DispatcherServlet 的核心方法为 doService()，doService()中的核心逻辑由 doDispatch()实现，源代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 中央控制器,控制请求的转发 **/</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		HttpServletRequest processedRequest = request;</span><br><span class="line">		HandlerExecutionChain mappedHandler = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">boolean</span> multipartRequestParsed = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">		WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			ModelAndView mv = <span class="keyword">null</span>;</span><br><span class="line">			Exception dispatchException = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">// 1.检查是否是文件上传的请求</span></span><br><span class="line">				processedRequest = checkMultipart(request);</span><br><span class="line">				multipartRequestParsed = (processedRequest != request);</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Determine handler for the current request.</span></span><br><span class="line">				<span class="comment">// 2.取得处理当前请求的controller,这里也称为hanlder,处理器,</span></span><br><span class="line">				<span class="comment">// 	 第一个步骤的意义就在这里体现了.这里并不是直接返回controller,</span></span><br><span class="line">				<span class="comment">//	 而是返回的HandlerExecutionChain请求处理器链对象,</span></span><br><span class="line">				<span class="comment">//	 该对象封装了handler和interceptors.</span></span><br><span class="line">				mappedHandler = getHandler(processedRequest);</span><br><span class="line">				<span class="comment">// 如果handler为空,则返回404</span></span><br><span class="line">				<span class="keyword">if</span> (mappedHandler == <span class="keyword">null</span>) &#123;</span><br><span class="line">					noHandlerFound(processedRequest, response);</span><br><span class="line">					<span class="keyword">return</span>;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Determine handler adapter for the current request.</span></span><br><span class="line">				<span class="comment">//3. 获取处理request的处理器适配器handler adapter</span></span><br><span class="line">				HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Process last-modified header, if supported by the handler.</span></span><br><span class="line">				<span class="comment">// 处理 last-modified 请求头</span></span><br><span class="line">				String method = request.getMethod();</span><br><span class="line">				<span class="keyword">boolean</span> isGet = <span class="string">"GET"</span>.equals(method);</span><br><span class="line">				<span class="keyword">if</span> (isGet || <span class="string">"HEAD"</span>.equals(method)) &#123;</span><br><span class="line">					<span class="keyword">long</span> lastModified = ha.getLastModified(request, mappedHandler.getHandler());</span><br><span class="line">					<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">						logger.debug(<span class="string">"Last-Modified value for ["</span> + getRequestUri(request) + <span class="string">"] is: "</span> + lastModified);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> (<span class="keyword">new</span> ServletWebRequest(request, response).checkNotModified(lastModified) &amp;&amp; isGet) &#123;</span><br><span class="line">						<span class="keyword">return</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (!mappedHandler.applyPreHandle(processedRequest, response)) &#123;</span><br><span class="line">					<span class="keyword">return</span>;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// Actually invoke the handler.</span></span><br><span class="line">				<span class="comment">// 4.实际的处理器处理请求,返回结果视图对象</span></span><br><span class="line">				mv = ha.handle(processedRequest, response, mappedHandler.getHandler());</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (asyncManager.isConcurrentHandlingStarted()) &#123;</span><br><span class="line">					<span class="keyword">return</span>;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 结果视图对象的处理</span></span><br><span class="line">				applyDefaultViewName(processedRequest, mv);</span><br><span class="line">				mappedHandler.applyPostHandle(processedRequest, response, mv);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">				dispatchException = ex;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">catch</span> (Throwable err) &#123;</span><br><span class="line">				<span class="comment">// As of 4.3, we're processing Errors thrown from handler methods as well,</span></span><br><span class="line">				<span class="comment">// making them available for @ExceptionHandler methods and other scenarios.</span></span><br><span class="line">				dispatchException = <span class="keyword">new</span> NestedServletException(<span class="string">"Handler dispatch failed"</span>, err);</span><br><span class="line">			&#125;</span><br><span class="line">			processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">			triggerAfterCompletion(processedRequest, response, mappedHandler, ex);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (Throwable err) &#123;</span><br><span class="line">			triggerAfterCompletion(processedRequest, response, mappedHandler,</span><br><span class="line">					<span class="keyword">new</span> NestedServletException(<span class="string">"Handler processing failed"</span>, err));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (asyncManager.isConcurrentHandlingStarted()) &#123;</span><br><span class="line">				<span class="comment">// Instead of postHandle and afterCompletion</span></span><br><span class="line">				<span class="keyword">if</span> (mappedHandler != <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="comment">// 请求成功响应之后的方法</span></span><br><span class="line">					mappedHandler.applyAfterConcurrentHandlingStarted(processedRequest, response);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">// Clean up any resources used by a multipart request.</span></span><br><span class="line">				<span class="keyword">if</span> (multipartRequestParsed) &#123;</span><br><span class="line">					cleanupMultipart(processedRequest);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>getHandler(processedRequest)方法实际上就是从 HandlerMapping 中找到 url 和 Controller 的对应关系。也就是 Map&lt;url,Controller&gt;。我们知道，最终处理 Request 的是 Controller 中的方法，我们现在只是知道了 Controller，我们如何确认 Controller 中处理 Request 的方法呢？继续往下看。<br>从 Map&lt;urls,beanName&gt;中取得 Controller 后，经过拦截器的预处理方法，再通过反射获取该方法上的注解和参数，解析方法和参数上的注解，然后反射调用方法获取 ModelAndView 结果视图。最后，调用的就是 RequestMappingHandlerAdapter 的 handle()中的核心逻辑由 handleInternal(request, response, handler)实现。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> ModelAndView <span class="title">handleInternal</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">		HttpServletResponse response, HandlerMethod handlerMethod)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">	ModelAndView mav;</span><br><span class="line">	checkRequest(request);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Execute invokeHandlerMethod in synchronized block if required.</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.synchronizeOnSession) &#123;</span><br><span class="line">		HttpSession session = request.getSession(<span class="keyword">false</span>);</span><br><span class="line">		<span class="keyword">if</span> (session != <span class="keyword">null</span>) &#123;</span><br><span class="line">			Object mutex = WebUtils.getSessionMutex(session);</span><br><span class="line">			<span class="keyword">synchronized</span> (mutex) &#123;</span><br><span class="line">				mav = invokeHandlerMethod(request, response, handlerMethod);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// No HttpSession available -&gt; no mutex necessary</span></span><br><span class="line">			mav = invokeHandlerMethod(request, response, handlerMethod);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// No synchronization on session demanded at all...</span></span><br><span class="line">		mav = invokeHandlerMethod(request, response, handlerMethod);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!response.containsHeader(HEADER_CACHE_CONTROL)) &#123;</span><br><span class="line">		<span class="keyword">if</span> (getSessionAttributesHandler(handlerMethod).hasSessionAttributes()) &#123;</span><br><span class="line">			applyCacheSeconds(response, <span class="keyword">this</span>.cacheSecondsForSessionAttributeHandlers);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			prepareResponse(response);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> mav;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>整个处理过程中最核心的逻辑其实就是拼接 Controller 的 url 和方法的 url，与 Request 的 url 进行匹配，找到匹配的方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractHandlerMethodMapping</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractHandlerMapping</span> <span class="keyword">implements</span> <span class="title">InitializingBean</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> HandlerMethod <span class="title">getHandlerInternal</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// 如果请求 url 为,http://localhost:8080/web/hello.json, 则 lookupPath=web/hello.json</span></span><br><span class="line">		String lookupPath = getUrlPathHelper().getLookupPathForRequest(request);</span><br><span class="line">		<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">			logger.debug(<span class="string">"Looking up handler method for path "</span> + lookupPath);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.mappingRegistry.acquireReadLock();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			HandlerMethod handlerMethod = lookupHandlerMethod(lookupPath, request);</span><br><span class="line">			<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">				<span class="keyword">if</span> (handlerMethod != <span class="keyword">null</span>) &#123;</span><br><span class="line">					logger.debug(<span class="string">"Returning handler method ["</span> + handlerMethod + <span class="string">"]"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					logger.debug(<span class="string">"Did not find handler method for ["</span> + lookupPath + <span class="string">"]"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> (handlerMethod != <span class="keyword">null</span> ? handlerMethod.createWithResolvedBean() : <span class="keyword">null</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">this</span>.mappingRegistry.releaseReadLock();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过上面的代码分析，已经可以找到处理 Request 的 Controller 中的方法了，现在看如何解析该方法上的参数，并反射调用该方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 获取处理请求的方法,执行并返回结果视图 **/</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> ModelAndView <span class="title">invokeHandlerMethod</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">			HttpServletResponse response, HandlerMethod handlerMethod)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">		ServletWebRequest webRequest = <span class="keyword">new</span> ServletWebRequest(request, response);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			WebDataBinderFactory binderFactory = getDataBinderFactory(handlerMethod);</span><br><span class="line">			ModelFactory modelFactory = getModelFactory(handlerMethod, binderFactory);</span><br><span class="line"></span><br><span class="line">			ServletInvocableHandlerMethod invocableMethod = createInvocableHandlerMethod(handlerMethod);</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>.argumentResolvers != <span class="keyword">null</span>) &#123;</span><br><span class="line">				invocableMethod.setHandlerMethodArgumentResolvers(<span class="keyword">this</span>.argumentResolvers);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>.returnValueHandlers != <span class="keyword">null</span>) &#123;</span><br><span class="line">				invocableMethod.setHandlerMethodReturnValueHandlers(<span class="keyword">this</span>.returnValueHandlers);</span><br><span class="line">			&#125;</span><br><span class="line">			invocableMethod.setDataBinderFactory(binderFactory);</span><br><span class="line">			invocableMethod.setParameterNameDiscoverer(<span class="keyword">this</span>.parameterNameDiscoverer);</span><br><span class="line"></span><br><span class="line">			ModelAndViewContainer mavContainer = <span class="keyword">new</span> ModelAndViewContainer();</span><br><span class="line">			mavContainer.addAllAttributes(RequestContextUtils.getInputFlashMap(request));</span><br><span class="line">			modelFactory.initModel(webRequest, mavContainer, invocableMethod);</span><br><span class="line">			mavContainer.setIgnoreDefaultModelOnRedirect(<span class="keyword">this</span>.ignoreDefaultModelOnRedirect);</span><br><span class="line"></span><br><span class="line">			AsyncWebRequest asyncWebRequest = WebAsyncUtils.createAsyncWebRequest(request, response);</span><br><span class="line">			asyncWebRequest.setTimeout(<span class="keyword">this</span>.asyncRequestTimeout);</span><br><span class="line"></span><br><span class="line">			WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);</span><br><span class="line">			asyncManager.setTaskExecutor(<span class="keyword">this</span>.taskExecutor);</span><br><span class="line">			asyncManager.setAsyncWebRequest(asyncWebRequest);</span><br><span class="line">			asyncManager.registerCallableInterceptors(<span class="keyword">this</span>.callableInterceptors);</span><br><span class="line">			asyncManager.registerDeferredResultInterceptors(<span class="keyword">this</span>.deferredResultInterceptors);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (asyncManager.hasConcurrentResult()) &#123;</span><br><span class="line">				Object result = asyncManager.getConcurrentResult();</span><br><span class="line">				mavContainer = (ModelAndViewContainer) asyncManager.getConcurrentResultContext()[<span class="number">0</span>];</span><br><span class="line">				asyncManager.clearConcurrentResult();</span><br><span class="line">				<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">					logger.debug(<span class="string">"Found concurrent result value ["</span> + result + <span class="string">"]"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				invocableMethod = invocableMethod.wrapConcurrentResult(result);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			invocableMethod.invokeAndHandle(webRequest, mavContainer);</span><br><span class="line">			<span class="keyword">if</span> (asyncManager.isConcurrentHandlingStarted()) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">return</span> getModelAndView(mavContainer, modelFactory, webRequest);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			webRequest.requestCompleted();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>invocableMethod.invokeAndHandle()最终要实现的目的就是：完成 Request 中的参数和方法参数上数据的绑定。Spring MVC 中提供两种 Request 参数到方法中参数的绑定方式：<br>1、通过注解进行绑定，@RequestParam。<br>2、通过参数名称进行绑定。<br>使用注解进行绑定，我们只要在方法参数前面声明@RequestParam(“name”)，就可以将 request 中参数 name 的值绑定到方法的该参数上。使用参数名称进行绑定的前提是必须要获取方法中参数的名称，Java 反射只提供了获取方法的参数的类型，并没有提供获取参数名称的方法。SpringMVC 解决这个问题的方法是用 asm 框架读取字节码文件，来获取方法的参数名称。asm 框架是一个字节码操作框架，关于 asm 更多介绍可以参考其官网。个人建议，使用注解来完成参数绑定，这样就可以省去 asm 框架的读取字节码 的操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InvocableHandlerMethod</span> <span class="keyword">extends</span> <span class="title">HandlerMethod</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invokeForRequest</span><span class="params">(NativeWebRequest request, @Nullable ModelAndViewContainer mavContainer,</span></span></span><br><span class="line"><span class="function"><span class="params">			Object... providedArgs)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">		Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);</span><br><span class="line">		<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">			logger.trace(<span class="string">"Invoking '"</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</span><br><span class="line">					<span class="string">"' with arguments "</span> + Arrays.toString(args));</span><br><span class="line">		&#125;</span><br><span class="line">		Object returnValue = doInvoke(args);</span><br><span class="line">		<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">			logger.trace(<span class="string">"Method ["</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</span><br><span class="line">					<span class="string">"] returned ["</span> + returnValue + <span class="string">"]"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> returnValue;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> Object[] getMethodArgumentValues(NativeWebRequest request, <span class="meta">@Nullable</span> ModelAndViewContainer mavContainer,</span><br><span class="line">			Object... providedArgs) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">		MethodParameter[] parameters = getMethodParameters();</span><br><span class="line">		Object[] args = <span class="keyword">new</span> Object[parameters.length];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameters.length; i++) &#123;</span><br><span class="line">			MethodParameter parameter = parameters[i];</span><br><span class="line">			parameter.initParameterNameDiscovery(<span class="keyword">this</span>.parameterNameDiscoverer);</span><br><span class="line">			args[i] = resolveProvidedArgument(parameter, providedArgs);</span><br><span class="line">			<span class="keyword">if</span> (args[i] != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>.argumentResolvers.supportsParameter(parameter)) &#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					args[i] = <span class="keyword">this</span>.argumentResolvers.resolveArgument(</span><br><span class="line">							parameter, mavContainer, request, <span class="keyword">this</span>.dataBinderFactory);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">					<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">						logger.debug(getArgumentResolutionErrorMessage(<span class="string">"Failed to resolve"</span>, i), ex);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">throw</span> ex;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (args[i] == <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Could not resolve method parameter at index "</span> +</span><br><span class="line">						parameter.getParameterIndex() + <span class="string">" in "</span> + parameter.getExecutable().toGenericString() +</span><br><span class="line">						<span class="string">": "</span> + getArgumentResolutionErrorMessage(<span class="string">"No suitable resolver for"</span>, i));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> args;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>关于 asm 框架获取方法参数的部分,这里就不再进行分析了。感兴趣的小伙伴可以继续深入了解这个处理过程。<br>到这里,方法的参数值列表也获取到了,就可以直接进行方法的调用了。整个请求过程中最复杂的一步就是在这里了。到这里整个请求处理过程的关键步骤都已了解。理解了 Spring MVC 中的请求处理流程,整个代码还是比较清晰的。最后我们再来梳理一下 Spring MVC 核心组件的关联关系（如下图）：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633275985-b25b4df9-5847-48e8-b9b1-5e3a9c5a934c.png#align=left&display=inline&height=600&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1200&originWidth=1281&size=695562&status=done&style=none&width=640.5" alt="image.png"></p>
-<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633288970-3d3fe77b-7455-4c60-a4df-728bdf013822.png#align=left&display=inline&height=322&margin=%5Bobject%20Object%5D&name=image.png&originHeight=643&originWidth=1411&size=310045&status=done&style=none&width=705.5" alt="image.png"><br>**<br>**<br>**</p>
-
+        <h2 id="Spring-MVC-初体验"><a href="#Spring-MVC-初体验" class="headerlink" title="Spring MVC 初体验"></a>Spring MVC 初体验</h2><h3 id="初探-Spring-MVC-请求处理流程"><a href="#初探-Spring-MVC-请求处理流程" class="headerlink" title="初探 Spring MVC 请求处理流程"></a>初探 Spring MVC 请求处理流程</h3><p>Spring MVC 相对于前面的章节算是比较简单的，我们首先引用《Spring in Action》上的一张图来了解 Spring MVC 的核心组件和大致处理流程：</p>
+        
+          <a class="article-more-a" href="/2021/01/14/yuque/Spring MVC 源码分析 & 时序图 非原创/#more">more >></a>
+        
       
 
       
@@ -1125,102 +1074,6 @@
 
 
   
-    <article id="post-yuque/二、经济学的基本方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/01/yuque/二、经济学的基本方法/">二、经济学的基本方法</a>
-    </h1>
-  
-
-
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-        <span class="icon-sort"></span>
-        </a>
-
-        
-        <a href="/2021/01/01/yuque/二、经济学的基本方法/" class="archive-article-date">
-  	<time datetime="2021-01-01T06:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-01</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>本篇文章只是列举了各个知识点，并没有对每个知识点做过多的总结和详解，没有例子辅助可能一时很难联系到生活中。如果对这些观点想进一步理解和应用，请购买珍大户的《认知世界的经济学》进行学习。</p>
-</blockquote>
-<p><strong>本章学习经济学的基本方法，旨在用于个体在主做选择时提供一下方法。个体在做选择的时候有三种方法可以作为参考方式，个体选项优化、群体均衡、模型与数据校验。</strong></p>
-        
-          <a class="article-more-a" href="/2021/01/01/yuque/二、经济学的基本方法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">认知世界的经济学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/explore//" class="article-tag-list-link color3">探索</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/01/yuque/二、经济学的基本方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1345,11 +1198,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1377,15 +1230,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">人生的101个目标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">治愈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1409,6 +1262,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">定语从句</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习网站</a>
               </li>
              
@@ -1421,11 +1278,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
+                <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
+                <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
