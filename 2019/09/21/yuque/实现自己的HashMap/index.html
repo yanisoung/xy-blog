@@ -5,7 +5,7 @@
   
 
   
-  <meta name="keywords" content="hashmap,java,实现自己的HashMap,博客,终身成长者,学习,读书,java,hexo,观后感,观影日记,yanisyoung,yanisyoung.com,白崽儿世界,白崽儿">
+  <meta name="keywords" content="hashmap,java,实现自己的HashMap **我的博客地址：**[**https://yanisyoung.com/**](https://yanisyoung.com/),博客,终身成长者,学习,读书,java,hexo,观后感,观影日记,yanisyoung,yanisyoung.com,白崽儿世界,白崽儿">
   
 
   <meta name="renderer" content="webkit">
@@ -14,14 +14,14 @@
   <title>实现自己的HashMap | 白崽儿世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="HsahMap1.7jdk 原理分析：https://www.jianshu.com/p/068b6d25b593  HashMap 中重要的概念：初始化容量直： 1 &amp;lt;&amp;lt; 4 map 的初始化容量最大容量值：1 &amp;lt;&amp;lt; 30 map 可容纳的最大容量扩容因子 ： 0.75   即容量已达到该设置条件,put 时会进行扩容扩容阈值：扩容阈值=容量(table 的 size)*">
-<meta name="keywords" content="hashmap,java,实现自己的HashMap">
+<meta name="keywords" content="hashmap,java,实现自己的HashMap **我的博客地址：**[**https:&#x2F;&#x2F;yanisyoung.com&#x2F;**](https:&#x2F;&#x2F;yanisyoung.com&#x2F;)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现自己的HashMap">
 <meta property="og:url" content="http://yanisyoung.com/2019/09/21/yuque/实现自己的HashMap/index.html">
 <meta property="og:site_name" content="白崽儿世界">
 <meta property="og:description" content="HsahMap1.7jdk 原理分析：https://www.jianshu.com/p/068b6d25b593  HashMap 中重要的概念：初始化容量直： 1 &amp;lt;&amp;lt; 4 map 的初始化容量最大容量值：1 &amp;lt;&amp;lt; 30 map 可容纳的最大容量扩容因子 ： 0.75   即容量已达到该设置条件,put 时会进行扩容扩容阈值：扩容阈值=容量(table 的 size)*">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2021-01-30T12:49:18.837Z">
+<meta property="og:updated_time" content="2021-01-30T13:06:09.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现自己的HashMap">
 <meta name="twitter:description" content="HsahMap1.7jdk 原理分析：https://www.jianshu.com/p/068b6d25b593  HashMap 中重要的概念：初始化容量直： 1 &amp;lt;&amp;lt; 4 map 的初始化容量最大容量值：1 &amp;lt;&amp;lt; 30 map 可容纳的最大容量扩容因子 ： 0.75   即容量已达到该设置条件,put 时会进行扩容扩容阈值：扩容阈值=容量(table 的 size)*">
@@ -236,7 +236,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">* 最后测试一下：</span><br><span class="line">        <span class="meta">@Test</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            MyHashMap&lt;String, String&gt; map = <span class="keyword">new</span> MyHashMap();</span><br><span class="line">            System.out.println(<span class="string">"-------------------MyHashMap begin-------------------------"</span>);</span><br><span class="line">            Long t1 = System.currentTimeMillis();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">                map.put(<span class="string">"key"</span> + i, <span class="string">"value"</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">                String value = map.get(<span class="string">"key"</span> + i);</span><br><span class="line">                System.out.println(<span class="string">"key: "</span> + <span class="string">"key"</span> + i + <span class="string">"---"</span> + <span class="string">"value: "</span> + value);</span><br><span class="line">                <span class="keyword">assert</span> (value.equals(<span class="string">"value"</span> + i));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//null key</span></span><br><span class="line">            map.put(<span class="keyword">null</span>, <span class="string">"value:key is null"</span>);</span><br><span class="line">            System.out.printf(map.get(<span class="keyword">null</span>));</span><br><span class="line">            Long t2 = System.currentTimeMillis();</span><br><span class="line">            System.out.println(<span class="string">"MyHashMap耗时："</span> + (t2 - t1));</span><br><span class="line">            System.out.println(<span class="string">"-------------------MyHashMap end-------------------------"</span>);</span><br><span class="line">            Map&lt;String, String&gt; hashMap = <span class="keyword">new</span> HashMap();</span><br><span class="line">            Long t3 = System.currentTimeMillis();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">                hashMap.put(<span class="string">"key"</span> + i, <span class="string">"value"</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">                System.out.println(<span class="string">"key: "</span> + <span class="string">"key"</span> + i + <span class="string">"---"</span> + <span class="string">"value: "</span> + hashMap.get(<span class="string">"key"</span> + i));</span><br><span class="line">            &#125;</span><br><span class="line">            Long t4 = System.currentTimeMillis();</span><br><span class="line">            System.out.println(<span class="string">"JDK的HashMap耗时："</span> + (t4 - t3));</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>我的博客地址：</strong><a href="https://yanisyoung.com/"><strong>https://yanisyoung.com/</strong></a></p>
+<p>**</p>
 
       
 
@@ -543,15 +543,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,7 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +563,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
+                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
+                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,19 +575,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人生的101个目标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
+                <a href="javascript:void(0)" class="js-tag color5">人生的101个目标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,7 +599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自增</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,7 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">自增</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,15 +619,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">

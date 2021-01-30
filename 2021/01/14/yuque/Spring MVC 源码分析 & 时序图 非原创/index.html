@@ -5,7 +5,7 @@
   
 
   
-  <meta name="keywords" content="Spring MVC 源码,博客,终身成长者,学习,读书,java,hexo,观后感,观影日记,yanisyoung,yanisyoung.com,白崽儿世界,白崽儿">
+  <meta name="keywords" content="Spring MVC 源码 **我的博客地址：**[**https://yanisyoung.com/**](https://yanisyoung.com/),博客,终身成长者,学习,读书,java,hexo,观后感,观影日记,yanisyoung,yanisyoung.com,白崽儿世界,白崽儿">
   
 
   <meta name="renderer" content="webkit">
@@ -14,7 +14,7 @@
   <title>Spring MVC 源码分析 &amp; 时序图 非原创 | 白崽儿世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Spring MVC 初体验初探 Spring MVC 请求处理流程Spring MVC 相对于前面的章节算是比较简单的，我们首先引用《Spring in Action》上的一张图来了解 Spring MVC 的核心组件和大致处理流程：从上图中看到 ①DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controller), 负责接收 Request 并将">
-<meta name="keywords" content="Spring MVC 源码">
+<meta name="keywords" content="Spring MVC 源码 **我的博客地址：**[**https:&#x2F;&#x2F;yanisyoung.com&#x2F;**](https:&#x2F;&#x2F;yanisyoung.com&#x2F;)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring MVC 源码分析 &amp; 时序图 非原创">
 <meta property="og:url" content="http://yanisyoung.com/2021/01/14/yuque/Spring MVC 源码分析 & 时序图 非原创/index.html">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610630264473-a7017042-2d1d-4f01-8ecd-2bfc766c016d.png#align=left&display=inline&height=228&margin=%5Bobject%20Object%5D&name=image.png&originHeight=455&originWidth=709&size=60552&status=done&style=none&width=354.5">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633275985-b25b4df9-5847-48e8-b9b1-5e3a9c5a934c.png#align=left&display=inline&height=600&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1200&originWidth=1281&size=695562&status=done&style=none&width=640.5">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633288970-3d3fe77b-7455-4c60-a4df-728bdf013822.png#align=left&display=inline&height=322&margin=%5Bobject%20Object%5D&name=image.png&originHeight=643&originWidth=1411&size=310045&status=done&style=none&width=705.5">
-<meta property="og:updated_time" content="2021-01-30T12:49:20.848Z">
+<meta property="og:updated_time" content="2021-01-30T13:06:11.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring MVC 源码分析 &amp; 时序图 非原创">
 <meta name="twitter:description" content="Spring MVC 初体验初探 Spring MVC 请求处理流程Spring MVC 相对于前面的章节算是比较简单的，我们首先引用《Spring in Action》上的一张图来了解 Spring MVC 的核心组件和大致处理流程：从上图中看到 ①DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controller), 负责接收 Request 并将">
@@ -271,7 +271,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InvocableHandlerMethod</span> <span class="keyword">extends</span> <span class="title">HandlerMethod</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invokeForRequest</span><span class="params">(NativeWebRequest request, @Nullable ModelAndViewContainer mavContainer,</span></span></span><br><span class="line"><span class="function"><span class="params">			Object... providedArgs)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">		Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);</span><br><span class="line">		<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">			logger.trace(<span class="string">"Invoking '"</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</span><br><span class="line">					<span class="string">"' with arguments "</span> + Arrays.toString(args));</span><br><span class="line">		&#125;</span><br><span class="line">		Object returnValue = doInvoke(args);</span><br><span class="line">		<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">			logger.trace(<span class="string">"Method ["</span> + ClassUtils.getQualifiedMethodName(getMethod(), getBeanType()) +</span><br><span class="line">					<span class="string">"] returned ["</span> + returnValue + <span class="string">"]"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> returnValue;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> Object[] getMethodArgumentValues(NativeWebRequest request, <span class="meta">@Nullable</span> ModelAndViewContainer mavContainer,</span><br><span class="line">			Object... providedArgs) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">		MethodParameter[] parameters = getMethodParameters();</span><br><span class="line">		Object[] args = <span class="keyword">new</span> Object[parameters.length];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameters.length; i++) &#123;</span><br><span class="line">			MethodParameter parameter = parameters[i];</span><br><span class="line">			parameter.initParameterNameDiscovery(<span class="keyword">this</span>.parameterNameDiscoverer);</span><br><span class="line">			args[i] = resolveProvidedArgument(parameter, providedArgs);</span><br><span class="line">			<span class="keyword">if</span> (args[i] != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>.argumentResolvers.supportsParameter(parameter)) &#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					args[i] = <span class="keyword">this</span>.argumentResolvers.resolveArgument(</span><br><span class="line">							parameter, mavContainer, request, <span class="keyword">this</span>.dataBinderFactory);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">					<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">						logger.debug(getArgumentResolutionErrorMessage(<span class="string">"Failed to resolve"</span>, i), ex);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">throw</span> ex;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (args[i] == <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"Could not resolve method parameter at index "</span> +</span><br><span class="line">						parameter.getParameterIndex() + <span class="string">" in "</span> + parameter.getExecutable().toGenericString() +</span><br><span class="line">						<span class="string">": "</span> + getArgumentResolutionErrorMessage(<span class="string">"No suitable resolver for"</span>, i));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> args;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>关于 asm 框架获取方法参数的部分,这里就不再进行分析了。感兴趣的小伙伴可以继续深入了解这个处理过程。<br>到这里,方法的参数值列表也获取到了,就可以直接进行方法的调用了。整个请求过程中最复杂的一步就是在这里了。到这里整个请求处理过程的关键步骤都已了解。理解了 Spring MVC 中的请求处理流程,整个代码还是比较清晰的。最后我们再来梳理一下 Spring MVC 核心组件的关联关系（如下图）：<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633275985-b25b4df9-5847-48e8-b9b1-5e3a9c5a934c.png#align=left&display=inline&height=600&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1200&originWidth=1281&size=695562&status=done&style=none&width=640.5" alt="image.png"></p>
-<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633288970-3d3fe77b-7455-4c60-a4df-728bdf013822.png#align=left&display=inline&height=322&margin=%5Bobject%20Object%5D&name=image.png&originHeight=643&originWidth=1411&size=310045&status=done&style=none&width=705.5" alt="image.png"><br>**<br>**<br><strong>我的博客地址：</strong><a href="https://yanisyoung.com/"><strong>https://yanisyoung.com/</strong></a></p>
+<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2669211/1610633288970-3d3fe77b-7455-4c60-a4df-728bdf013822.png#align=left&display=inline&height=322&margin=%5Bobject%20Object%5D&name=image.png&originHeight=643&originWidth=1411&size=310045&status=done&style=none&width=705.5" alt="image.png"><br>**<br>**<br>**</p>
 
       
 
@@ -574,15 +574,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,7 +582,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color5">生活记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">成长日记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,11 +594,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
+                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">认知世界的经济学</a>
+                <a href="javascript:void(0)" class="js-tag color3">心灵</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,19 +606,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">人生的101个目标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
+                <a href="javascript:void(0)" class="js-tag color5">人生的101个目标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">治愈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,7 +630,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自增</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,7 +638,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">自增</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,15 +650,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">终身成长</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">求知欲</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
